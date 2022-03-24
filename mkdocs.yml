@@ -1,0 +1,13 @@
+site_name: EPICpy Documentation
+site_url: https://cogmodlab.ucsc.edu/2022/03/14/epic/
+nav:
+  - Home: index.md
+  - Installing EPICpy: installing.md
+  - Simulation Components: epicpysimcomponents.md
+  - EPICpy GUI Windows: epicinterface_windows.md
+  - EPICpy GUI Options: epicinterface_options.md
+  - Example Simulation: example.md
+  - Model Programming: model_programming.md
+  - EPICpy Development Setup: epicpy_development_setup.md
+  - EPIC Resources: epicresources.md
+theme: readthedocs
