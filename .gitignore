@@ -1,8 +1,5 @@
 *.zip
-*.png
-*.pdf
 *.tar
 *.gz
 *.tgz
-*.gif
 convert.sh
