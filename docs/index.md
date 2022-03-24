@@ -3,7 +3,7 @@
 You can find EPICpy at one of these locations:
 
 * [Overview, Binary Installers, Dockerfile](https://cogmodlab.ucsc.edu/2022/03/14/epic/)
-* [Detailed Documentation @ Github Pages](www.nothingtoseehere.com) (You're Reading It Now!)
+* [Detailed Documentation @ Github Pages](https://travisseymour.github.io/EPICpyDocs/) (You're Reading It Now!)
 * [Development Environment @ Github](https://github.com/travisseymour/epicpy)
 
 ## What These Docs ARE

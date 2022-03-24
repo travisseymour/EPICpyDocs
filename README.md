@@ -14,7 +14,7 @@ EPIC currently exists as an integration between a computational version of the a
 For more information:
 
 * [EPICpy Overview, Binary Installers, Dockerfile, and Sample Tasks](https://cogmodlab.ucsc.edu/2022/03/14/epic/)
-* [Detailed EPICpy Documentation](www.inserturllater.com) (The docs in this repository hosted)
+* [Detailed EPICpy Documentation](https://travisseymour.github.io/EPICpyDocs/) (The docs in this repository hosted)
 
 Project Sources
 
