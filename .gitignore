@@ -1,4 +1,3 @@
-docs/resources
 *.zip
 *.png
 *.pdf
@@ -6,4 +5,4 @@ docs/resources
 *.gz
 *.tgz
 *.gif
-
+convert.sh
