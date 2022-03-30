@@ -12,6 +12,12 @@
 
 ## Various Published Uses of EPIC
 
+[Kieras, D. E. (2019). Visual Search Without Selective Attention: A Cognitive Architecture Account. Topics in Cognitive Science, 11, (pp. 222-239).](resources/articles/kieras2019_visual_search_without_selective_attention.pdf)
+
+[Kieras, D. E., Hornoff, A. J. (2014). Towards Accurate and Practical Predictive Models of Active-Vision-Based Visual Search. Proceedings of The CHI2014 Conference on Human Factors in Computing Systems (pp. 3875-3884).](resources/articles/KierasHornof2014.pdf)
+
+[Kieras, D. (2010). Modeling Visual Search of Displays of Many Objects: The Role of Differential Acuity and Fixation Memory. Proceedings of the 10th International Conference on Cognitive Modeling, ICCM 2010.](resources/articles/Modeling_Visual_Search_of_Displays_of_Many_Objects.pdf)
+
 [Kieras, D. E., Meyer, D. E., & Ballas, J. (2001). Towards demystification of direct manipulation: Cognitive modelsing charts the gulf of execution. Proceedings of The CHI2001 Conference on Human Factors in Computing Systems (pp. 128-135). New York: Association of Computing Machinery, 2001.](resources/articles/KierasMeyerBallas2001.pdf)
 
 [Kieras, D. E., Meyer, D. E., Ballas, J. A., & Lauber, E. J. (2000). Modern Computational Perspectives on Executive Mental Processes and Cognitive Control: Where to from Here?. In S. Monsell & J. Driver (eds.) Control of Cognitive Processes: Attention and Performance XVIII, (pp. 681-712). Cambridge, MA: M.I.T. Press, 2000.](resources/articles/KierasMeyerBallasLauber2000.pdf)
@@ -28,7 +34,7 @@
 
 [Kieras, D.E., Meyer, D.E., Ballas, J.A., Lauber, E.J. Modern computational perspectives on executive mental processes and cognitive control. Where to from here? (EPIC Tech. Rep. No. 12, TR-98/ONR-EPIC-12). Ann Arbor, University of Michigan, Electrical Engineering and Computer Science Department. August 1, 1999.](resources/articles/TR-EPIC-12.pdf)
 
-[Kieras, D. & Meyer, D.E. An overview of the EPIC architecture for cognition and performance with application to human-computer interaction. (EPIC Tech. Rep. No. 5, TR-95/ONR-EPIC-5). Ann Arbor, University of Michigan, Electrical Engineering and Computer Science Department. December 5, 1995.](resources/articles/TR-EPIC-5.pdf)
+[Kieras, D. E. & Meyer, D.E. An overview of the EPIC architecture for cognition and performance with application to human-computer interaction. (EPIC Tech. Rep. No. 5, TR-95/ONR-EPIC-5). Ann Arbor, University of Michigan, Electrical Engineering and Computer Science Department. December 5, 1995.](resources/articles/TR-EPIC-5.pdf)
 
 [Kieras, D.E., Wood, S.D., & Meyer, D.E. Predictive engineering models based on the EPIC architecture for a multimodal high-performance human-computer interaction task. (EPIC Tech. Rep. No. 4, TR-95/ONR-EPIC-4). Ann Arbor, University of Michigan, Electrical Engineering and Computer Science Department. October 1, 1995.](resources/articles/TR-EPIC-4.pdf)
 

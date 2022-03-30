@@ -5,10 +5,10 @@
 EPICpy has only been successfully tested on the platforms listed below. These are also the platforms for which executable packages are available:
 
 * Apple MacOS (tested on version 10.13-12 on Intel CPUs)
-* Ubuntu variants of Linux (e.g., Ubuntu, Mint, PopOS, etc.) versions 18.x - 21.x
-* Windows 10 and 11 (via WSL2 and GWSL)
+* Ubuntu variants of Linux (e.g., Ubuntu, Mint, PopOS, etc.) versions 18.x - 21.x (probably works on later versions, but <u>does not</u> work on versions earlier than 18.x)
+* Windows 10 and 11 (via [WSL2](https://docs.microsoft.com/en-us/windows/wsl/about))
 
-If your goal is to use EPICpy to a) run EPIC simulations, b) create or edit device files, c) create and edit perceptual ecoder files, or c) create or run rule files, then there is no need to set up and configure the entire EPICpy development environment. All you need to do is download the appropriate installer for your operating system.
+If your goal is to use EPICpy to a) run EPIC simulations, b) create or edit device files, c) create and edit perceptual ecoder files, or c) create or run rule files, then there is no need to set up and configure the entire EPICpy development environment. All you need to do is download the appropriate installer for your operating system and the demo task-device pacakge.
 
 Installers for standalone EPICpy applications can be found here: [EPICpy Website](https://cogmodlab.ucsc.edu/2022/03/14/epic/)
 
@@ -61,7 +61,7 @@ At this point, load one of the devices, compile the corresponding ruleset, and t
 
 1. **File->Load_Device** the Choice Device (`devices/choice/choice_device.py`).
 2. **file->Compile_Rules** the visual-manual choice ruleset (`devices/choice/rules/choicetask_rules_VM.prs`).
-3. For a quick test, go into **Run->Settings** and set the parameter string to `10 4 Hard Draft` (should be the default). For a complete set of choice-task data (produces the nicest graph), set the parameter string to `10 4 [Easy|Hard] [P1|P2|P3|P4]`
+3. For a quick test, go into **Run->Settings** and set the parameter string to `10 4 Hard Draft` (should be the default). For a complete set of choice-task data (produces a nice 2-factor graph), set the parameter string to `10 4 [Easy|Hard] [P1|P2|P3|P4]`
 4. Now choose **Run->Run**.
 
 <hr/>
@@ -84,11 +84,11 @@ Download the necessary files using the links below:
 2. [devices.zip](https://people.ucsc.edu/~nogard/software/epicpy/devices.zip) (a set of demo EPICpy devices)
 
 
-To install EPICpy, first double-click EPICpy.dmg. You will see the EPICpy icon next to a link to the Applications folder. Just drag EPICpy to your Applications folder, and it will be installed (i.e., the standard MacOS install method). To uninstall later, just drag EPICpy.app from your Applications folder to the Trash.
+To install EPICpy, first double-click `EPICpy.dmg`. You will see the EPICpy icon next to a link to the `Applications` folder. Just drag `EPICpy.app` to your Applications folder, and it will be installed (i.e., the standard MacOS install method). To uninstall later, just drag `EPICpy.app` from your `Applications` folder to the Trash.
 
-You will need to install Apple's XCode in order to use EPICpy (it must be there, but you won't need to use it). Apple only makes it easy to install XCode if you are running the latest version of it's operating system. So if you are using the latest version (at the time of writing, that would be MacOS 12, Monteray), just head over to the App Store, search for XCode, and install it. If, on the other hand, you are running a previous version of MacOS, you will need to register for their developer program and download the version of XCode designed for your specific operating system. The website is [https://devloper.apple.com](https://devloper.apple.com). Direct links to each version of XCode can for now be found here: [https://xcodereleases.com/](https://xcodereleases.com/) (I recommend the last major release compatible with your version of MacOS).
+You will need to install Apple's [XCode](https://developer.apple.com/xcode/) development environment in order to use EPICpy (it must be there, but you won't need to use it). Apple only makes it easy to install XCode if you are running the latest version of it's operating system. So if you are using the latest version (at the time of writing, that would be MacOS 12, Monteray), just head over to the App Store, search for XCode, and install it. If, on the other hand, you are running a previous version of MacOS, you will need to register for their developer program and download the version of XCode designed for your specific operating system. The website is [https://devloper.apple.com](https://devloper.apple.com). Direct links to each version of XCode can _for now_ be found here: [https://xcodereleases.com/](https://xcodereleases.com/) (I recommend the last major release compatible with your version of MacOS).
 
-Before downloading, make sure you have sufficient hard-drive space as the file will be quite large (e.g., XCode 13.2 is 10GB). Once you've downloaded the correct version (will take some time), extract the installer and then double-click it. After it has installed, open XCode once so that it can install the build tools. Once this finishes, you can close XCode, and trash the installer (free up 10GB!); you won't need to open it again for EPICpy.
+Before downloading, make sure you have sufficient hard-drive space as the file will be quite large (e.g., XCode 13.2 is 10GB). Once you've downloaded the correct version (will take some time), extract the installer and then double-click it (note, this means you will need at least double the installer size -- e.g., 20GB or more). After it has installed, open XCode once so that it can install the build tools. Once this finishes, you can close XCode, and trash the installer (free up 10GB!); you won't need to open it again for EPICpy. I have been asked whether it would suffice to just install only the Apple XCode commandline tools (1/20 the footprint of the full XCode application) -- unfortunately, this won't work. This requirement is based on what's necessary for the [cppyy](https://cppyy.readthedocs.io/en/latest/) C++/Python automatic binding library that EPICpy is built upon.
 
 <hr/>
 
@@ -96,19 +96,19 @@ Before downloading, make sure you have sufficient hard-drive space as the file w
 
 `Never actually tested, but it *should* work under WSL2`
 
-There is no EPIC shared-library (EPIClib) for Windows because I have yet to get EPIClib to compile in such a way that cppyy can load it. Someone may figure it out at some point, allowing me to release a Windows version. For now, Windows users will have to install Windows Subsystem for Linux v2 (WSL2), and then follow the Linux instructions above for setting up development under Linux. A **much easier** alternative would be to run EPICpy with Docker (see Docker section below).
+There is no EPIC shared-library (EPIClib) for Windows because I have yet to get EPIClib to compile in such a way that cppyy can successfully load it. Someone may figure it out at some point, allowing me to release a Windows version. For now, Windows users will have to install Windows Subsystem for Linux v2 (WSL2), and then follow the Linux instructions above for setting up development under Linux. An alternative would be to run EPICpy with Docker (see Docker section below), but this may be significantly slower on some systems than using WSL2 directly.
 
-I would suggest first following [THESE](linux_epicpy_under_wsl2.md) instructions for getting the Linux stand-alone version of EPICpy to work under WSl2. Only then, follow the instructions above to set up the development environment under Linux.
+I would suggest first following [THESE](linux_epicpy_under_wsl2.md) instructions for getting the Linux stand-alone version of EPICpy to work under WSl2.
 
 <hr/>
 
 ### Docker
 
-If you *really* want to, you can run EPICpy using Docker. The easiest way to do this is to install Docker Desktop. To install Docker Desktop, just download and install it. Then you will use it from the commandline. 
+If you *really* want to, you can run EPICpy using Docker. The easiest way to do this is to install Docker Desktop. To install Docker Desktop, just download and install it. Then you will use it from the commandline. Note that on many systems, this will be much slower than using WSL2 to directly install the Linux version on Windows. On the other hand, this approach can allow those using non-Ubuntu variants of Linux to run EPICpy (e.g., Arch, Fedora, etc.)
 
 #### Installation on MacOS & Windows
 
-Not too hard, install the official Docker Desktop application from one of these webpages:
+Start by installing the official Docker Desktop application from one of these webpages:
 
 - MacOS: Download and install this application: [Docker Desktop For MacOS](https://hub.docker.com/editions/community/docker-ce-desktop-mac/)
 - Windows: Download and install this application [Docker Desktop for Windows](https://hub.docker.com/editions/community/docker-ce-desktop-windows/)
@@ -149,6 +149,8 @@ sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io
 ```
 
+<hr>
+
 #### Running on MacOS
 
 Setup:
@@ -158,13 +160,13 @@ Setup:
 - In XQuartz:
     - enable `Allow Connections from Network Clients` in Security Settings
 - Determine your local ip address with this command: `ifconfig en0`
-- Download the EPICpy dockerfile from the [download page](https://cogmodlab.ucsc.edu/2022/03/14/epic/) listed above.
+- Download the EPICpy dockerfile: [Dockerfile](https://people.ucsc.edu/~nogard/software/epicpy/Dockerfile.zip) listed above.
 
 Installation:
 
 ```bash
-# unzip Dockerfile and useful scripts
-unzip epicpy_dockerfile.zip
+# unzip Dockerfile
+unzip Dockerfile.zip
 docker build -t epicpy - < Dockerfile
 ```
     
@@ -180,7 +182,6 @@ docker run -it --rm -e DISPLAY=YOUR_LOCAL_IP_ADDRESS:0 -v /tmp/.X11-unix:/tmp/.X
 Removal:
 
 ```bash
-# this will generate several lines of chatter, but it will work!
 docker rmi -f epicpy
 ```
 
@@ -188,13 +189,13 @@ docker rmi -f epicpy
 
 Setup:
 
-- Download the EPICpy dockerfile from using this link (note this will download a textfile with no file extension. This is normal): [Dockerfile](https://people.ucsc.edu/~nogard/software/epicpy/Dockerfile) listed above.
+- Download the EPICpy dockerfile: [Dockerfile](https://people.ucsc.edu/~nogard/software/epicpy/Dockerfile.zip) listed above.
 
 Installation:
 
 ```bash
 # unzip Dockerfile and useful scripts
-unzip epicpy_dockerfile.zip
+unzip Dockerfile.zip
 docker build -t epicpy - < Dockerfile
 ```
     
@@ -216,10 +217,10 @@ docker rmi -f epicpy
 
 Note that although I have successfully run EPICpy using the following instructions on Windows 10, but I don't recommend them for the following reasons:
 
-1. The resulting application runs significantly slower than when run from with docker on MacOS or Linux.
-2. Docker Desktop is a large app to add to your Windows startup and by default it launches it's interface automatically. If you don't have other reasons to run Docker Desktop, doing so just for EPICpy is overkill.
-5. The commands required to run EPICpy via Docker involves you knowing your current lan ip address...this isn't too hard to figure out, but it might change, so it's not a set it and forget it thing for many people.
-6. Docker on Windows installs and uses the Windows Subsystem for Linux (WSL) to manage the docker containers you install. Given that there is already a Linux version of EPICpy, it's far easier to just install WSL yourself and then run the Linux version at nearly native speed. **I strongly suggest you take this approach on Windows**. To do so, follow [these instructions](linux_epicpy_under_wsl2.md).
+1. The resulting application runs significantly slower than when run from with docker on MacOS or Linux. It is also much slower than just using WLS2.
+2. Docker Desktop is a large app to add to your Windows startup and by default it launches its interface automatically. If you don't have other reasons to run Docker Desktop, doing so just for EPICpy is overkill.
+3. The commands required to run EPICpy via Docker involves you knowing your current lan ip address...this isn't too hard to figure out, but it might change, so it's not a set it and forget it thing for many people.
+4. Docker on Windows installs and uses the Windows Subsystem for Linux (WSL2) to manage the docker containers you install. Given that there is already a Linux version of EPICpy, it's far easier to just install WSL2 yourself and then run the Linux version at nearly native speed. **I strongly suggest you take this approach on Windows**. To do so, follow [these instructions](linux_epicpy_under_wsl2.md).
 
 Still want to run EPICpy via Docker? Ok, then follow the instructions below:
 
@@ -237,7 +238,7 @@ Installation:
 `NOTE: commands below assume you're using Windows PowerShell`
 
 ```bash
-# unzip epicpy_dockerfile.zip using whatever file unzip/uncompress tool you normall use
+# unzip Dockerfile.zip using whatever file unzip/uncompress tool you normally use
 docker rm -f epicpy
 Get-Content Dockerfile | docker build -t epicpy -
 ```
@@ -245,7 +246,7 @@ Get-Content Dockerfile | docker build -t epicpy -
 Operation:
 
 ```bash
-# start the VcXsrv appliation
+# start the VcXsrv application
 # now run the epicpy virtual machine
 docker run --rm -it -e DISPLAY=YOUR_LOCAL_IP_ADDRESS:0.0 epicpy
 ```
@@ -259,14 +260,13 @@ docker rmi -f epicpy
 
 #### Accessing Files Outside the Virtual Machine
 
-The `docker run` commands above will allow you to run the demo EPICpy models that are already inside the virtual machine, but they are only for demo purposes because they rest every time you start EPICpy. To use EPICpy with docker for EPIC modeling, you will need some way to work with files outside the virtual machine on your host computer. To do this, decide where you want your work folder to be. E.g., let's say we create a file on our host computer on the desktop called `epicwork` that contains the uncompressed devices.zip folder obtained from the [EPICPy download page](https://cogmodlab.ucsc.edu/2022/03/14/epic/), or directly from [THIS LINK](https://people.ucsc.edu/~nogard/software/epicpy/devices.zip). To give the epicpy virtual machine read/**write** access to that folder, you would alter the docker run commands shown above as such:
+The `docker run` commands above will allow you to run the demo EPICpy models that are already inside the virtual machine, but they are only for demo purposes because they rest every time you start EPICpy under Docker. To reqlistically use EPICpy with Docker for EPIC modeling, you will need some way to work with files outside the virtual machine on your host computer. To do this, decide where you want your work folder to be. E.g., let's say we create a file on our host computer on the desktop called `epicwork` that contains the uncompressed devices.zip folder obtained earlier. To give the epicpy virtual machine read/**write** access to that folder, you would alter the docker run commands shown above as such:
 
 **MacOS**
 
 ```bash
 # start the XQuartz application
 # now start EPICpy from within the epicpy virtual machine. You will need the ip address you printed out in the setup stage above.
-
 xhost + YOUR_LOCAL_IP_ADDRESS
 docker run -it --rm -e DISPLAY=YOUR_LOCAL_IP_ADDRESS:0 -v /tmp/.X11-unix:/tmp/.X11-unix -v /Users/YOUR_USERNAME/Desktop/epicwork:/home/nonroot/epicwork:cached epicpy
 ```
@@ -274,7 +274,7 @@ docker run -it --rm -e DISPLAY=YOUR_LOCAL_IP_ADDRESS:0 -v /tmp/.X11-unix:/tmp/.X
 **Windows**
 
 ```bash
-# start the VcXsrv appliation
+# start the VcXsrv application
 # now run the epicpy virtual machine
 docker run --rm -it -e DISPLAY=YOUR_LOCAL_IP_ADDRESS:0.0 -v c:\Users\YOUR_USERNAME\Desktop\epicwork:/home/nonroot/epicwork:cached epicpy
 ```
@@ -299,5 +299,5 @@ but the permissions issue persists. <u>If anyone figures this out, please let me
 
 **That's It!**
 
-Now when you go to load a device, you should see your `epicwork` folder listed alongside the static `devices` folder. Any change you make to files in `epicwork/devices` will persist and show up both within the epicpy virtual machine, as well as on the corresponding folder on your host machine.
+Now when you go to load a device, you should see your `epicwork` folder listed alongside the static `devices` folder. Any change you make to files in `epicwork/devices` will persist and show up within the epicpy virtual machine, as well as on the corresponding folder on your host machine.
 

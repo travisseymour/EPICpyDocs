@@ -6,13 +6,15 @@ You can find EPICpy at one of these locations:
 * [Detailed Documentation @ Github Pages](https://travisseymour.github.io/EPICpyDocs/) (You're Reading It Now!)
 * [Development Environment @ Github](https://github.com/travisseymour/epicpy)
 
+If you want to jump directly to a step-by-step example of how you use EPICpy to do EPIC modeling (with an admittedly toy-example task), see the [Example](example.md) page.
+
 ## What These Docs ARE
 
-This is the documentation for **EPICpy**, a tool for running model simulations using [EPIC (a computational cognitive architecture created by David Kieras and David Meyer)](epicresources.md). **For a brief overview of EPIC and EPICpy, see the sections below.**
+This is the documentation for **EPICpy**, a tool for simulating human performance tasks using [EPIC (a computational cognitive architecture created by David Kieras and David Meyer)](epicresources.md). **For a brief overview of EPIC and EPICpy, see the sections below.**
 
 ## What These Docs <b>ARE NOT</b>
 
-<font color="Blue">This documentation is not a detailed introduction to EPIC, Device programming, perceptual encoder programming, or production rule programming</font>. To learn more about EPIC and how it works, please see the documents in the [Epic Resources](epicresources.md) section (in particular, the first three). 
+<font color="Blue">This documentation is not a detailed introduction to EPIC, device programming, perceptual encoder programming, or production rule programming</font>. To learn more about EPIC and how it works, please see the documents in the [Epic Resources](epicresources.md) section (in particular, the first three). 
 
 ## What is EPIC
 
@@ -20,27 +22,27 @@ This is the documentation for **EPICpy**, a tool for running model simulations u
 
 **EPIC Schematic (Meyer & Kieras 1997a)**
 
-EPIC is a computational cognitive architecture that specifies a theory of human performance and a facility to create individual task models constrained by that theory. EPIC compacts decades of psychological theory and findings into a rich set of processors, including those that model sensory perceptual, motor, cognitive, and memory subsystems of the human mind.
+EPIC is a computational cognitive architecture that specifies a theory of human performance and a facility to create individual task models constrained by that theory. EPIC compacts decades of psychological theory and findings into a rich set of processors, including those that model sensory, perceptual, motor, cognitive, and memory subsystems of the human mind. EPIC is particularly suited to stimulus-response type human performance tasks including those involving multitasking and task-switching.
 
 The goal of creating model simulations in EPIC is typically to either verify your understanding of human performance in some task for which you already have human data, or to predict human performance in some speculative task. Either way, this typically involves comparing simulated data from EPIC (e.g., simulated response times, accuracy rates, eye movements, etc.) to human data using a similar task. 
 
-Over many publications (see "Various Published Uses of EPIC" within the [EPIC Resources section](epicresources.md), Kiears, Meyer, and their colleagues have demonstrated that if you 1) create a simulated task within EPIC (called a "device") sufficiently close to the corresponding human task and 2) create a simulated task strategy (embodied within a set of "production rules" and model configurations) sufficiently close to the strategy humans use when performing the task, then EPIC will produce a set of simulated performance data that follows very close (often nearly identical) to the observed human data.
+Over many publications (see "Various Published Uses of EPIC" within the [EPIC Resources section](epicresources.md), Kiears, Meyer, and their colleagues have demonstrated that if you 1) create a simulated task within EPIC (called a "device") sufficiently close to the corresponding human task and 2) create a simulated task strategy (embodied within a set of "production rules" and model configurations) sufficiently close to the strategy humans used when performing the task, then EPIC will produce a set of simulated performance data that follows very close (often nearly identical) to the observed human data.
 
 ## What is EPICapp 
 <b>(the original tool available for EPIC modeling)</b>
 
-The EPIC architecture is a C++ module capable of simulating human performance according to a particular theory of human performance and using a massive set of defaults chosen carefully from various past literatures (with a few guesses where none exists). It is possible to alter the architecture to add new processors, change how various components operate, and so on. This requires an advanced level of C++ programming skill.
+The EPIC architecture is a C++ code library (called **_EPIClib_**) capable of simulating human performance according to a particular theory of human performance using a massive set of defaults chosen carefully from various past literatures (with a few guesses where none exists). Although most EPIC modellers only *use* EPICLib, It is possible to alter the EPIC architecture itself to add new processors, change how various components operate, and so on. This requires an advanced level of C++ programming skill (including mastery of various design patterns, and abstraction).
 
-This module is not usable on its own and so David Kieras created EPICapp, a GUI application that serves as a controller for EPIC. It allows researchers to:
+EPICLib module is not generally usable on its own and so David Kieras created EPICapp. EPICapp is a Graphical User Interface (GUI) based application that serves as a controller for EPIC simulations, as well as offering a set of views for visualizing simulation progress. It allows researchers to:
 
-* create simulated task devices in C++ and load them into the simulation environment.
-* create optional visual and auditory perceptual encoders in C++ and load them into the simulation environment.
-* create a file containing If-Then style production rules, that embody a hypothesized task performance strategy, and load it into the simulation environment.
-* set various simulation settings (how many trials to run, how often to update text output information, how often to update graphical output information, which EPIC sub-systems to trace during simulation, and rule breakpoints)
+* Create simulated task devices in C++ and load them into the simulation environment.
+* Create optional visual and auditory perceptual-encoding models in C++ and load them into the simulation environment.
+* Create a file containing If-Then style production rules, that embody a hypothesized task performance strategy, and load it into the simulation environment.
+* Set various simulation settings (how many trials to run, how often to update text output information, how often to update graphical output information, which EPIC sub-systems to trace during simulation, device parameters, and rule breakpoints)
 
-Once the simulation has been started and completed, the task device usually saves a representation of the simulated task data on disk for later analysis. It also may print rudimentary summary data to text output screen. EPIC includes routines to compute basic descriptive statistics and fit/correspondence indicators such as correlations, slopes, RMSE, and R^2. Of course, device writers are free to write any statistics routines they'd like. These routines can sometimes be in service of device logic (e.g., chaining device state if performance falls below some threshold), they are often used for simple post-simulation indications of whether a model is performing according to expectation (e.g., too many errors, or unexpectedly slow). More sophisticated analyses are typically done using separate statistics software (e.g., R, SPSS, SAS, etc.).
+Once the simulation has been started and completed, the task device usually saves a representation of the simulated task's data on disk for later analysis. The device also may print rudimentary summary data to text output screen. EPIC includes routines to compute basic descriptive statistics and basic [goodness-of-fit](https://en.wikipedia.org/wiki/Goodness_of_fit) indicators such as correlation, slope, [RMSE](https://en.wikipedia.org/wiki/Root-mean-square_deviation), and R^2. Of course, device programmers are free to write any additional statistics or goodness-of-fit routines they'd like. These routines can sometimes be in service of device logic (e.g., chaining device state if performance falls below some threshold), they are often used for simple post-simulation indications of whether a model is performing according to expectation (e.g., too many errors, or unexpectedly slow). More sophisticated analyses are typically done outside of EPICapp using separate statistics software (e.g., [R](https://en.wikipedia.org/wiki/RStudio), [SPSS](https://en.wikipedia.org/wiki/SPSS), [JASP](https://jasp-stats.org/), [SAS](https://en.wikipedia.org/wiki/SAS_(software)), [STATA](https://en.wikipedia.org/wiki/Stata), etc.).
 
-The biggest advantage of using EPICapp to run model simulations is its speed. Because all components (EPIC itself, devices, and encoders) are written in the highly efficient C++ language and compiled to machine code, EPICapp simulations are extremely fast.
+The biggest advantage of using EPICapp to run model simulations is its speed. Because all components (EPICLib, task devices, and perceptual encoders) are written in the highly efficient C++ language and compiled to machine code, EPICapp simulations are extremely fast.
 
 Another advantage is that because programming EPIC, devices, and encoders can occur within a single XCode project, it is easy to write and debug any of these components together using a single debugger context. E.g., one could run a simulation and set breakpoints within either EPIC, the device, or an encoder and then be able to inspect code and data across the entire project.
 
@@ -50,29 +52,29 @@ For those of us who use EPIC in our teaching and research may have encountered f
 
 #### 1. C++ Language Expertise is Less Common
 
-There is no doubt that C++ is fast, and its choice for programming EPIC was obvious (in fact, it was a massive improvement on its previous implementation in Common Lisp). However, the expertise required to program devices and encoders in C++ is not as common as it used to be. When EPIC was created in C++, C++ (or perhaps Java, a related skill) was the most common introductory programming language for Computer Science and Cognitive Science majors across the country. Now, this is quite rare, with Python being a significantly more common introductory language. This means that a researcher interested in EPIC modeling will need to acquire sufficient C++ skill sufficient to write device and encoder code. This also means that finding graduate students and other assistants with the programming skill to write device and encoder code will be more difficult than it once was.
+There is no doubt that C++ is fast, and its choice for programming EPIC was obvious (in fact, it was a massive improvement on its previous implementation in [Common Lisp](https://en.wikipedia.org/wiki/Common_Lisp)). However, the expertise required to program devices and encoders in C++ is not as common as it used to be. When EPICapp was created, C++ (or perhaps Java, a related skill) was the most common introductory programming language for Computer Science and Cognitive Science majors across the country. Now, this is quite rare, with Python being a significantly more common introductory language. This means that a researcher interested in EPIC modeling will need to acquire sufficient C++ skill to write device and encoder code. This also means that finding graduate students and other assistants with the programming skill to write device and encoder code will be more difficult than it once was.
 
-Although compiled C++ is blazingly fast to run, it is not easy or quick to write. Admittedly, simple devices and encoders won't pose too much trouble and may often require only moderate changes to existing example devices or encoders. However, more complex changes may require more serious programming skill. An EPIC modeling facility based on Python instead would lead to slower runtime execution, but much faster development time.
+Although compiled C++ is blazingly fast to run, it is not easy or quick to read or write. Admittedly, simple devices and encoders won't pose too much trouble and may often require only moderate changes to existing example devices or encoders. However, more complex changes may require more serious programming skill. An EPIC modeling facility based on Python instead would lead to slower runtime execution, but much faster development time, trading computational efficiency for programmer efficiency.
 
 #### 2. Development Environment Required
 
-C++ is a compiled language and devices or encoders loaded into EPICapp must be compiled. This means that anyone who wishes to engage in EPIC modeling must setup a full EPIC programming environment so that edited code can be properly compiled. This is not an overly restrictive requirement. For example, setting up the development environment on MacOS isn't that difficult. However, the fact that devices and encoders must be compiled means that they are not particularly portable. Although there is <u><b>only</b></u> currently a MacOS version of EPICapp, even if there were versions for other operating systems, devices and encoders would have to be compiled anew for each new OS target. In fact, this would even be required if a user of MacOS 10.13 wanted to share a device with a user of MacOS 10.14. Similarly, a special version would need to be compiled if sharing a device between an Apple machine using an Intel chip and one using the new Apple M-series chip.
+C++ is a compiled language and devices or encoders loaded into EPICapp must be compiled. This means that anyone who wishes to engage in EPIC modeling must set up a full EPIC programming environment so that edited code can be properly compiled. This is not an overly restrictive requirement. For example, setting up the development environment on MacOS isn't that difficult. However, the fact that devices and encoders must be compiled means that they are not particularly portable. Although there is <u><b>only</b></u> currently a MacOS version of EPICapp, if there were versions for other operating systems, devices and encoders would have to be compiled anew for each new OS target. In fact, this could even be a challenge across machines running MacOS if there were sufficiently significant changes to the OS. Soon, different versions will be needed to accommodate those using Apple computers with Intel-based chips and those using the new Apple M-series chips.
 
-If, on the other hand, devices and encoders were programmed with the Python language, the raw uncompiled code (just text files, really) could be loaded directly into the simulation and compiled automatically and seamlessly. Thus, devices and encoders could be freely shared between EPIC modelers regardless of what type of machine they were using.
+If, on the other hand, devices and encoders were programmed with the Python language, the raw uncompiled code (just simple text files) could be loaded directly into the simulation without the need for explicit compilation. Thus, devices and encoders could be freely shared between EPIC modelers regardless of what type of machine they were using.
 
 #### 3. Statistical Abilities Limited
 
 EPIC does not natively contain much in the way of statistical routines. Frequently, after running a model, we compare the simulated output to observed human data. We may also want to compare it to output from other models, or pure mathematical functions. We often find ourselves doing complex data aggregation (e.g., changing 'tall' data arrangements to 'wide' ones) and statistical analyses (e.g., regression, analysis of variance, etc.). Furthermore, statistical analyses are often complemented by graphs and figures tha further clarify the correspondence between simulated EPIC data and observed human data. These analyses and figures are produced by importing data from the model run into a separate statistical analysis tool where custom routines are written. This has worked well, but sharing modeling work with others (students, colleagues, etc.) now means setting up both the EPIC development environment, and a corresponding statistical analysis framework.
 
-An alternative to requiring external statistical analysis tools would be to use the device to create sufficient statistical routines. Thus, the statistical analyses are no more difficult to share than the device itself. This works, but note that many statistical tests are highly non-trivial to write. E.g., writing your own code for a generalized mixed-model repeated-measures anova is extraordinarily difficulty and would require both advanced programming ability and significant statistical prowess. It is not clear how one would producing graphs and figures directly from the device code without significant edits to the EPICapp gui code itself (possible, but non-trivial).
+An alternative to requiring external statistical analysis tools would be to use the device to create sufficient statistical routines. Thus, the statistical analyses are no more difficult to share than the device itself. This works, but note that many statistical tests are highly non-trivial to write. E.g., writing your own code for a generalized mixed-model repeated-measures anova is extraordinarily difficulty and would require both advanced programming ability and significant statistical prowess. It is not clear how one would producing graphs and figures directly from the device code without significant edits to the EPICapp GUI code itself (possible, but non-trivial).
 
-If, devices were programmed in Python, modelers could easily take advantages of a wide set of easy to use free external modules and packages that embody statistical analyses ranging from the very simple to the very complex. Furthermore, a similarly impressive set of powerful graphing facilities would be available. Most of these modules (most based on the popular Matplotlib library) would allow the display of graphs in custom windows without any facility within EPICapp itself, though admittedly, it would be easier if Python-based graphs could be well integrated into the existing window structure.
+If, devices were programmed in Python, modelers could easily take advantages of a rich set of easy to use free external modules and packages that allow statistical analyses ranging from the very simple to the very complex (e.g., scipy.stats and statsmodels. Furthermore, a similarly impressive set of powerful graphing facilities would be available. Most of these modules (many based on the popular [Matplotlib](https://matplotlib.org/) library, e.g., [Seaborn](https://seaborn.pydata.org/)) would allow the display of graphs.
 
 #### 4. Lack of Cross-Platform Versions of EPICapp
 
 Although EPIC itself could be adapted by a skilled programmer to compile bespoke versions for other operating systems, a fully working and runnable EPIC-only code base has yet to be made public.
 
-However, EPICapp, the tool one uses to actually manage and run EPIC simulations is only available for MacOS. Not only is the EPICapp GUI written in mac-specific objective-c targeting apple graphical facilities, but the development project setup and configuration are not detailed. Thus, in order to convert the EPICapp development environment to another operating system, one would have to completely deconstruct the development environment requirements, and then re-write the entire GUI and simulation logic in a new (hopefully cross-platform) GUI framework.
+However, EPICapp, the tool one uses to actually manage and run EPIC simulations is only available for MacOS. Not only is the EPICapp GUI written in mac-specific [Objective-C](https://en.wikipedia.org/wiki/Objective-C) targeting Apple's own windowing facilities, but the development project setup and configuration are not publicly specified. Thus, in order to convert the EPICapp development environment to another operating system, one would have to completely deconstruct the development environment requirements, and then re-write the entire GUI and simulation logic in a new (hopefully cross-platform) GUI framework.
 
 This conversion could, of course, be done, but it is not trivial. Because this has yet to be done, currently the only available version of EPICapp is for MacOS.
 
@@ -80,24 +82,26 @@ This conversion could, of course, be done, but it is not trivial. Because this h
 
 The previous section lays out 4 main challenges that potential EPIC modelers face:
 
-1. Reliance on the C++ programming language limits programmer pool
-2. Reliance on compiled code requires both development environment setup and limits device and encoder sharing between platforms
-3. Statistical and graphing facilities limited
-4. Only available for MacOS
+1. Reliance on the C++ programming language limits programmer pool.
+2. Reliance on compiled code requires both development environment setup and limits device and encoder sharing between platforms.
+3. Statistical facilities limited, no graphing available.
+4. Only runs on system running MacOS.
 
 <u>EPICpy was created to address these issues.</u>
 
 #### EPICpy uses Python rather than C++
 
-First, it should be pointed out that EPICpy is not **completely** written in Python. EPIC itself, that is, the cognitive architecture and various routines to allow creation and management of simulations using EPIC's subsystems, is still written in C++. In fact, to promote easily keeping up with ongoing changes to EPIC that are underway, EPICpy allows easy drop-in updates of C++ from the [EPIC github repository](https://github.com/dekieras/EPIC) if updates are posted.
+First, it should be pointed out that EPICpy is not **completely** written in Python. EPICLib itself, that is, the cognitive architecture and various routines to allow creation and management of simulations using EPIC's subsystems, is still written in C++. In fact, to promote easily keeping up with ongoing changes to EPICLib that are underway, EPICpy allows easy drop-in updates of C++ from the [David Kieras'sEPIC github repository](https://github.com/dekieras/EPIC) if updates are posted.
 
-Everything else is programmed in Python. This includes task devices and perceptual encoders, which are programmed in Python and are stored and loaded into EPICpy as raw Python code. This means that no compilation is required; An EPICpy device written on one operating system will work exactly the same on another operating system. Most EPIC modeling is some combination of work on devices, encoders, and rule files (which were always just plain text files). 
+Everything else is programmed in Python. This includes task devices and perceptual encoders, which are programmed in Python and are stored and loaded into EPICpy as raw Python code. This means that no compilation is required; An EPICpy device written on one operating system will work exactly the same on another operating system. Most EPIC modeling is some combination of work on devices, encoders, and rule files. In EPICpy, these are all just text files.
 
 #### EPICpy requires no device/encoder compilation 
 
-Because EPICpy devices and encoders are now just text-based Python code files, it means that the majority of EPIC modeling work can now be done with a code/text editor, no C++ or Python development environment is required. Just update your device in a text editor, have EPICpy re-load it, and press run to see your changes (or error messages, if something goes awry). In a sense, EPICpy itself becomes your development environment. Because Python code is relatively easy to read and write, it will be much easier to find students and assistants who have sufficient skill to edit devices and encoders.
+Because EPICpy devices and encoders are now just text-based Python code files, it means that the majority of EPIC modeling work can now be done with a code/text editor, no C++ or Python development environment is required. Just update your device in a text editor, have EPICpy re-load it, and press run to see your changes (or error messages, if something goes awry). In a sense, EPICpy itself becomes your development environment. Because Python code is relatively easy to read and write, it will be much easier to find students and assistants who have sufficient skill to create or edit devices and encoders.
 
-EPICpy itself is written in Python. This means that if one desires to actually alter the operation of EPICpy itself, they are free to do so. However, this would require setting up the EPICpy development environment on your computer. Your changes can then be compiled into a new EPICpy executable, but this requires additional setup. If you want to do this, see the appropriate "EPICpy Development Environment" section on the [Installing EPICpy](installing.md) page.
+#### EPICpy GUI written in Python
+
+The EPICpy GUI application itself is written in Python. This means that if one desires to actually alter the operation of the EPICpy interface, they are free to do so. However, this would require setting up the EPICpy development environment on your computer. Running such a updated version of EPICpy would be easy, but compiling your changes back into a cross-platform executable will take further steps and knowledge. If you want to do this, see the appropriate "**EPICpy Development Environment**" section on the [Installing EPICpy](installing.md) page.
 
 #### EPICpy allows use of Python statistical and graphing
 
@@ -118,27 +122,31 @@ Although we don't recommend programming full data analyses at the end of each si
 
 #### EPICpy is Cross Platform
 
-EPICpy was developed by Travis L. Seymour, PhD on the Linux Mint (Ubuntu) operating system. Using the [FMan build system](https://build-system.fman.io/) to produce standalone executable applications and native installers for Linux (any modern Ubuntu variant) and MacOS (MacOS 10.13 and 10.15). Although there is not a native Windows version at the moment, Windows users can easily run the Linux version after installing the [Windows Subsystem for Linux v2 (WLS2)](https://docs.microsoft.com/en-us/windows/wsl/about) from the Microsoft App Store (see the corresponding section on the [Installing EPICpy](installing.md) page to learn how to install the Linux version of EPICpy on Windows via WSL2).
+EPICpy was developed by Travis L. Seymour, PhD on the [Ubuntu](https://ubuntu.com/) Linux operating system (as well as variants such as [Linux Mint](https://linuxmint.com/) and [Pop!_OS](https://pop.system76.com/)). To produce standalone executable applications and native installers for Linux (any modern Ubuntu variant) and MacOS (MacOS 10.13 and later), the  [FMan build system](https://build-system.fman.io/) was used. Although there is not a native Windows version at the moment, Windows 10 and 11 users can easily run the Linux version via the [Windows Subsystem for Linux v2 (WLS2)](https://docs.microsoft.com/en-us/windows/wsl/about). To run the Linux version of EPICpy on Windows, please see the corresponding section on the [Installing EPICpy](installing.md) page.
 
 Thus, EPICpy can be used on Linux, MacOS, and Windows based computers. 
 
 To download EPICpy, go to [https://cogmodlab.ucsc.edu/software/epicpy/docs/](https://cogmodlab.ucsc.edu/software/epicpy/)
 
-It is only possible to produce MacOS installer on machines one has access to. Thus, I have only provided versions for MacOS 10.13 and 10.15, but more may be provided later after EPICpy is released. This section will be updated as new MacOS versions become available. 
+It is only possible to produce MacOS installer on machines one has access to. Thus, I have only provided versions for MacOS 10.13 - 12.0. Although EPICpy *should* work on machines using the non-Intel chips Apple now uses, this has yet to be confirmed.
 
 Currently, only a debian-based installer is provided for users of Ubuntu-type Linux operating systems. Although we may at some point consider installer for those using Arch, Fedora, and other variants of Linux, this will only be considered if there is sufficient interest.
 
 #### Other New Features in EPICpy
 
+(in no particular order)
 * Dark/Light Mode Toggle
-* Background Images For Output Windows (not useful for modeling, but great for talks and demonstrations)
+* Background Images For View Windows (not useful for modeling, but great for talks and demonstrations)
 * Text and Stats Output Window Content Exporting (as text, html, markdown and odf)
-* Easy Reinstatement of Previous Modeling Session (device, rules, encoders)
-* Automatically Repositions and Resizes Windows As They Were During Previous Runs For Each Device
-* Automatically Reinstates GUI Settings and Parameters For Each Device
+* Device load triggers automatic load of last ruleset used with that device
+* One-Button Reinstatement of Previous Modeling Session (i.e., device, rules, encoders)
+* Automatically Remembers and Reinstates Dimensions of all Dialog Windows.
+* Automatically Reinstates GUI Settings and Parameters For Each Device (including all window positions and sizes)
 * Ability to Load and Run Multiple Rulesets Sequentially
 * Ability to Add Parameters to Device Condition String To Enable Parametric Model Runs (e.g., `10 [Easy|Hard]` would run 10 trials of the Easy condition and then 10 trial of the Hard condition.)
 * Adjustable Application Font Size
 * Adjustable Detail for Sound and Speech Object Display (e.g., determine which attributes of the `Speech_word` class to show on the perceptual output window)
 * Selectable EPIC Architecture Versions (currently models can be run under the 11/28/2014 release of EPIC or the 6/28/2016 release.)
-* Access to some device configuration from the GUI (e.g., device programmer might expose toggle for showing debug information, or altering device operation)
+* Access to Some Device Configuration from the GUI (e.g., device programmer might expose toggle for showing debug information, or altering device operation)
+* Added Window-Management Facilities (e.g., Double-clicking output window brings all windows to front, Minimize all windows, Show all windows, Restore Default Layout)
+* It is Now Possible to **UN**load perceptual encoders. Unloaded encoders will not be re-loaded during subsequent session reloads.
