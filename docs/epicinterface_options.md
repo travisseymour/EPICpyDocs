@@ -78,4 +78,31 @@ Sound and Speech objects displayed on the Auditory Views can be adorned with sev
 
 ## Running/Managing Simulations
 
-## Other Options
+Once you have your device and rules loaded (an perhaps an encoder or 2), you are ready to run a simulation. The **Run->Run_Settings** menu allows you to view and alter the parameters for running your simulation:
+
+[![Run Settings Dialog](resources/images/dialog_run_settings.png)](resources/images/dialog_run_settings.png)
+
+In most instances, you will want to enable the **Run Command Duration** `Run Until Done`, the **Display Refresh** `After Each Step` and the **Text Refresh** `After Every 2 steps`, with a **Real Time Per Step** of `0 msecs(s)`. If you are starting a new run (updated device, ruleset, etc.), you may want to clear out the data using the **[Delete Current Device Datafile]** button and then press [**OK**]. At this point, you are ready to choose the **Run->Run** menu option to start your simulation. The lists below explain the other options available on the Run Settings dialog.
+
+**Run Command Duration**
+
+Run Command Duration allows you to specify the stopping rule for the simulation:
+
+- **Run For**: Specifies a number of simulated milliseconds or a steps to run. You can specify this value in steps (third row from the top) or in milliseconds (first row). Steps are 50 ms in duration, running for 50 ms is equivalent to running 1 step. No matter where you are in the simulation (other than the end), this will run for X more ms. Think of this as asking EPIC to run for a specified simulated time period.
+- **Run Until**: Specifies a simulated timestep within the simulation -- when this point has been reached, the simulation halts. If you press Run->Run while already at or past this point, nothing will be done. Think of this as asking EPIC to run until a particular simulated temporal milestone.
+
+**Display Refresh**
+
+As the simulation runs, EPIC will draw any visual or auditory information being represented on the device and in the sensory and perceptual systems on the Physical, Sensory, and Perceptual View windows, respectively. Although updates to these windows are being done quickly, these drawing routines and the information exchange that fuel them can slow down the simulation. In general, when developing a model, it is common to enable display refresh so that you can visually monitor the view windows as the simulation progresses. However, when producing large simulated runs, it will be much faster to disable this graphical output. Here are the options:
+
+- **After Each Step**: This is essentially the normal mode of operation whereby the contents of the device display and EPIC's visual and perceptual processors are depicted in the view windows dynamically as the simulation progresses. This mode is significatly slower than choosing **None During Run**.
+- **None During Run**: In this mode, view window updates are completely disabled. When the simulation ends, you _may_ see something drawn on the view windows, but only if there were objects represented in the corresponding processors when the simulation ended.
+
+**Text Refresh**
+
+As the simulation runs, EPIC will produce a decent amount of text -- primarily consisting of a dump of EPIC's Working Memory (WM) after each 50 ms step. These settings allow you to manage how often this text is actually printed to the Normal Output and Trace windows *during* the simulation. The reason you might care is that printing text slows down the simulation somewhat. In general, when developing a model, it is common to enable text refresh so that you can visually monitor the output as the simulation progresses. However, when producing large simulated runs, it will be much faster to disable this text refresh. Here are the options:
+
+- **Continuously**: In this mode, EPICpy will essentially print text to the Normal Output and Trace windows as soon as it is generated,thus you will see text flying by continuously as the simulation progresses. The simulation will be significantly slower in this mode.
+- **After Each X Steps**: In this mode, EPICpy will cache printed text and only print it to the Normal Output *after* the specified number of steps. This mode is much faster than the **Continuously** mode.
+- **None During Run**: In this mode, EPICpy will cache printed text and only print it to the Normal Output and Trace windows *after* the entire simulation run has finished. This mode will speed up the simulation dramatically compared to the **Continuously** mode. Note that simulations that generate a lot of text (either long runs, and/or runs what a great deal of WM content) may take a few moments to render all the cached text after the simulation finishes.
+
