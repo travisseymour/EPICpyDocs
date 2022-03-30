@@ -133,8 +133,8 @@
 <h2 id="overview">Overview</h2>
 <p>EPICpy is developed using the following technologies:</p>
 <p><strong>Python</strong></p>
-<p>Version 3.9.7 (currently developed with 3.9.7, but should work with later versions of 3.9.x)</p>
-<p>Note: EPICpy may work fine on Python versions beyond 3.9.x, but this has not been tested. The critical question is whether the modules and packages EPICpy depends on will work for Python 3.10 and beyond. This notice will be updated as newer Python versions are tested and verified as working.</p>
+<p>Version 3.9.7 (currently developed with 3.9.7, but should work with later versions of 3.9.x, and probably others too.)</p>
+<p>Note: EPICpy may work fine on Python versions beyond 3.9.x, but this has not been tested. Python earlier than Python 3.8.x will definitely <strong>not</strong> work. The critical question for future Python compatability is whether the modules and packages EPICpy depends on will work for Python 3.10 and beyond. This notice will be updated as newer Python versions are tested and verified as working.</p>
 <p><strong>Key Packages</strong></p>
 <ul>
 <li><a href="https://cppyy.readthedocs.io/en/latest/">Cppyy Bindings Generator</a> (cppyy): Automatically generates automatic Python bindings for existing C++ code.</li>
@@ -142,13 +142,12 @@
 <li><a href="https://pingouin-stats.org/">Pingouin Stats System</a> (pingouin): Meta-package providing access variety of statistical and gpraphing packages.</li>
 <li><a href="https://build-system.fman.io/">FMan Build System</a> (fbs): Development system facilitating creating signed executable and installers for all operating systems.</li>
 </ul>
-<p>Note: The internal uses of fbs in the EPICpy codebase will work as expected if main.py is started directly (e.g., <code>python src/main/python/main.py</code>), however none of the standard fbs commands will work on any Python version beyond 3.6.x. In order to use <code>fbs run</code>, or any fbs command on Python 3.9, you will need to purchase and install the paid FBS Pro edition. <strong>FBS Pro is not required if you just plan to develop and run the EPICpy code on your computer</strong>.</p>
+<p>Note: The internal uses of the FMan Build System (FBS) in the EPICpy codebase will work as expected if main.py is started directly (e.g., <code>python3 src/main/python/main.py</code>), however none of the standard <code>fbs</code> commands will work on any Python version beyond 3.6.x. In order to use <code>fbs run</code> (or any <code>fbs</code> command) on Python 3.9, you will need to purchase and install the paid FBS Pro edition. <strong>FBS Pro is not required if you just plan to develop and run the EPICpy code on your computer</strong>.</p>
 <h2 id="preparation">Preparation</h2>
 <h3 id="linux">Linux</h3>
 <p><code>Only tested on Ubuntu variants of Linux (e.g., Ubuntu, Mint, PopOS, etc.)</code></p>
 <p>Most recent Linux distributions come with Python 3 already installed, so you probably already have Python. The following instructions will assume you want to use that version of Python. Otherwise, adjust the path of the <code>python -m venv venv</code> command or use your own method to create the virtual environment. In addition, some Linux distributions may already have the necessary development tools (e.g., c++ compiler) installed. If so, skip the pre-requisites step. If you end up with multiple 3.x versions of Python on your system, change the one <code>python3</code> command below with the specific one you want to use, e.g., <code>python3.9.7</code> when creating the venv.</p>
 <p><strong>Install Prerequisites</strong></p>
-<p>Some or most of these may already be all installed on your system:</p>
 <pre><code class="language-bash">sudo apt-get install -y curl gitmake g++ build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libxcb-xinerama0
 </code></pre>
 <p><strong>Download and decompress files</strong></p>
@@ -160,7 +159,7 @@ cd EPICpy
 <p>NOTE: If you are a Python developer and know what you're doing, you may not need help obtaining and installing Python 3.9.7, or creating a virtual machine using this version of Python. If so, you can skip this section:</p>
 <ol>
 <li>
-<p>Installing Python 3.9.7 using pyenv</p>
+<p>Installing Python 3.9.7 using <a href="https://github.com/pyenv/pyenv">pyenv</a></p>
 </li>
 <li>
 <p>Install PyEnv
@@ -168,7 +167,7 @@ cd EPICpy
     curl https://pyenv.run | bash</code></p>
 </li>
 <li>Add Necessary Shell Config</li>
-<li>Edit your shell config file (e.g., <code>~/bashrc</code>) and add these commands to the end:
+<li>Edit your shell config file (e.g., <code>~/.bashrc</code>) and add these commands to the end:
     <code>bash
     export PATH="$HOME/.pyenv/bin:$PATH"
     export PATH="$PYENV_ROOT/bin:$PATH"
@@ -188,7 +187,7 @@ cd EPICpy
     # if you plan to later manage EPICpy with fbs pro, then you will need to use this version instead:
     # PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install 3.9.7</code></li>
 <li>
-<p>On at least one Ubuntu machine pyenv may complained that required programs were not already installed on the system. If so, install the ones it asks for. In this one case, the following was sufficient...but it may not be required for everyone!:
+<p>On at least one Ubuntu machine pyenv complained that some required programs were not already installed on the system. If so, install the ones it asks for. In this one case, the following was sufficient...but it may not be required for everyone!:
    <code>bash
    sudo apt install libssl-dev libbz2-dev libsqlite3-dev libreadline-dev libffi-dev</code></p>
 </li>
@@ -198,9 +197,9 @@ cd EPICpy
 <li>Determine where you want to store your virtual environment. One possibility is to store it within the EPICpy folder itself. This is not best practice, so consider storing it somewhere else. However, if you do this, please name it "venv" so that it will be excluded by EPICpy's gitignore policy and not be included should you ever push changes back to the repository.</li>
 <li>Create the virtual environment
     <code>bash
-    # ~/.pyenv/versions/3.9.7/bin/python -m venv /PATH/TO/VIRTUAL_ENVIRONMENT
+    # ~/.pyenv/versions/3.9.7/bin/python3 -m venv /PATH/TO/VIRTUAL_ENVIRONMENT
     # e.g.:
-    ~/.pyenv/versions/3.9.7/bin/python -m ~/Desktop/EPICpy/venv</code></li>
+    ~/.pyenv/versions/3.9.7/bin/python3 -m ~/Desktop/EPICpy/venv</code></li>
 <li>Activate the virtual environment
     <code>bash
     # source /PATH/TO/VIRTUAL_ENVIRONMENT/bin/activate
@@ -220,7 +219,7 @@ pip install -U pip wheel
 
 # install EPICpy requirements
 pip install -r requirements.txt
-# If you have an fbs pro install command, run that now It can also be upgraded later.
+# If you have an fbs pro install command, run that now. It can also be upgraded later if you purchased fbs pro (optional).
 </code></pre>
 <p><strong>*Install Cppyy Dependencies</strong></p>
 <p>Unfortunately, cppyy only seems to work properly on Linux if it is installed from source (<a href="https://cppyy.readthedocs.io/en/latest/repositories.html#building-from-source">as recommended in the cppyy documents</a>). See that page for a full explanation, but the key steps are copied below. Note, the steps below assumes you still have the virtual environment activated.</p>
@@ -261,21 +260,21 @@ cd cppyy
 # Install cppyy
 python -m pip install . --upgrade --no-deps
 </code></pre>
-<p>don't forget to delete the cppyy_build folder when done, e.g., <code>rm -rf cppyy_build</code>.</p>
+<p>don't forget to delete the cppyy_build folder when done, e.g., <code>rm -rf cppyy_build</code>, as it is rather large and no longer necessary.</p>
 <p><strong>One-Time Setup For EPICpy (per machine)</strong></p>
 <p>WARNING: Before you do this step, make sure cppyy has been successfully built and installed into your virtual environment. If not, this step will not work.</p>
 <p>Navigate back out to the root <code>EPICpy</code> folder. From here issue this command (it is assumed that the virtual environment is still activated):</p>
-<pre><code>python onetime_resource_setup.py
+<pre><code>python3 onetime_resource_setup.py
 </code></pre>
 <p><strong>Try to run EPICpy</strong></p>
 <p>From the <code>EPICpy</code> folder issue this command (it is assumed that the virtual environment is still activated):</p>
-<pre><code>python src/main/python/main.py
+<pre><code>python3 src/main/python/main.py
 </code></pre>
 <p>If all goes well, you should be looking at the EPICpy GUI.</p>
 <h3 id="macos">MacOS</h3>
-<p><code>Only tested on MacOS version 10.15 and version 11 (Intel CPU)</code></p>
+<p><code>Only tested on MacOS version 10.15 and version 11 (both using an Intel CPU)</code></p>
 <p><strong>Install Prerequisites</strong></p>
-<p>The only prerequisite is to install XCode. See the MacOS section of <a href="../installing/">this page</a> for more information about how to do download and install XCode (make sure you run it at least once post install).</p>
+<p>The only prerequisite is to install XCode. See the MacOS section of <a href="../installing/">this page</a> for more information about how to download and install XCode (make sure you run it at least once post install).</p>
 <p><strong>Download and decompress files</strong></p>
 <pre><code class="language-bash"># note: this will create the EPICpy source folder in the directory from which you type these commands: 
 git clone https://github.com/travisseymour/EPICpy
@@ -313,15 +312,12 @@ cd EPICpy
     <code>bash
     pyenv versions</code>
   If the above gives an error (it should just say you have no versions), then completely close your terminal and then open it again. This should allow you to use the pyenv command successfully.</li>
-<li>Install Python 3.9.7
+<li>
+<p>Install Python 3.9.7
     <code>bash
     pyenv install 3.9.7
     # if you plan to later manage EPICpy with fbs pro, then you will need to use this version instead:
-    # PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install 3.9.7</code></li>
-<li>
-<p>On at least one Ubuntu machine pyenv may complained that required programs were not already installed on the system. If so, install the ones it asks for. In this one case, the following was sufficient...but it may not be required for everyone!:
-   <code>bash
-   sudo apt install libssl-dev libbz2-dev libsqlite3-dev libreadline-dev libffi-dev</code></p>
+    # PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install 3.9.7</code></p>
 </li>
 <li>
 <p>Create a Virtual Environment Using Python 3.9.7</p>
@@ -358,15 +354,14 @@ Unlike on Linux, installing Cppyy on MacOS the normal (and much easier) way appe
 <pre><code class="language-bash"># note, if above pip-installed  you used a version of requirements.txt with cppyy uncommented, this command will just notify you that cppyy is already installed.
 pip install -U cppyy
 </code></pre>
-<p>don't forget to delete the cppyy_build folder when done, e.g., <code>rm -rf cppyy_build</code>.</p>
 <p><strong>One-Time Setup For EPICpy (per machine)</strong></p>
-<p>WARNING: Before you do this step, make sure cppyy has been successfully built and installed into your virtual environment. If not, this step will not work.</p>
+<p>WARNING: Before you do this step, make sure cppyy has been successfully installed into your virtual environment. If not, this step will not work.</p>
 <p>Navigate back out to the root <code>EPICpy</code> folder. From here issue this command (it is assumed that the virtual environment is still activated):</p>
-<pre><code>python onetime_resource_setup.py
+<pre><code>python3 onetime_resource_setup.py
 </code></pre>
 <p><strong>Try to run EPICpy</strong></p>
 <p>From the <code>EPICpy</code> folder issue this command (it is assumed that the virtual environment is still activated):</p>
-<pre><code>python src/main/python/main.py
+<pre><code>python3 src/main/python/main.py
 </code></pre>
 <p>If all goes well, you should be looking at the EPICpy GUI.</p>
 <h3 id="windows">Windows</h3>
