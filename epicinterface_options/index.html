@@ -89,8 +89,6 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#runningmanaging-simulations">Running/Managing Simulations</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#other-options">Other Options</a>
-    </li>
     </ul>
                     </li>
                 </ul>
@@ -195,7 +193,28 @@
 <p><a href="../resources/images/sound_text_settings.png"><img alt="Sound Text Settings Dialog" src="../resources/images/sound_text_settings_small.png" /></a></p>
 <p>Sound and Speech objects displayed on the Auditory Views can be adorned with several pieces of information. Note that sounds always show the Timbre and Speech always show the Content.</p>
 <h2 id="runningmanaging-simulations">Running/Managing Simulations</h2>
-<h2 id="other-options">Other Options</h2>
+<p>Once you have your device and rules loaded (an perhaps an encoder or 2), you are ready to run a simulation. The <strong>Run-&gt;Run_Settings</strong> menu allows you to view and alter the parameters for running your simulation:</p>
+<p><a href="../resources/images/dialog_run_settings.png"><img alt="Run Settings Dialog" src="../resources/images/dialog_run_settings.png" /></a></p>
+<p>In most instances, you will want to enable the <strong>Run Command Duration</strong> <code>Run Until Done</code>, the <strong>Display Refresh</strong> <code>After Each Step</code> and the <strong>Text Refresh</strong> <code>After Every 2 steps</code>, with a <strong>Real Time Per Step</strong> of <code>0 msecs(s)</code>. If you are starting a new run (updated device, ruleset, etc.), you may want to clear out the data using the <strong>[Delete Current Device Datafile]</strong> button and then press [<strong>OK</strong>]. At this point, you are ready to choose the <strong>Run-&gt;Run</strong> menu option to start your simulation. The lists below explain the other options available on the Run Settings dialog.</p>
+<p><strong>Run Command Duration</strong></p>
+<p>Run Command Duration allows you to specify the stopping rule for the simulation:</p>
+<ul>
+<li><strong>Run For</strong>: Specifies a number of simulated milliseconds or a steps to run. You can specify this value in steps (third row from the top) or in milliseconds (first row). Steps are 50 ms in duration, running for 50 ms is equivalent to running 1 step. No matter where you are in the simulation (other than the end), this will run for X more ms. Think of this as asking EPIC to run for a specified simulated time period.</li>
+<li><strong>Run Until</strong>: Specifies a simulated timestep within the simulation -- when this point has been reached, the simulation halts. If you press Run-&gt;Run while already at or past this point, nothing will be done. Think of this as asking EPIC to run until a particular simulated temporal milestone.</li>
+</ul>
+<p><strong>Display Refresh</strong></p>
+<p>As the simulation runs, EPIC will draw any visual or auditory information being represented on the device and in the sensory and perceptual systems on the Physical, Sensory, and Perceptual View windows, respectively. Although updates to these windows are being done quickly, these drawing routines and the information exchange that fuel them can slow down the simulation. In general, when developing a model, it is common to enable display refresh so that you can visually monitor the view windows as the simulation progresses. However, when producing large simulated runs, it will be much faster to disable this graphical output. Here are the options:</p>
+<ul>
+<li><strong>After Each Step</strong>: This is essentially the normal mode of operation whereby the contents of the device display and EPIC's visual and perceptual processors are depicted in the view windows dynamically as the simulation progresses. This mode is significatly slower than choosing <strong>None During Run</strong>.</li>
+<li><strong>None During Run</strong>: In this mode, view window updates are completely disabled. When the simulation ends, you <em>may</em> see something drawn on the view windows, but only if there were objects represented in the corresponding processors when the simulation ended.</li>
+</ul>
+<p><strong>Text Refresh</strong></p>
+<p>As the simulation runs, EPIC will produce a decent amount of text -- primarily consisting of a dump of EPIC's Working Memory (WM) after each 50 ms step. These settings allow you to manage how often this text is actually printed to the Normal Output and Trace windows <em>during</em> the simulation. The reason you might care is that printing text slows down the simulation somewhat. In general, when developing a model, it is common to enable text refresh so that you can visually monitor the output as the simulation progresses. However, when producing large simulated runs, it will be much faster to disable this text refresh. Here are the options:</p>
+<ul>
+<li><strong>Continuously</strong>: In this mode, EPICpy will essentially print text to the Normal Output and Trace windows as soon as it is generated,thus you will see text flying by continuously as the simulation progresses. The simulation will be significantly slower in this mode.</li>
+<li><strong>After Each X Steps</strong>: In this mode, EPICpy will cache printed text and only print it to the Normal Output <em>after</em> the specified number of steps. This mode is much faster than the <strong>Continuously</strong> mode.</li>
+<li><strong>None During Run</strong>: In this mode, EPICpy will cache printed text and only print it to the Normal Output and Trace windows <em>after</em> the entire simulation run has finished. This mode will speed up the simulation dramatically compared to the <strong>Continuously</strong> mode. Note that simulations that generate a lot of text (either long runs, and/or runs what a great deal of WM content) may take a few moments to render all the cached text after the simulation finishes.</li>
+</ul>
               
             </div>
           </div>
