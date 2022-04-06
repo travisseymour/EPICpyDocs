@@ -193,13 +193,15 @@ unzip devices.zip
 # To run EPICpy
 /opt/EPICpy/EPICpy
 </code></pre>
-<p>At this point, load one of the devices, compile the corresponding ruleset, and then run the simulation. For example:</p>
+<p>At this point, run EPICpy, load one of the devices, compile the corresponding ruleset, and then run the simulation. For example:</p>
 <ol>
 <li><strong>File-&gt;Load_Device</strong> the Choice Device (<code>devices/choice/choice_device.py</code>).</li>
 <li><strong>file-&gt;Compile_Rules</strong> the visual-manual choice ruleset (<code>devices/choice/rules/choicetask_rules_VM.prs</code>).</li>
 <li>For a quick test, go into <strong>Run-&gt;Settings</strong> and set the parameter string to <code>10 4 Hard Draft</code> (should be the default). For a complete set of choice-task data (produces a nice 2-factor graph), set the parameter string to <code>10 4 [Easy|Hard] [P1|P2|P3|P4]</code></li>
 <li>Now choose <strong>Run-&gt;Run</strong>.</li>
 </ol>
+<p><strong>--OR--</strong></p>
+<p>For a quick run of 10 choice-task trials with a visual encoder attached and 10 choice-task trials without an encoder attached, choose <strong>Test-&gt;Run Tests-&gt;All Runs</strong></p>
 <hr/>
 
 <h3 id="macos">MacOS</h3>
@@ -220,6 +222,16 @@ unzip devices.zip
 <p>To install EPICpy, first double-click <code>EPICpy.dmg</code>. You will see the EPICpy icon next to a link to the <code>Applications</code> folder. Just drag <code>EPICpy.app</code> to your Applications folder, and it will be installed (i.e., the standard MacOS install method). To uninstall later, just drag <code>EPICpy.app</code> from your <code>Applications</code> folder to the Trash.</p>
 <p>You will need to install Apple's <a href="https://developer.apple.com/xcode/">XCode</a> development environment in order to use EPICpy (it must be there, but you won't need to use it). Apple only makes it easy to install XCode if you are running the latest version of it's operating system. So if you are using the latest version (at the time of writing, that would be MacOS 12, Monteray), just head over to the App Store, search for XCode, and install it. If, on the other hand, you are running a previous version of MacOS, you will need to register for their developer program and download the version of XCode designed for your specific operating system. The website is <a href="https://devloper.apple.com">https://devloper.apple.com</a>. Direct links to each version of XCode can <em>for now</em> be found here: <a href="https://xcodereleases.com/">https://xcodereleases.com/</a> (I recommend the last major release compatible with your version of MacOS).</p>
 <p>Before downloading, make sure you have sufficient hard-drive space as the file will be quite large (e.g., XCode 13.2 is 10GB). Once you've downloaded the correct version (will take some time), extract the installer and then double-click it (note, this means you will need at least double the installer size -- e.g., 20GB or more). After it has installed, open XCode once so that it can install the build tools. Once this finishes, you can close XCode, and trash the installer (free up 10GB!); you won't need to open it again for EPICpy. I have been asked whether it would suffice to just install only the Apple XCode commandline tools (1/20 the footprint of the full XCode application) -- unfortunately, this won't work. This requirement is based on what's necessary for the <a href="https://cppyy.readthedocs.io/en/latest/">cppyy</a> C++/Python automatic binding library that EPICpy is built upon.</p>
+<p>To run EPICpy, just go into the Applications folder and double-click the EPICpy icon.</p>
+<p>At this point, run EPICpy, load one of the devices, compile the corresponding ruleset, and then run the simulation. For example:</p>
+<ol>
+<li><strong>File-&gt;Load_Device</strong> the Choice Device (<code>devices/choice/choice_device.py</code>).</li>
+<li><strong>file-&gt;Compile_Rules</strong> the visual-manual choice ruleset (<code>devices/choice/rules/choicetask_rules_VM.prs</code>).</li>
+<li>For a quick test, go into <strong>Run-&gt;Settings</strong> and set the parameter string to <code>10 4 Hard Draft</code> (should be the default). For a complete set of choice-task data (produces a nice 2-factor graph), set the parameter string to <code>10 4 [Easy|Hard] [P1|P2|P3|P4]</code></li>
+<li>Now choose <strong>Run-&gt;Run</strong>.</li>
+</ol>
+<p><strong>--OR--</strong></p>
+<p>For a quick run of 10 choice-task trials with a visual encoder attached and 10 choice-task trials without an encoder attached, choose <strong>Test-&gt;Run Tests-&gt;All Runs</strong></p>
 <hr/>
 
 <h3 id="windows">Windows</h3>
