@@ -57,12 +57,16 @@ unzip devices.zip
 /opt/EPICpy/EPICpy
 ```
 
-At this point, load one of the devices, compile the corresponding ruleset, and then run the simulation. For example:
+At this point, run EPICpy, load one of the devices, compile the corresponding ruleset, and then run the simulation. For example:
 
 1. **File->Load_Device** the Choice Device (`devices/choice/choice_device.py`).
 2. **file->Compile_Rules** the visual-manual choice ruleset (`devices/choice/rules/choicetask_rules_VM.prs`).
 3. For a quick test, go into **Run->Settings** and set the parameter string to `10 4 Hard Draft` (should be the default). For a complete set of choice-task data (produces a nice 2-factor graph), set the parameter string to `10 4 [Easy|Hard] [P1|P2|P3|P4]`
 4. Now choose **Run->Run**.
+
+**--OR--**
+
+For a quick run of 10 choice-task trials with a visual encoder attached and 10 choice-task trials without an encoder attached, choose **Test->Run Tests->All Runs**
 
 <hr/>
 
@@ -89,6 +93,19 @@ To install EPICpy, first double-click `EPICpy.dmg`. You will see the EPICpy icon
 You will need to install Apple's [XCode](https://developer.apple.com/xcode/) development environment in order to use EPICpy (it must be there, but you won't need to use it). Apple only makes it easy to install XCode if you are running the latest version of it's operating system. So if you are using the latest version (at the time of writing, that would be MacOS 12, Monteray), just head over to the App Store, search for XCode, and install it. If, on the other hand, you are running a previous version of MacOS, you will need to register for their developer program and download the version of XCode designed for your specific operating system. The website is [https://devloper.apple.com](https://devloper.apple.com). Direct links to each version of XCode can _for now_ be found here: [https://xcodereleases.com/](https://xcodereleases.com/) (I recommend the last major release compatible with your version of MacOS).
 
 Before downloading, make sure you have sufficient hard-drive space as the file will be quite large (e.g., XCode 13.2 is 10GB). Once you've downloaded the correct version (will take some time), extract the installer and then double-click it (note, this means you will need at least double the installer size -- e.g., 20GB or more). After it has installed, open XCode once so that it can install the build tools. Once this finishes, you can close XCode, and trash the installer (free up 10GB!); you won't need to open it again for EPICpy. I have been asked whether it would suffice to just install only the Apple XCode commandline tools (1/20 the footprint of the full XCode application) -- unfortunately, this won't work. This requirement is based on what's necessary for the [cppyy](https://cppyy.readthedocs.io/en/latest/) C++/Python automatic binding library that EPICpy is built upon.
+
+To run EPICpy, just go into the Applications folder and double-click the EPICpy icon.
+
+At this point, run EPICpy, load one of the devices, compile the corresponding ruleset, and then run the simulation. For example:
+
+1. **File->Load_Device** the Choice Device (`devices/choice/choice_device.py`).
+2. **file->Compile_Rules** the visual-manual choice ruleset (`devices/choice/rules/choicetask_rules_VM.prs`).
+3. For a quick test, go into **Run->Settings** and set the parameter string to `10 4 Hard Draft` (should be the default). For a complete set of choice-task data (produces a nice 2-factor graph), set the parameter string to `10 4 [Easy|Hard] [P1|P2|P3|P4]`
+4. Now choose **Run->Run**.
+
+**--OR--**
+
+For a quick run of 10 choice-task trials with a visual encoder attached and 10 choice-task trials without an encoder attached, choose **Test->Run Tests->All Runs**
 
 <hr/>
 

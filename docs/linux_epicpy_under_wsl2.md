@@ -86,9 +86,16 @@ Here you can do 3 neat things:
 
 ## Your First EPIC Simulation
 
-Load one of the devices, compile the corresponding ruleset, and then run the simulation. For example:
+At this point, run EPICpy, load one of the devices, compile the corresponding ruleset, and then run the simulation. For example:
 
 1. **File->Load_Device** the Choice Device (`devices/choice/choice_device.py`).
 2. **file->Compile_Rules** the visual-manual choice ruleset (`devices/choice/rules/choicetask_rules_VM.prs`).
-3. For a quick test, go into **Run->Settings** and set the parameter string to `10 4 Hard Draft` (should be the default). For a complete set of choice-task data (produces the nicest graph), set the parameter string to `10 4 [Easy|Hard] [P1|P2|P3|P4]`
+3. For a quick test, go into **Run->Settings** and set the parameter string to `10 4 Hard Draft` (should be the default). For a complete set of choice-task data (produces a nice 2-factor graph), set the parameter string to `10 4 [Easy|Hard] [P1|P2|P3|P4]`
 4. Now choose **Run->Run**.
+
+**--OR--**
+
+For a quick run of 10 choice-task trials with a visual encoder attached and 10 choice-task trials without an encoder attached, choose **Test->Run Tests->All Runs**
+
+
+
