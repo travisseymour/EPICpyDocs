@@ -2,7 +2,7 @@
 
 This page describes of what it means to simulate human performance using EPIC under EPICpy, by going over each of the key components of a simulation run. For an overview of what EPIC and EPICpy are, and what they are used for, see the [Home Page](index.md) page. To see an example simulation walkthrough, see the [Epic Simulation Example](example.md) page.
 
-[![Alt text](resources/images/epicpy_overview_small.png)](resources/images/epicpy_overview.png)
+[![EPICpy Overview](resources/images/epicpy_overview_small.png)](resources/images/epicpy_overview.png)
 
 **Figure 1**
 
@@ -14,7 +14,7 @@ Using EPICpy, Like EPICapp before it, generally involves the components shown in
 
 The EPICpy Application contains both an interface to EPIC architecture (copied directly from the [C++ code](https://github.com/dekieras/EPIC) maintained by its creator), which one only accesses through Task-Device programming. The EPICpy Application also offers a graphical user interface (GUI) for managing a simulation run. When launched, the EPICpy GUI will look similar to Figure 2:
 
-[![Alt text](resources/images/epicpy_gui_clean_small.png)](resources/images/epicpy_gui_clean.png)
+[![EPICpy GUI Clean](resources/images/epicpy_gui_clean_small.png)](resources/images/epicpy_gui_clean.png)
 
 **Figure 2**
 
