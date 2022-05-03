@@ -8,7 +8,7 @@ EPICpy has only been successfully tested on the platforms listed below. These ar
 * Ubuntu variants of Linux (e.g., Ubuntu, Mint, PopOS, etc.) versions 18.x - 21.x (probably works on later versions, but <u>does not</u> work on versions earlier than 18.x)
 * Windows 10 and 11 (via [WSL2](https://docs.microsoft.com/en-us/windows/wsl/about))
 
-If your goal is to use EPICpy to a) run EPIC simulations, b) create or edit device files, c) create and edit perceptual ecoder files, or c) create or run rule files, then there is no need to set up and configure the entire EPICpy development environment. All you need to do is download the appropriate installer for your operating system and the demo task-device pacakge.
+If your goal is to use EPICpy to a) run EPIC simulations, b) create or edit device files, c) create and edit perceptual encoder files, or c) create or run rule files, then there is no need to set up and configure the entire EPICpy development environment. All you need to do is download the appropriate installer for your operating system and the demo task-device pacakge.
 
 Installers for standalone EPICpy applications can be found here: [EPICpy Website](https://cogmodlab.ucsc.edu/2022/03/14/epic/)
 
