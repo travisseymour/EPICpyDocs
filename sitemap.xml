@@ -2,57 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://cogmodlab.ucsc.edu/2022/03/14/epic/</loc>
-         <lastmod>2022-04-06</lastmod>
+         <lastmod>2022-05-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cogmodlab.ucsc.edu/2022/03/14/epic/epicinterface_options/</loc>
-         <lastmod>2022-04-06</lastmod>
+         <lastmod>2022-05-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cogmodlab.ucsc.edu/2022/03/14/epic/epicinterface_windows/</loc>
-         <lastmod>2022-04-06</lastmod>
+         <lastmod>2022-05-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cogmodlab.ucsc.edu/2022/03/14/epic/epicpy_development_setup/</loc>
-         <lastmod>2022-04-06</lastmod>
+         <lastmod>2022-05-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cogmodlab.ucsc.edu/2022/03/14/epic/epicpysimcomponents/</loc>
-         <lastmod>2022-04-06</lastmod>
+         <lastmod>2022-05-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cogmodlab.ucsc.edu/2022/03/14/epic/epicpystats/</loc>
-         <lastmod>2022-04-06</lastmod>
+         <lastmod>2022-05-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cogmodlab.ucsc.edu/2022/03/14/epic/epicresources/</loc>
-         <lastmod>2022-04-06</lastmod>
+         <lastmod>2022-05-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cogmodlab.ucsc.edu/2022/03/14/epic/example/</loc>
-         <lastmod>2022-04-06</lastmod>
+         <lastmod>2022-05-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cogmodlab.ucsc.edu/2022/03/14/epic/faq/</loc>
+         <lastmod>2022-05-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cogmodlab.ucsc.edu/2022/03/14/epic/installing/</loc>
-         <lastmod>2022-04-06</lastmod>
+         <lastmod>2022-05-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cogmodlab.ucsc.edu/2022/03/14/epic/linux_epicpy_under_wsl2/</loc>
-         <lastmod>2022-04-06</lastmod>
+         <lastmod>2022-05-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cogmodlab.ucsc.edu/2022/03/14/epic/model_programming/</loc>
-         <lastmod>2022-04-06</lastmod>
+         <lastmod>2022-05-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
