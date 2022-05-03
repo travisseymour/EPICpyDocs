@@ -1,4 +1,4 @@
-# EPICpy Frequntly Asked Questions
+# EPICpy Frequently Asked Questions
 
 ## General
 
