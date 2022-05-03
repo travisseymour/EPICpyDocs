@@ -10,5 +10,5 @@ nav:
   - Model Programming: model_programming.md
   - EPICpy Development Setup: epicpy_development_setup.md
   - EPIC Resources: epicresources.md
-  - FAQ: faq.md
+  - Frequently Asked Questions: faq.md
 theme: readthedocs
