@@ -1,7 +1,12 @@
 ## EPICpy Documentation
 Travis L. Seymour, PhD
 
+[![DOI](https://joss.theoj.org/papers/10.21105/joss.04533/status.svg)](https://doi.org/10.21105/joss.04533)
+
 ---
+
+[![EPICpy Snapshot](docs/resources/images/custom_layout_choicetask_small.png)](docs/resources/images/custom_layout_choicetask.png)
+
 
 **Background**
 
@@ -17,6 +22,7 @@ EPIC currently exists as an integration between a computational version of the a
 
 For more information:
 
+* [EPICpy Article](https://joss.theoj.org/papers/10.21105/joss.04533)
 * [EPICpy Overview, Binary Installers, Dockerfile, and Sample Tasks](https://cogmodlab.ucsc.edu/2022/03/14/epic/)
 * [Detailed EPICpy Documentation](https://travisseymour.github.io/EPICpyDocs/) (The docs in this repository hosted for public use)
 
