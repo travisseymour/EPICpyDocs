@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://cogmodlab.ucsc.edu/2022/03/14/epic/epicpy_development_setup/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>EPICpy Development Setup - EPICpy Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "EPICpy Development Setup";
+        var mkdocs_page_input_path = "epicpy_development_setup.md";
+        var mkdocs_page_url = "/2022/03/14/epic/epicpy_development_setup/";
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> EPICpy Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../installing/">Installing EPICpy</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../epicpysimcomponents/">Simulation Components</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../epicinterface_windows/">EPICpy GUI Windows</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../epicinterface_options/">EPICpy GUI Options</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../example/">Example Simulation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../model_programming/">Model Programming</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">EPICpy Development Setup</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#preparation">Preparation</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#linux">Linux</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#macos">MacOS</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#windows">Windows</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../epicresources/">EPIC Resources</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../faq/">Frequently Asked Questions</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">EPICpy Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>EPICpy Development Setup</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="epicpy-development">EPICpy Development</h1>
+<h2 id="overview">Overview</h2>
+<p>EPICpy is developed using the following technologies:</p>
+<p><strong>Python</strong></p>
+<p>Version 3.9.7 (currently developed with 3.9.7, but should work with later versions of 3.9.x, and probably others too.)</p>
+<p>Note: EPICpy may work fine on Python versions beyond 3.9.x, but this has not been tested. Python earlier than Python 3.8.x will definitely <strong>not</strong> work. The critical question for future Python compatability is whether the modules and packages EPICpy depends on will work for Python 3.10 and beyond. This notice will be updated as newer Python versions are tested and verified as working.</p>
+<p><strong>Key Packages</strong></p>
+<ul>
+<li><a href="https://cppyy.readthedocs.io/en/latest/">Cppyy Bindings Generator</a> (cppyy): Automatically generates automatic Python bindings for existing C++ code.</li>
+<li><a href="https://wiki.qt.io/Qt_for_Python">PySide2 GUI Framework</a> (pyside2): Used to build the Graphical User Interface.</li>
+<li><a href="https://pingouin-stats.org/">Pingouin Stats System</a> (pingouin): Meta-package providing access variety of statistical and gpraphing packages.</li>
+<li><a href="https://build-system.fman.io/">FMan Build System</a> (fbs): Development system facilitating creating signed executable and installers for all operating systems.</li>
+</ul>
+<p>Note: The internal uses of the FMan Build System (FBS) in the EPICpy codebase will work as expected if main.py is started directly (e.g., <code>python3 src/main/python/main.py</code>), however none of the standard <code>fbs</code> commands will work on any Python version beyond 3.6.x. In order to use <code>fbs run</code> (or any <code>fbs</code> command) on Python 3.9, you will need to purchase and install the paid FBS Pro edition. <strong>FBS Pro is not required if you just plan to develop and run the EPICpy code on your computer</strong>.</p>
+<h2 id="preparation">Preparation</h2>
+<h3 id="linux">Linux</h3>
+<p><code>Only tested on Ubuntu variants of Linux (e.g., Ubuntu, Mint, PopOS, etc.)</code></p>
+<p>Most recent Linux distributions come with Python 3 already installed, so you probably already have Python. The following instructions will assume you want to use that version of Python. Otherwise, adjust the path of the <code>python -m venv venv</code> command or use your own method to create the virtual environment. In addition, some Linux distributions may already have the necessary development tools (e.g., c++ compiler) installed. If so, skip the pre-requisites step. If you end up with multiple 3.x versions of Python on your system, change the one <code>python3</code> command below with the specific one you want to use, e.g., <code>python3.9.7</code> when creating the venv.</p>
+<p><strong>Install Prerequisites</strong></p>
+<pre><code class="language-bash">sudo apt-get install -y curl gitmake g++ build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libxcb-xinerama0
+</code></pre>
+<p><strong>Download and decompress files</strong></p>
+<pre><code class="language-bash"># note: this will create the EPICpy source folder in the directory from which you type these commands: 
+git clone https://github.com/travisseymour/EPICpy
+cd EPICpy
+</code></pre>
+<p><strong>Create A Virtual Environment</strong></p>
+<p>NOTE: If you are a Python developer and know what you're doing, you may not need help obtaining and installing Python 3.9.7, or creating a virtual machine using this version of Python. If so, you can skip this section:</p>
+<ol>
+<li>
+<p>Installing Python 3.9.7 using <a href="https://github.com/pyenv/pyenv">pyenv</a></p>
+</li>
+<li>
+<p>Install PyEnv
+    <code>bash
+    curl https://pyenv.run | bash</code></p>
+</li>
+<li>Add Necessary Shell Config</li>
+<li>Edit your shell config file (e.g., <code>~/.bashrc</code>) and add these commands to the end:
+    <code>bash
+    export PATH="$HOME/.pyenv/bin:$PATH"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    if command -v pyenv 1&gt;/dev/null 2&gt;&amp;1; then
+      eval "$(pyenv init -)"
+    fi</code></li>
+<li>Restart your shell
+    <code>bash
+    exec $SHELL</code></li>
+<li>Test pyenv
+    <code>bash
+    pyenv versions</code>
+  If the above gives an error (it should just say you have no versions), then completely close your terminal and then open it again. This should allow you to use the pyenv command successfully.</li>
+<li>Install Python 3.9.7
+    <code>bash
+    pyenv install 3.9.7
+    # if you plan to later manage EPICpy with fbs pro, then you will need to use this version instead:
+    # PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install 3.9.7</code></li>
+<li>
+<p>On at least one Ubuntu machine pyenv complained that some required programs were not already installed on the system. If so, install the ones it asks for. In this one case, the following was sufficient...but it may not be required for everyone!:
+   <code>bash
+   sudo apt install libssl-dev libbz2-dev libsqlite3-dev libreadline-dev libffi-dev</code></p>
+</li>
+<li>
+<p>Create a Virtual Environment Using Python 3.9.7</p>
+<ul>
+<li>Determine where you want to store your virtual environment. One possibility is to store it within the EPICpy folder itself. This is not best practice, so consider storing it somewhere else. However, if you do this, please name it "venv" so that it will be excluded by EPICpy's gitignore policy and not be included should you ever push changes back to the repository.</li>
+<li>Create the virtual environment
+    <code>bash
+    # ~/.pyenv/versions/3.9.7/bin/python3 -m venv /PATH/TO/VIRTUAL_ENVIRONMENT
+    # e.g.:
+    ~/.pyenv/versions/3.9.7/bin/python3 -m ~/Desktop/EPICpy/venv</code></li>
+<li>Activate the virtual environment
+    <code>bash
+    # source /PATH/TO/VIRTUAL_ENVIRONMENT/bin/activate
+    # e.g.:
+    source ~/Desktop/EPICpy/venv/bin/activate</code></li>
+<li>Test it
+    <code>bash
+    python -V</code>
+    This should report <code>Python 3.9.7</code></li>
+</ul>
+</li>
+</ol>
+<p><strong>Install Dependencies</strong></p>
+<p>First, cd into the <code>EPICpy</code> folder, then:</p>
+<pre><code class="language-bash"># update pip itself
+pip install -U pip wheel
+
+# install EPICpy requirements
+pip install -r requirements.txt
+# If you have an fbs pro install command, run that now. It can also be upgraded later if you purchased fbs pro (optional).
+</code></pre>
+<p><strong>*Install Cppyy Dependencies</strong></p>
+<p>Unfortunately, cppyy only seems to work properly on Linux if it is installed from source (<a href="https://cppyy.readthedocs.io/en/latest/repositories.html#building-from-source">as recommended in the cppyy documents</a>). See that page for a full explanation, but the key steps are copied below. Note, the steps below assumes you still have the virtual environment activated.</p>
+<pre><code class="language-bash"># Create disposable folder for building cppyy
+mkdir cppyy_build
+cd cppyy_build
+
+# Build cppyy-cling
+git clone https://github.com/wlav/cppyy-backend.git
+cd cppyy-backend/cling
+python setup.py egg_info
+python create_src_directory.py
+
+# Install cppyy-cling
+python -m pip install . --upgrade
+cd ..
+
+# Build cppyy-backend
+git clone https://github.com/wlav/cppyy-backend.git
+cd cppyy-backend/clingwrapper
+
+# Install cppyy-backend
+python -m pip install . --upgrade --no-use-pep517 --no-deps
+cd ..
+
+# Build CPyCppyy
+git clone https://github.com/wlav/CPyCppyy.git
+cd CPyCppyy
+
+# Install CPyCppyy
+python -m pip install . --upgrade --no-use-pep517 --no-deps
+cd ..
+
+# Build cppyy
+git clone https://github.com/wlav/cppyy.git
+cd cppyy
+
+# Install cppyy
+python -m pip install . --upgrade --no-deps
+</code></pre>
+<p>don't forget to delete the cppyy_build folder when done, e.g., <code>rm -rf cppyy_build</code>, as it is rather large and no longer necessary.</p>
+<p><strong>One-Time Setup For EPICpy (per machine)</strong></p>
+<p>WARNING: Before you do this step, make sure cppyy has been successfully built and installed into your virtual environment. If not, this step will not work.</p>
+<p>Navigate back out to the root <code>EPICpy</code> folder. From here issue this command (it is assumed that the virtual environment is still activated):</p>
+<pre><code>python3 onetime_resource_setup.py
+</code></pre>
+<p><strong>Try to run EPICpy</strong></p>
+<p>From the <code>EPICpy</code> folder issue this command (it is assumed that the virtual environment is still activated):</p>
+<pre><code>python3 src/main/python/main.py
+</code></pre>
+<p>If all goes well, you should be looking at the EPICpy GUI.</p>
+<h3 id="macos">MacOS</h3>
+<p><code>Only tested on MacOS version 10.15 and version 11 (both using an Intel CPU)</code></p>
+<p><strong>Install Prerequisites</strong></p>
+<p>The only prerequisite is to install XCode. See the MacOS section of <a href="../installing/">this page</a> for more information about how to download and install XCode (make sure you run it at least once post install).</p>
+<p><strong>Download and decompress files</strong></p>
+<pre><code class="language-bash"># note: this will create the EPICpy source folder in the directory from which you type these commands: 
+git clone https://github.com/travisseymour/EPICpy
+cd EPICpy
+</code></pre>
+<p><strong>Create A Virtual Environment</strong></p>
+<p>NOTE: If you are a Python developer and know what you're doing, you may not need help obtaining and installing Python 3.9.7, or creating a virtual machine using this version of Python. If so, you can skip this section:</p>
+<p><strong>Installing Python 3.9.7</strong></p>
+<p>There are 2 ways covered here for installing Python 3.9.7. I recommend using PyEnv, as it is far easier to manage if you find yourself later needing to install and manage multiple python versions. However, it's entirely up to you -- both the PyEnv and the Python.org approach have been tested and work fine. Some MacOS Python developers will likely use homebrew to manage Python...this could work too, but I have not tested it with EPICpy. Obviously, you only need to use 1 of the methods below:</p>
+<ol>
+<li>
+<p>Installing Python 3.9.7 using the Python.org installer</p>
+<p>If your MacOS distribution does have Python 3.9 installed, and even if it happens to be 3.9.7, I would not recommend using this version. If you mess something up, you could damage your system. Instead, go to <a href="https://www.python.org/">https://www.python.org/</a> and download the official Python 3.9.7 installer. Finding the relevant download page is not super obvious, so here is the direct link: <a href="https://www.python.org/downloads/release/python-397/">https://www.python.org/downloads/release/python-397/</a>. If you eventually end up with multiple 3.x versions of Python on your system, change any <code>python</code> or <code>python3</code> command below with the specific one you want to use, (e.g., <code>python3.9.7</code>) when creating the venv.</p>
+</li>
+<li>
+<p>Installing Python 3.9.7 using PyEnv <font color="green"><strong>[Recommended]</strong></font></p>
+</li>
+<li>
+<p>Install PyEnv
+    <code>bash
+    curl https://pyenv.run | bash</code></p>
+</li>
+<li>Add Necessary Shell Config</li>
+<li>Edit your shell config file (e.g., <code>~/bashrc</code>) and add these commands to the end:
+    <code>bash
+    export PATH="$HOME/.pyenv/bin:$PATH"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    if command -v pyenv 1&gt;/dev/null 2&gt;&amp;1; then
+      eval "$(pyenv init -)"
+    fi</code></li>
+<li>Restart your shell
+    <code>bash
+    exec $SHELL</code></li>
+<li>Test pyenv
+    <code>bash
+    pyenv versions</code>
+  If the above gives an error (it should just say you have no versions), then completely close your terminal and then open it again. This should allow you to use the pyenv command successfully.</li>
+<li>
+<p>Install Python 3.9.7
+    <code>bash
+    pyenv install 3.9.7
+    # if you plan to later manage EPICpy with fbs pro, then you will need to use this version instead:
+    # PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install 3.9.7</code></p>
+</li>
+<li>
+<p>Create a Virtual Environment Using Python 3.9.7</p>
+<ul>
+<li>Determine where you want to store your virtual environment. One possibility is to store it within the EPICpy folder itself. This is not best practice, so consider storing it somewhere else. However, if you do this, please name it "venv" so that it will be excluded by EPICpy's gitignore policy and not be included should you ever push changes back to the repository.</li>
+<li>Create the virtual environment
+    <code>bash
+    # ~/.pyenv/versions/3.9.7/bin/python -m venv /PATH/TO/VIRTUAL_ENVIRONMENT
+    # e.g.:
+    ~/.pyenv/versions/3.9.7/bin/python -m ~/Desktop/EPICpy/venv</code></li>
+<li>Activate the virtual environment
+    <code>bash
+    # source /PATH/TO/VIRTUAL_ENVIRONMENT/bin/activate
+    # e.g.:
+    source ~/Desktop/EPICpy/venv/bin/activate</code></li>
+<li>Test it
+    <code>bash
+    python -V</code>
+    This should report <code>Python 3.9.7</code></li>
+</ul>
+</li>
+</ol>
+<p><strong>Install Dependencies</strong></p>
+<p>First, cd into the <code>EPICpy</code> folder, then:</p>
+<pre><code class="language-bash"># update pip itself
+pip install -U pip wheel
+
+# install EPICpy requirements
+pip install -r requirements.txt
+# If you have an fbs pro install command, run that now It can also be upgraded later.
+</code></pre>
+<p><strong>*Install Cppyy Dependencies</strong>
+Unlike on Linux, installing Cppyy on MacOS the normal (and much easier) way appears to be working just fine. With the virtual environment activated, issue this command:</p>
+<pre><code class="language-bash"># note, if above pip-installed  you used a version of requirements.txt with cppyy uncommented, this command will just notify you that cppyy is already installed.
+pip install -U cppyy
+</code></pre>
+<p><strong>One-Time Setup For EPICpy (per machine)</strong></p>
+<p>WARNING: Before you do this step, make sure cppyy has been successfully installed into your virtual environment. If not, this step will not work.</p>
+<p>Navigate back out to the root <code>EPICpy</code> folder. From here issue this command (it is assumed that the virtual environment is still activated):</p>
+<pre><code>python3 onetime_resource_setup.py
+</code></pre>
+<p><strong>Try to run EPICpy</strong></p>
+<p>From the <code>EPICpy</code> folder issue this command (it is assumed that the virtual environment is still activated):</p>
+<pre><code>python3 src/main/python/main.py
+</code></pre>
+<p>If all goes well, you should be looking at the EPICpy GUI.</p>
+<h3 id="windows">Windows</h3>
+<p>For the same reason there is no EPICpy installer for Windows, there is no obvious way currently to develop EPIC on Window. However, you <em>should</em> be able to enable WSL2, install Ubuntu 18.04 or later, and then use the instructions above for Linux to develop/run EPICpy.  Consider <a href="../linux_epicpy_under_wsl2/">these instructions</a> to get setup. At the end of those instructions, come back to this page and then follow the instructions above for Linux.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../model_programming/" class="btn btn-neutral float-left" title="Model Programming"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../epicresources/" class="btn btn-neutral float-right" title="EPIC Resources">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../model_programming/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../epicresources/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
