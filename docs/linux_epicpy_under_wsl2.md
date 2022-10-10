@@ -56,33 +56,72 @@ Note that the very last command used to run EPICpy (`/opt/EPICpy/EPICpy`) will N
 
 ## Installing an XServer for WSL2
 
-At this point you have Ubuntu installed in a virtual machine managed by WLS2. EPICpy is a graphical application with a Graphical User Interface (GUI). You want to run EPICpy on the virtual machine, but view the GUI on your actual Windows desktop. To do this, we need a tool that will interpret graphical commands from the Ubuntu and realize them in your Windows desktop. We will use something called an X-Windows Server (or XServer for short). There are many XServers available for Windows, but we will use one called GWSL.
+At this point you have Ubuntu installed in a virtual machine managed by WLS2. EPICpy is a graphical application with a Graphical User Interface (GUI). You want to run EPICpy on the virtual machine, but view the GUI on your actual Windows desktop. To do this, we need a tool that will interpret graphical commands from the Ubuntu and realize them in your Windows desktop. We will use something called an X-Windows Server (or XServer for short). Let's use one called **VC X-Server**.
 
-Open the Windows Store and search for `GWSL`. Then **[GET]** this application. When if finishes installing, press the **[OPEN]** button to launch it.
+Download and install the installer from the VcXsrv Project web page: [https://sourceforge.net/projects/vcxsrv/](https://sourceforge.net/projects/vcxsrv/). The last time I downloaded this file it was called _vcxsrv-64.1.20.14.0.installer.exe, but it may have been updated since then and have a slightly different version in the name. Double-click to install this file. 
 
-Note that the first time GWSL launches, you will recieve this firewall notice:
+When installation starts, you should see a screen like this:
 
-[![GSWL Firewall Notice](resources/images/gwsl_firewall_notice.png)](resources/images/gwsl_firewall_notice.png)
+[![vcxsrv install dialog 1](resources/images/vcxsrvpics/install1.png)](resources/images/vcxsrvpics/install1.png)
 
-This is perfectly normal...XServers work by creating a virtual network over which Ubuntu and your actual Windows desktop can communicate. Clicking the [OK] button is giving GWSL permission to set up this communication so that any graphical (via `GSWL_vcxsrv.exe`) or auditory (via `pulseadio.exe`) generated on Ubuntu will be transfered to your desktop. This is how GWSL creates the illusion that graphical apps running on Ubuntu are running on your Windows desktop.
+Leave all options selected and press **[NEXT]**. Afterwards, you'll see this window:
 
-Windows will verify this twice, once for `GSWL_vcxsrv.exe` and once for `pulseadio.exe`. You will need to press the [ALLOW ACCESS] button for each in order for GWSL to work properly.
+[![vcxsrv install dialog 2](resources/images/vcxsrvpics/install2.png)](resources/images/vcxsrvpics/install2.png)
 
-## Running EPICpy with GWSL
+Assuming this is where you want to save the VcXsrv application, click **[INSTALL]**. When this finishes, you will see a window like this:
 
-Once GWSL is installed, you will notice a new icon in your Windows icon bar for GWSL, and if you click on this icon, you will see a menu like this:
+[![vcxsrv install dialog 3](resources/images/vcxsrvpics/install3.png)](resources/images/vcxsrvpics/install3.png)
 
-[![GSWL Menu](resources/images/gwsl_menu_1.png)](resources/images/gwsl_menu_1.png)
+Press **[CLOSE]** to complete this process.
 
-If you click the **[Linux Apps]** link, you will see this sub-menu:
+Note that the first time you run VcXsrv, you will see a Windows Firewall notice like this:
 
-[![GSWL Menu](resources/images/gwsl_menu_2.png)](resources/images/gwsl_menu_2.png)
+[![vcxsrv install dialog 3](resources/images/vcxsrvpics/vcxsrvfirewall.png)](resources/images/vcxsrvpics/vcxsrvfirewall.png)
 
-Here you can do 3 neat things:
+Make sure you press the **[Allow access]** button. Note that this is necessary because you are running EPICpy in a virtual Linux machine and showing the graphics on your Windows machine. Even though these 2 exist on the same physical computer, they are part of a virtual server/client relationship and as far as these two applications are concerned, they are speaking separately across a network. Allowing this communication through the Windows Firewall allows EPICpy to work as intended.
 
-1. Open a terminal window in case you want to enter commands at the Ubuntu command prompt
-2. Use the Windows File Explorer to mangage files on your Ubuntu virtual machine. This can be handy for moving EPIC simulations and data between your Windows desktop and your EPICpy work folder in your Ubuntu account. Note, this will show you the rool Linux folder. It's dangerous to mess around with these files. Your home folder (i.e., the place you start when you launch the Ubuntu command prompt) lives in the `home` folder. In side `home`, you will see a home folder with the name you choose for your Ubuntu account name. Inside the command prompt, this can be found using the address `/home/YOUR_UBUNTU_USER_NAME`. In the Windows File Explorer, this address will be `\\wsl$\Ubuntu-18.04\home\YOUR_UBUNTU_USER_NAME`
-3. A list of installed Linux GUI applications. So far, the only one you should see is EPICpy. Click it to launch EPICpy. 
+
+## Running EPICpy with VcXsrv
+
+Once VcXsrv is installed, you will notice a new icon on your Windows icon bar (or maybe it's on your Desktop). It will look something like this:
+
+[![vcxsrv install dialog 3](resources/images/vcxsrvpics/icon.png)](resources/images/vcxsrvpics/icon.png)
+
+**NOTE: that the following steps will have to be repeated during every session during which you run the EPICpy application (i.e., between reboots)**
+
+First, double-click on the XLaunch icon, you will see a screen like this:
+
+[![vcxsrv install dialog 3](resources/images/vcxsrvpics/dialog1.png)](resources/images/vcxsrvpics/dialog1.png)
+
+Choose "Multiple Windows". Then choose a Display Number of 0. Press **[NEXT]** to see the next window:
+
+[![vcxsrv install dialog 3](resources/images/vcxsrvpics/dialog2.png)](resources/images/vcxsrvpics/dialog2.png)
+
+Choose "Start no client" and Press **[NEXT]** to see the next window:
+
+[![vcxsrv install dialog 3](resources/images/vcxsrvpics/dialog3.png)](resources/images/vcxsrvpics/dialog3.png)
+
+On this screen <u>check ALL of the checkboxes</u>! The "Disable access control" option may not be checked by default, but EPICpy will not be able to connect to VcXsrv without this option checked. Afterwards press **[NEXT]** to see the final screen:
+
+[![vcxsrv install dialog 3](resources/images/vcxsrvpics/dialog4.png)](resources/images/vcxsrvpics/dialog4.png)
+
+Notice that this screen has an option to save the configuration to remember your changes each time you go through these dialogs. However, this may not work. If not, then just enter the above settings each time.
+
+Press **[FINISH]** to complete this process.
+
+Next you need to start Ubuntu (it's ok if it is already open). On the commandline, type in (or better yet, do a copy/paste) this exact command. Note that the odd locking backticks are on purpose:
+
+```bash
+export DISPLAY="`grep nameserver /etc/resolv.conf | sed 's/nameserver //'`:0"
+```
+
+Then, assuming you have installed EPICpy in the default location, you can start EPIC with this command:
+
+```bash
+/opt/EPICpy/EPICpy
+```
+
+If this works, you should see the EPICpy GUI.
 
 ## Your First EPIC Simulation
 
