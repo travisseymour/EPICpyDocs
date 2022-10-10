@@ -1,9 +1,10 @@
 # Welcome to the EPICpy Docs
 
-You can find EPICpy at one of these locations:
+You can find EPICpy related content at one of these locations:
 
 * [Overview, Binary Installers, Dockerfile](https://cogmodlab.ucsc.edu/2022/03/14/epic/)
 * [Detailed Documentation @ Github Pages](https://travisseymour.github.io/EPICpyDocs/) (You're Reading It Now!)
+* [EPICpy Article](https://joss.theoj.org/papers/10.21105/joss.04533)
 * [Development Environment @ Github](https://github.com/travisseymour/epicpy)
 
 If you want to jump directly to a step-by-step example of how you use EPICpy to do EPIC modeling (with an admittedly toy-example task), see the [Example](example.md) page. If you are looking for a quick test to make sure EPICpy is working correctly on your computer, go to the [An EPIC Model of the Human Data](example.md#an-epic-model-of-the-human-data) on the Example page and follow the directions under **Initial Model Process Diagram**.
