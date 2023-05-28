@@ -34,7 +34,7 @@
           <a href=".." class="icon icon-home"> EPICpy Documentation
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -113,7 +113,7 @@
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
       <li>Simulation Components</li>
     <li class="wy-breadcrumbs-aside">
     </li>
@@ -124,7 +124,7 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="epicpy-simulation-components">EPICpy Simulation Components</h1>
-<p>This page describes of what it means to simulate human performance using EPIC under EPICpy, by going over each of the key components of a simulation run. For an overview of what EPIC and EPICpy are, and what they are used for, see the <a href="..">Home Page</a> page. To see an example simulation walkthrough, see the <a href="../example/">Epic Simulation Example</a> page.</p>
+<p>This page describes of what it means to simulate human performance using EPIC under EPICpy, by going over each of the key components of a simulation run. For an overview of what EPIC and EPICpy are, and what they are used for, see the <a href="../">Home Page</a>. To see an example simulation walkthrough, see the <a href="../example/">Epic Simulation Example</a> page.</p>
 <p><a href="../resources/images/epicpy_overview.png"><img alt="EPICpy Overview" src="../resources/images/epicpy_overview_small.png" /></a></p>
 <p><strong>Figure 1</strong></p>
 <p>Executive-Process/Interactive-Control (EPIC) is a Cognitive Architecture created by David Kieras and David Meyer. EPIC describes both an integrated theory of human performance and a computational approach to using that system to simulate human behavior. Detailed description of the EPIC architecture as a theory of human performance, and examples of how it can be applied to answering various psychological questions can be found at <a href="https://web.eecs.umich.edu/~kieras/epic.html">https://web.eecs.umich.edu/~kieras/epic.html</a> (also see the <a href="../epicresources/">EPIC Resources</a> page). EPIC itself is a library written in C++ (called EPICLib), but cannot be used directly. Instead, you need some control software that allows you to configure and manage simulations using EPIC. Previously, EPIC the architecture was combined with EPICapp, the GUI-based control software, also written in C++. This combination can be found at <a href="https://github.com/dekieras/EPIC">https://github.com/dekieras/EPIC</a> (requires MacOS with XCode installed).</p>

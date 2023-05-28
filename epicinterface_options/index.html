@@ -34,7 +34,7 @@
           <a href=".." class="icon icon-home"> EPICpy Documentation
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -79,6 +79,10 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#sound-text-settings-dialog">Sound Text Settings Dialog</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#font-settings-dialog">Font Settings Dialog</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#text-editor-settings-dialog">Text Editor Settings Dialog</a>
+    </li>
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#runningmanaging-simulations">Running/Managing Simulations</a>
@@ -119,7 +123,7 @@
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
       <li>EPICpy GUI Options</li>
     <li class="wy-breadcrumbs-aside">
     </li>
@@ -132,14 +136,18 @@
                 <h1 id="epicpy-interface-options-settings-and-commands">EPICpy Interface Options, Settings, and Commands</h1>
 <p>When you first run EPICpy, the graphical user interface (GUI) should look like this:</p>
 <p><a href="../resources/images/epicpy_gui_clean.png"><img alt="EPIC GUI Initial" src="../resources/images/epicpy_gui_clean_small.png" /></a></p>
-<p>EPICpy's menu will be found atop the <strong>Normal Output Window</strong> for most platforms, but for MacOS, the menu will be attached to the top of the screen rather than the top of the Normal Output Window. In some cases, you might not see the top-screen menu on MacOS until after you have mouse-clicked inside the Normal Output Window at least once.</p>
+<!--
+TODO: Let's keep this here in case MacOS users complain and ask for this to return
+EPICpy's menu will be found atop the **Normal Output Window** for most platforms, but for MacOS, the menu will be attached to the top of the screen rather than the top of the Normal Output Window. In some cases, you might not see the top-screen menu on MacOS until after you have mouse-clicked inside the Normal Output Window at least once.
+-->
+
 <h2 id="file-menu">File Menu</h2>
 <p><a href="../resources/images/menu_file.png"><img alt="File Menu" src="../resources/images/menu_file_small.png" /></a></p>
 <ul>
 <li><strong>Load Device</strong>: Presents a file dialog that allows you to select and load an EPICpy "Device File". Device files define a particular virtual task and are coded in Python.</li>
 <li><strong>Compile Rules</strong>: Presents a file dialog that allows you to select and load an EPICpy "Production Rule" text file. Production Rules are written in IF-THEN style according to the Parsimonious Production Rule System <a href="../resources/articles/CovrigaruKieras1987_ONR_TR26.pdf">(Covrigaru &amp; Kieras 1995)</a>. The verb "Compile" indicates that after loading this file, EPIC will attempt to evaluate the rules and use them to construct a rule network. Any errors in the rule syntax will be noted in the Normal Output Window.</li>
 <li><strong>Recompile Rules</strong>: Compiles the most recently production rule file to have been successfully compiled.</li>
-<li><strong>Export Normal/Trace/Stats Output</strong>: Opens a file-save dialog allowing to the contents of the Normal-, Trace-, or Stats- Window to be stored as a file on disk.</li>
+<li><strong>Export Normal/Trace/Stats Output</strong>: Opens a file-save dialog allowing to the contents of the Normal-, Trace-, or Stats-Window to be stored as a file on disk.</li>
 </ul>
 <h2 id="find-menu">Find Menu</h2>
 <p><a href="../resources/images/menu_find.png"><img alt="Find Menu" src="../resources/images/menu_find_small.png" /></a></p>
@@ -159,7 +167,7 @@
 <li><strong>PPS Compiler Messages</strong>: Prints extra diagnostic information when (re)compiling production rules.</li>
 <li><strong>Spatial scale pixels/degree</strong>: Magnification factor for view windows. Larger values zoom in, smaller values zoom out.</li>
 <li><strong>Show Model Parameter Before Each Run</strong>: Does as the name suggests, can be useful when saving Normal Output Window content to have an indication of the corresponding EPIC parameterization. If you are new to EPIC modelling, you should study this output -- the defaults may or may not be relevant for your task, although care should be taken before changing EPIC parameters without sufficient cause.</li>
-<li><strong>Allow device to draw view underlay images</strong>: It is possible for devices to specify images the draw underneath normal Visual- or Auditory View content. This toggle allows such drawing to be enabled/disabled without altering the device code. Images need to be placed in a folder next to the defice called <strong>images</strong>. Images will only be shown if this setting is ON <em>and</em> the task device explicitly calls for them to be drawn.</li>
+<li><strong>Allow device to draw view underlay images</strong>: It is possible for devices to specify images the draw underneath normal Visual- or Auditory View content. This toggle allows such drawing to be enabled/disabled without altering the device code. Images need to be placed in a folder next to the device called <strong>images</strong>. Images will only be shown if this setting is ON <em>and</em> the task device explicitly calls for them to be drawn.</li>
 <li><strong>Compiler Details</strong>: Currently does nothing.</li>
 <li><strong>Run Details</strong>: Prints detailed information about the operation of PPS during simulation runs. Not often useful for most modellers, but can be useful for investigating why complex rules are or are not firing.</li>
 <li><strong>Center Dot</strong>: Toggles the drawing of a small dot on Visual Views to indicate where the center of the view is as other objects move around.</li>
@@ -175,11 +183,22 @@
 <p><a href="../resources/images/dialog_device_options.png"><img alt="Device Options Dialog" src="../resources/images/dialog_device_options_small.png" /></a></p>
 <p>This dialog will present 0 or more checkboxes that allow toggling features of the current task device without altering the corresponding code. Note that exposing options for this menu is optional and some devices may not expose any.</p>
 <h3 id="epiclib-settings-dialog">EPICLib Settings Dialog</h3>
-<p><a href="../resources/images/dialog_epiclib_settings.png"><img alt="EPICLib Settings Dialog" src="../resources/images/dialog_epiclib_settings_small.png" /></a></p>
-<p>This dialog indicates the EPIClib versions that are currently available. By default, the "Use Latest Version" setting is selected. However, if one wants to run a simulation that relies on an older version of EPIClib, this dialog can be useful.</p>
+<p><font color="#8b0000">NOTE: This dialog has been disabled for now -- currently, only the 06/08/2016 version of EPICLib is available.</font></p>
+<!--
+[![EPICLib Settings Dialog](resources/images/dialog_epiclib_settings_small.png)](resources/images/dialog_epiclib_settings.png)
+
+This dialog indicates the EPIClib versions that are currently available. By default, the "Use Latest Version" setting is selected. However, if one wants to run a simulation that relies on an older version of EPIClib, this dialog can be useful.
+-->
+
 <h3 id="sound-text-settings-dialog">Sound Text Settings Dialog</h3>
 <p><a href="../resources/images/sound_text_settings.png"><img alt="Sound Text Settings Dialog" src="../resources/images/sound_text_settings_small.png" /></a></p>
 <p>Sound and Speech objects displayed on the Auditory Views can be adorned with several pieces of information. Note that sounds always show the Timbre and Speech always show the Content.</p>
+<h3 id="font-settings-dialog">Font Settings Dialog</h3>
+<p><a href="../resources/images/font_settings.png"><img alt="Font Settings Dialog" src="../resources/images/font_settings_small.png" /></a></p>
+<p>Although the font used by EPICpy is set, this dialog allows you to set the font size used.</p>
+<h3 id="text-editor-settings-dialog">Text Editor Settings Dialog</h3>
+<p><a href="../resources/images/text_editor_settings.png"><img alt="Font Settings Dialog" src="../resources/images/text_editor_settings_small.png" /></a></p>
+<p>Although the font used by EPICpy is set, this dialog allows you to set the font size used.</p>
 <h2 id="runningmanaging-simulations">Running/Managing Simulations</h2>
 <p>Once you have your device and rules loaded (an perhaps an encoder or 2), you are ready to run a simulation. The <strong>Run-&gt;Run_Settings</strong> menu allows you to view and alter the parameters for running your simulation:</p>
 <p><a href="../resources/images/dialog_run_settings.png"><img alt="Run Settings Dialog" src="../resources/images/dialog_run_settings.png" /></a></p>
@@ -193,7 +212,7 @@
 <p><strong>Display Refresh</strong></p>
 <p>As the simulation runs, EPIC will draw any visual or auditory information being represented on the device and in the sensory and perceptual systems on the Physical, Sensory, and Perceptual View windows, respectively. Although updates to these windows are being done quickly, these drawing routines and the information exchange that fuel them can slow down the simulation. In general, when developing a model, it is common to enable display refresh so that you can visually monitor the view windows as the simulation progresses. However, when producing large simulated runs, it will be much faster to disable this graphical output. Here are the options:</p>
 <ul>
-<li><strong>After Each Step</strong>: This is essentially the normal mode of operation whereby the contents of the device display and EPIC's visual and perceptual processors are depicted in the view windows dynamically as the simulation progresses. This mode is significatly slower than choosing <strong>None During Run</strong>.</li>
+<li><strong>After Each Step</strong>: This is essentially the normal mode of operation whereby the contents of the device display and EPIC's visual and perceptual processors are depicted in the view windows dynamically as the simulation progresses. This mode is significantly slower than choosing <strong>None During Run</strong>.</li>
 <li><strong>None During Run</strong>: In this mode, view window updates are completely disabled. When the simulation ends, you <em>may</em> see something drawn on the view windows, but only if there were objects represented in the corresponding processors when the simulation ended.</li>
 </ul>
 <p><strong>Text Refresh</strong></p>

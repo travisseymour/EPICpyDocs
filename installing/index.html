@@ -34,7 +34,7 @@
           <a href=".." class="icon icon-home"> EPICpy Documentation
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -47,37 +47,53 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="./">Installing EPICpy</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#platforms">Platforms</a>
+    <li class="toctree-l2"><a class="reference internal" href="#tested-platforms">Tested Platforms</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a>
+    <li class="toctree-l2"><a class="reference internal" href="#installation-overview">Installation Overview</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#necessary-python-versions">Necessary Python Versions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#obtaining-package-managers">Obtaining Package Managers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#python-install-location">Python Install Location</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#note-on-older-linux-versions">NOTE on Older Linux Versions</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#installing-epicpy-with-pipx">Installing EPICpy With PipX</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#linux">Linux</a>
         <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#install-prerequisites">Install Prerequisites</a>
+    <li class="toctree-l4"><a class="reference internal" href="#installing-pipx">Installing PipX</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#obtain-the-epicpy-files">Obtain the EPICpy files</a>
+    <li class="toctree-l4"><a class="reference internal" href="#checking-prerequisites">Checking Prerequisites</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#installing-epicpy-with-pipx_1">Installing EPICpy with PipX</a>
     </li>
         </ul>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#macos">MacOS</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#windows">Windows</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#docker">Docker</a>
         <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#installation-on-macos-windows">Installation on MacOS &amp; Windows</a>
+    <li class="toctree-l4"><a class="reference internal" href="#installing-pipx-with-homebrew">Installing PipX with Homebrew</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#installation-on-linux">Installation on Linux</a>
+    <li class="toctree-l4"><a class="reference internal" href="#checking-prerequisites_1">Checking Prerequisites</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#running-on-macos">Running on MacOS</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#running-on-linux">Running on Linux</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#running-on-windows-epicpy-via-docker-on-windows-is-not-recommended-see-note-below">Running on Windows [EPICpy via Docker on Windows is Not Recommended, see note below]</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#accessing-files-outside-the-virtual-machine">Accessing Files Outside the Virtual Machine</a>
+    <li class="toctree-l4"><a class="reference internal" href="#installing-epicpy-with-pipx_2">Installing EPICpy with PipX</a>
     </li>
         </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#windows">Windows</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#installing-pipx-with-chocolatey">Installing PipX with Chocolatey</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#checking-prerequisites_2">Checking Prerequisites</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#installing-epicpy-with-pipx_3">Installing EPICpy with PipX</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#check-your-epicpy-install">Check your EPICpy install</a>
     </li>
         </ul>
     </li>
@@ -129,7 +145,7 @@
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
       <li>Installing EPICpy</li>
     <li class="wy-breadcrumbs-aside">
     </li>
@@ -140,241 +156,253 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="installing-epicpy">Installing EPICpy</h1>
-<h2 id="platforms">Platforms</h2>
-<p>EPICpy has only been successfully tested on the platforms listed below. These are also the platforms for which executable packages are available:</p>
+<h2 id="tested-platforms">Tested Platforms</h2>
+<p>Installation of EPICpy has only been successfully tested on the platforms listed below:</p>
+<p>Linux Variants:</p>
 <ul>
-<li>Apple MacOS (tested on version 10.13-12 on Intel CPUs)</li>
-<li>Ubuntu variants of Linux (e.g., Ubuntu, Mint, PopOS, etc.) versions 18.x - 21.x (probably works on later versions, but <u>does not</u> work on versions earlier than 18.x)</li>
-<li>Windows 10 and 11 (via <a href="https://docs.microsoft.com/en-us/windows/wsl/about">WSL2</a>)</li>
+<li>[x] Debian-based Linux variants (e.g., Ubuntu, Mint, PopOS, etc.)</li>
+<li>[ ] Redhat-based Linux variants (e.g., Redhat, Fedora, Centos, etc.)</li>
+<li>[ ] Arch-based Linux variants (e.g., ArchLinux, Manjaro, EndeavourOS, etc.)</li>
 </ul>
-<p>If your goal is to use EPICpy to a) run EPIC simulations, b) create or edit device files, c) create and edit perceptual encoder files, or c) create or run rule files, then there is no need to set up and configure the entire EPICpy development environment. All you need to do is download the appropriate installer for your operating system and the demo task-device pacakge.</p>
-<p>Installers for standalone EPICpy applications can be found here: <a href="https://cogmodlab.ucsc.edu/2022/03/14/epic/">EPICpy Website</a></p>
-<p>Note that there is no Windows binary yet. For now, Windows users will have to use the Linux version via the Windows Subsystem for Linux v2 (WSL2) using these instructions: <a href="../linux_epicpy_under_wsl2/">linux_epicpy_under_wsl2</a></p>
-<h2 id="installation">Installation</h2>
-<h3 id="linux">Linux</h3>
-<p><code>Only tested on Ubuntu variants of Linux (e.g., Ubuntu, Mint, PopOS, etc.) versions 18.x - 21.x</code></p>
-<h4 id="install-prerequisites">Install Prerequisites</h4>
-<pre><code class="language-bash">sudo apt install wget unzip g++
-</code></pre>
-<h4 id="obtain-the-epicpy-files">Obtain the EPICpy files</h4>
-<pre><code class="language-bash"># Make a folder to work in [OPTIONAL]
-mkdir epicwork
-cd epicwork
-
-# downloads the file EPICpy.deb, the EPICpy installer
-wget people.ucsc.edu/~nogard/software/epicpy/EPICpy.deb 
-
-# downloads the file devices.zip, a set of demo EPICpy simulations
-wget people.ucsc.edu/~nogard/software/epicpy/devices.zip 
-
-# show the files in the current folder
-ls
-</code></pre>
-<p>Installing EPICpy</p>
-<pre><code class="language-bash">
-# Install the application (To uninstall later, use this command: sudo dpkg -r EPICpy)
-sudo dpkg -i EPICpy.deb
-
-# Extract the devices folder
-unzip devices.zip
-
-# To run EPICpy
-/opt/EPICpy/EPICpy
-</code></pre>
-<p>At this point, run EPICpy, load one of the devices, compile the corresponding ruleset, and then run the simulation. For example:</p>
+<p>Linux Versions:</p>
+<ul>
+<li>[x] 18.04 "Bionic"</li>
+<li>[x] 20.04 LTS "Focal"</li>
+<li>[x] 22.04 LTS "Jammy"</li>
+</ul>
+<p>MacOS Versions:</p>
+<ul>
+<li>[x] 10.15 "Catalina" (Intel)</li>
+<li>[ ] 11 "Big Sur" (Intel)</li>
+<li>[ ] 12 "Monteray" (Intel)</li>
+<li>[ ] 12 "Monteray" (M1)</li>
+<li>[ ] 13 "Ventura" </li>
+</ul>
+<p>Windows Versions:</p>
+<ul>
+<li>[x] 10</li>
+<li>[ ] 11</li>
+</ul>
+<p>If your goal is to use EPICpy to a) run EPIC simulations, b) create or edit device files, c) create and edit perceptual encoder files, or c) create or run rule files, then there is no need to set up and configure the entire EPICpy development environment. All you need to do is install EPICpy using PipX and download the demo task-device package.</p>
+<h2 id="installation-overview">Installation Overview</h2>
+<h4 id="necessary-python-versions">Necessary Python Versions</h4>
+<p>To install EPICpy, you need:</p>
 <ol>
-<li><strong>File-&gt;Load_Device</strong> the Choice Device (<code>devices/choice/choice_device.py</code>).</li>
-<li><strong>file-&gt;Compile_Rules</strong> the visual-manual choice ruleset (<code>devices/choice/rules/choicetask_rules_VM.prs</code>).</li>
-<li>For a quick test, go into <strong>Run-&gt;Settings</strong> and set the parameter string to <code>10 4 Hard Draft</code> (should be the default). For a complete set of choice-task data (produces a nice 2-factor graph), set the parameter string to <code>10 4 [Easy|Hard] [P1|P2|P3|P4]</code></li>
-<li>Now choose <strong>Run-&gt;Run</strong>.</li>
+<li>A supported version of Python installed on your computer. For Linux and MacOS, that's Python 3.10. For Windows, that's Python 3.9. These versions do not have to be the default version of Python on your system, they just need to be installed somewhere so PipX can use that Python install to create a virtual environment. If you need to install one of these versions, please see the <a href="../installing_python_with_pyenv/">Installing Python With PyEnv section</a></li>
+<li>PipX installed on your computer</li>
 </ol>
-<p><strong>--OR--</strong></p>
-<p>For a quick run of 10 choice-task trials with a visual encoder attached and 10 choice-task trials without an encoder attached, choose <strong>Test-&gt;Run Tests-&gt;All Runs</strong></p>
+<h4 id="obtaining-package-managers">Obtaining Package Managers</h4>
+<p>On Linux, PipX can be installed using the built-in package installer. However, on MacOS and Windows, package managers 
+have to be installed manually. On MacOS, we recommend Homebrew. On Windows, we recommend Chocolatey. Other package 
+managers should work as well, as long as you can use them to install PipX. To learn how to install a package manager 
+on MacOS or Windows, go to the [Installing Package Managers section]</p>
+<h4 id="python-install-location">Python Install Location</h4>
+<p>Unless your default Python (i.e., what runs when you type <code>python3</code>) is Python 3.10 on Linux and MacOS or Python 3.9 on 
+Windows, you will have to supply the path to the appropriate Python version when you use PipX to install EPICpy. On 
+Linux and MacOS, you can probably find out the answer to this question by using this command:</p>
+<pre><code class="language-bash">which python3
+# OR
+which python3.10
+</code></pre>
+<p>but it <em>could</em> still miss something, depending on how exactly you installed Python 3.</p>
+<p>On Windows, this is no easy feat at all. </p>
+<p>If you have the necessary version of Python as your system Python, then you're already ready to install.
+Otherwise, if you already know the path to the necessary version of Python, then you're ready to install.
+For everyone else, I recommend installing PyEnv <a href="https://github.com/pyenv/pyenv">https://github.com/pyenv/pyenv</a>. PyEnv will allow you to install any
+ number of Python versions each in isolated folders under a unified directory. It's easy to add or delete Python 
+independently and without fear of altering your system copy of Python. If you do not Python 3.10 on MacOS and Linux, or 
+you're on Windows and you don't have Python 3.9, or you have the necessary version of Python but don't know <em>where</em> it 
+is on your computer, then please follow the instructions in the <a href="../installing_python_with_pyenv/">Installing Python With PyEnv section</a> for installing 
+PyEnv and obtaining the location of any PyEnv-installed version of Python.</p>
+<h4 id="note-on-older-linux-versions">NOTE on Older Linux Versions</h4>
+<p>NOTE: For those running older versions of Linux, EPICpy may not run if your have an older version of GLIBC.
+To determine where you stand, run this command:</p>
+<pre><code class="language-bash">ldd --version
+</code></pre>
+<p>If that returns a version of GLIBC version &gt;= 2.32, then EPICpy will probably work on your system. Otherwise, it is 
+likely that it will not work.</p>
+<hr>
+
+<h2 id="installing-epicpy-with-pipx">Installing EPICpy With PipX</h2>
+<h3 id="linux">Linux</h3>
+<h4 id="installing-pipx">Installing PipX</h4>
+<p>Install PipX onto your system using your package manager. All Linux variants come with a standard package manager, e.g.,
+ <code>apt</code> on Debian-based distributions, <code>yum</code> on RedHat-based distributions, and <code>pacman</code> on Arch-based distributions. 
+NOTE: I have only tested this on Debian systems, but theoretically, it should be universal.</p>
+<pre><code class="language-bash"># recommended approach
+sudo apt install pipx
+# later, if you want to update PipX, use:
+sudo apt upgrade pipx # will get run automatically with other system updates
+</code></pre>
+<p>OR, an alternative approach would be</p>
+<pre><code class="language-bash"># alternate approach
+python3 -m pip install --user pipx
+# later, if you want to update PipX, use:
+python3 -m pip install --user --upgrade pipx
+</code></pre>
+<p>This is an important step. It resets the terminal shell...alternatively you could just close and reopen the terminal</p>
+<pre><code class="language-bash">exec $SHELL
+</code></pre>
+<p>Make sure any installed apps will be on your path (otherwise, it will be challenging to use them after installation).</p>
+<pre><code class="language-bash">pipx ensurepath
+</code></pre>
+<p>Basic PipX use</p>
+<pre><code class="language-bash">pipx list
+pipx install [PackageName|LocalPackageDirectory|PackageURL]
+pipx uninstall [PackageName]
+pipx upgrade [PackageName]
+</code></pre>
+<h4 id="checking-prerequisites">Checking Prerequisites</h4>
+<p>Currently, EPICpy for Linux requires that you have Python 3.10.x installed on your computer. 
+If you do not, please do that first. It doesn't matter where it is installed, or how you install it.
+One source is to grab an official installer from the Python Software Foundation (https://www.python.org). 
+Another is to install it using PyEnv (https://github.com/pyenv/pyenv). Then again, your system Python might already have Python 3.10 installed. Try this:</p>
+<pre><code class="language-bash">python3 --version
+</code></pre>
+<p>if it reports Python 3.10.x, then your system Python is probably version 3.10. Great! </p>
+<p>Otherwise, you can ask Linux if it can find Python 3.10 anywhere:</p>
+<pre><code class="language-bash">which python3.10
+</code></pre>
+<p>if this returns a path, copy it and set it aside. This is the location of Python 3.10 on your machine.</p>
+<p>If neither of those returns good news, then you will need to install Python 3.10 in order to proceed. Afterward, either 
+note where you installed Python 3.10, or try running <code>which python3.10</code> again. I recommend installing Pyenv. For 
+instructions, see the <a href="../installing_python_with_pyenv/">Installing Python With PyEnv section</a>.</p>
+<h4 id="installing-epicpy-with-pipx_1">Installing EPICpy with PipX</h4>
+<p>If you have Python 3.10.x somewhere on your computer, and you are running a recent-ish version of Linux, 
+and you have PipX installed, then you are ready to install EPICpy!</p>
+<p>If your system Python version is 3.10.x (i.e., running <code>python3 --version</code> returns 3.10.x), then you can simply run this 
+command</p>
+<pre><code class="language-bash">pipx install https://github.com/travisseymour/EPICpy
+</code></pre>
+<p>If Python 3.10.x is on your system somewhere, but not necessarily the default Python, then you will need to tell PipX 
+the location of Python 3.10.x on your computer. How you achieve that, depends on your setup.</p>
+<p>If you can start Python 3.10.x by typing <code>python3.10</code>, then you can install EPICpy as such:</p>
+<pre><code class="language-bash">pipx install https://github.com/travisseymour/EPICpy --python python3.10
+</code></pre>
+<p>otherwise, you will need to supply the complete path to Python 3.10.x on your machine:</p>
+<pre><code class="language-bash"># the Python path used here is for example purposes only, 
+# use one that makes sense on your computer
+pipx install https://github.com/travisseymour/EPICpy --python /home/testuser/.pyenv/shims/python3.10
+</code></pre>
+<p>This process may take a few minutes, please be patient. </p>
+<p>NOTE: If you like seeing stuff happen, add the <code>--verbose</code> flag, e.g.:</p>
+<pre><code class="language-bash">pipx install --verbose https://github.com/travisseymour/EPICpy --python python3.10
+</code></pre>
 <hr/>
 
 <h3 id="macos">MacOS</h3>
-<p><code>Only tested on MacOS 10.13 - 10.15 (Intel CPU)</code></p>
-<p>These are the explicit versions I have tested EPICpy with. On other variants <em>may</em> work.</p>
-<ul>
-<li>MacOS 10.13 (High Sierra)</li>
-<li>MacOS 10.14 (Mojave)</li>
-<li>MacOS 10.15 (Catalina)</li>
-<li>MacOS 11 (Big Sur)</li>
-<li>MacOS 12 (Monteray)</li>
-</ul>
-<p>Download the necessary files using the links below:</p>
-<ol>
-<li><a href="https://people.ucsc.edu/~nogard/software/epicpy/EPICpy.dmg">EPICpy.dmg</a> (the actual EPICpy installer package)</li>
-<li><a href="https://people.ucsc.edu/~nogard/software/epicpy/devices.zip">devices.zip</a> (a set of demo EPICpy devices)</li>
-</ol>
-<p>To install EPICpy, first double-click <code>EPICpy.dmg</code>. You will see the EPICpy icon next to a link to the <code>Applications</code> folder. Just drag <code>EPICpy.app</code> to your Applications folder, and it will be installed (i.e., the standard MacOS install method). To uninstall later, just drag <code>EPICpy.app</code> from your <code>Applications</code> folder to the Trash.</p>
-<p>You will need to install Apple's <a href="https://developer.apple.com/xcode/">XCode</a> development environment in order to use EPICpy (it must be there, but you won't need to use it). Apple only makes it easy to install XCode if you are running the latest version of it's operating system. So if you are using the latest version (at the time of writing, that would be MacOS 12, Monteray), just head over to the App Store, search for XCode, and install it. If, on the other hand, you are running a previous version of MacOS, you will need to register for their developer program and download the version of XCode designed for your specific operating system. The website is <a href="https://devloper.apple.com">https://devloper.apple.com</a>. Direct links to each version of XCode can <em>for now</em> be found here: <a href="https://xcodereleases.com/">https://xcodereleases.com/</a> (I recommend the last major release compatible with your version of MacOS).</p>
-<p>Before downloading, make sure you have sufficient hard-drive space as the file will be quite large (e.g., XCode 13.2 is 10GB). Once you've downloaded the correct version (will take some time), extract the installer and then double-click it (note, this means you will need at least double the installer size -- e.g., 20GB or more). After it has installed, open XCode once so that it can install the build tools. Once this finishes, you can close XCode, and trash the installer (free up 10GB!); you won't need to open it again for EPICpy. I have been asked whether it would suffice to just install only the Apple XCode commandline tools (1/20 the footprint of the full XCode application) -- unfortunately, this won't work. This requirement is based on what's necessary for the <a href="https://cppyy.readthedocs.io/en/latest/">cppyy</a> C++/Python automatic binding library that EPICpy is built upon.</p>
-<p>To run EPICpy, just go into the Applications folder and double-click the EPICpy icon.</p>
-<p>At this point, run EPICpy, load one of the devices, compile the corresponding ruleset, and then run the simulation. For example:</p>
-<ol>
-<li><strong>File-&gt;Load_Device</strong> the Choice Device (<code>devices/choice/choice_device.py</code>).</li>
-<li><strong>file-&gt;Compile_Rules</strong> the visual-manual choice ruleset (<code>devices/choice/rules/choicetask_rules_VM.prs</code>).</li>
-<li>For a quick test, go into <strong>Run-&gt;Settings</strong> and set the parameter string to <code>10 4 Hard Draft</code> (should be the default). For a complete set of choice-task data (produces a nice 2-factor graph), set the parameter string to <code>10 4 [Easy|Hard] [P1|P2|P3|P4]</code></li>
-<li>Now choose <strong>Run-&gt;Run</strong>.</li>
-</ol>
-<p><strong>--OR--</strong></p>
-<p>For a quick run of 10 choice-task trials with a visual encoder attached and 10 choice-task trials without an encoder attached, choose <strong>Test-&gt;Run Tests-&gt;All Runs</strong></p>
+<h4 id="installing-pipx-with-homebrew">Installing PipX with Homebrew</h4>
+<p>Because MacOS does not have a default package manager, I'm assuming that you have installed the Homebrew package manager. If not, see the <a href="../installing_a_package_manager/">Installing A Package Manager section</a>. If you are using an alternative 
+MacOS package manager, then adjust the commands below accordingly.</p>
+<p>Install PipX onto your system using Homebrew, issue this command:</p>
+<pre><code class="language-bash">brew install pipx
+# later, if you want to update PipX, use:
+brew upgrade pipx
+</code></pre>
+<p>This is an important step. It resets the terminal shell...alternatively you could just close and reopen the terminal</p>
+<pre><code class="language-bash">exec $SHELL
+</code></pre>
+<p>Make sure any installed apps will be on your path (otherwise, it will be challenging to use them after installation).</p>
+<pre><code class="language-bash">pipx ensurepath
+</code></pre>
+<p>Basic PipX use</p>
+<pre><code class="language-bash">pipx list
+pipx install [PackageName|LocalPackageDirectory|PackageURL]
+pipx uninstall [PackageName]
+pipx upgrade [PackageName]
+</code></pre>
+<h4 id="checking-prerequisites_1">Checking Prerequisites</h4>
+<p>Currently, EPICpy for MacOS requires that you have Python 3.10.x installed on your computer. 
+If you do not, please do that first. It doesn't matter where it is installed, or how you install it.
+One source is to grab an official installer from the Python Software Foundation (https://www.python.org). 
+Another is to install it using PyEnv (https://github.com/pyenv/pyenv). 
+Then again, your system Python might already have Python 3.10 installed. Try this:</p>
+<pre><code class="language-bash">python3 --version
+</code></pre>
+<p>if it reports Python 3.10.x, then your system Python is probably version 3.10. Great! </p>
+<p>Otherwise, you can ask MacOS if it can find Python 3.10 anywhere:</p>
+<pre><code class="language-bash">which python3.10
+</code></pre>
+<p>if this returns a path, copy it and set it aside. This is the location of Python 3.10 on your machine.</p>
+<p>If neither of those returns good news, then you will need to install Python 3.10 in order to proceed. Afterward, either 
+note where you installed Python 3.10, or try running <code>which python3.10</code> again. I recommend installing Pyenv. For 
+instructions, see the <a href="../installing_python_with_pyenv/">Installing Python With PyEnv section</a>.</p>
+<h4 id="installing-epicpy-with-pipx_2">Installing EPICpy with PipX</h4>
+<p>If you have Python 3.10.x somewhere on your computer, and you are running a version Catalina or later of MacOS, 
+then you are ready to install EPICpy!</p>
+<p>If your system Python version is 3.10.x (i.e., running <code>python3 --version</code> returns 3.10.x), then you can simply run this 
+command</p>
+<pre><code class="language-bash">pipx install https://github.com/travisseymour/EPICpy
+</code></pre>
+<p>If Python 3.10.x is on your system somewhere, but not necessarily the default Python, then you will need to tell PipX 
+the location of Python 3.10.x on your computer. How you achieve that, depends on your setup.</p>
+<p>If you can start Python 3.10.x by typing <code>python3.10</code>, then you can install EPICpy as such:</p>
+<pre><code class="language-bash">pipx install https://github.com/travisseymour/EPICpy --python python3.10
+</code></pre>
+<p>otherwise, you will need to supply the complete path to Python 3.10.x on your machine:</p>
+<pre><code class="language-bash"># the Python path used here is for example purposes only, 
+# use one that makes sense on your python setup
+pipx install https://github.com/travisseymour/EPICpy --python /home/testuser/.pyenv/shims/python3.10
+</code></pre>
+<p>This process may take a few minutes, please be patient. If you like seeing stuff happen, add the --verbose flag, e.g.:</p>
+<pre><code class="language-bash">pipx install --verbose https://github.com/travisseymour/EPICpy --python python3.10
+</code></pre>
 <hr/>
 
 <h3 id="windows">Windows</h3>
-<p><code>Never actually tested, but it *should* work under WSL2</code></p>
-<p>There is no EPIC shared-library (EPIClib) for Windows because I have yet to get EPIClib to compile in such a way that cppyy can successfully load it. Someone may figure it out at some point, allowing me to release a Windows version. For now, Windows users will have to install Windows Subsystem for Linux v2 (WSL2), and then follow the Linux instructions above for setting up development under Linux. An alternative would be to run EPICpy with Docker (see Docker section below), but this may be significantly slower on some systems than using WSL2 directly.</p>
-<p>I would suggest first following <a href="../linux_epicpy_under_wsl2/">THESE</a> instructions for getting the Linux stand-alone version of EPICpy to work under WSl2.</p>
-<hr/>
-
-<h3 id="docker">Docker</h3>
-<p>If you <em>really</em> want to, you can run EPICpy using Docker. The easiest way to do this is to install Docker Desktop. To install Docker Desktop, just download and install it. Then you will use it from the commandline. Note that on many systems, this will be much slower than using WSL2 to directly install the Linux version on Windows. On the other hand, this approach can allow those using non-Ubuntu variants of Linux to run EPICpy (e.g., Arch, Fedora, etc.)</p>
-<h4 id="installation-on-macos-windows">Installation on MacOS &amp; Windows</h4>
-<p>Start by installing the official Docker Desktop application from one of these webpages:</p>
-<ul>
-<li>MacOS: Download and install this application: <a href="https://hub.docker.com/editions/community/docker-ce-desktop-mac/">Docker Desktop For MacOS</a></li>
-<li>Windows: Download and install this application <a href="https://hub.docker.com/editions/community/docker-ce-desktop-windows/">Docker Desktop for Windows</a></li>
-<li>Towards the end of the installation, Docker may send you to a Microsoft webpage to update a WSL2 driver. If so, install this and then restart your machine.</li>
-<li>Open powershell as Administrator and type this: <code>wsl --set-default-version 2</code></li>
-</ul>
-<h4 id="installation-on-linux">Installation on Linux</h4>
-<p>This is a tiny bit more involved because the Docker repository is probably not setup on your machine. To do this safely, there are a couple of extra steps. The advantage of this effort is that (unlike on Windows and MacOS), Docker will update itself automatically with your normal Linux update process.</p>
-<p><code>Note: these instructions are from here: https://docs.docker.com/engine/install/ubuntu/</code></p>
-<ol>
-<li>Update the apt package index and install packages to allow apt to use a repository over HTTPS:</li>
-</ol>
-<pre><code class="language-bash">sudo apt-get update
-sudo apt-get install ca-certificates curl gnupg lsb-release
+<h4 id="installing-pipx-with-chocolatey">Installing PipX with Chocolatey</h4>
+<p>To install PipX onto your system using the Chocolatey package manager, issue the following command. If you do not have 
+Chocolatey installed, see the <a href="../installing_a_package_manager/">Installing A Package Manager section</a>:</p>
+<pre><code class="language-bash">choco install pipx
 </code></pre>
-<ol>
-<li>Add Docker’s official GPG key:</li>
-</ol>
-<pre><code class="language-bash">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+<p>Close and reopen the PowerShell in administer mode.</p>
+<p>Now make sure any installed apps will be on your path (otherwise, it will be challenging to use them after installation).</p>
+<pre><code class="language-bash">pipx ensurepath
 </code></pre>
-<ol>
-<li>Use the following command to set up the stable repository.</li>
-</ol>
-<pre><code class="language-bash">echo \
-  &quot;deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
-  $(lsb_release -cs) stable&quot; | sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
+<p>Basic PipX use</p>
+<pre><code class="language-bash">pipx list
+pipx install [PackageName|LocalPackageDirectory|PackageURL]
+pipx uninstall [PackageName]
+pipx upgrade [PackageName]
 </code></pre>
-<ol>
-<li>Install Docker Engine</li>
-</ol>
-<pre><code class="language-bash">sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io
+<h4 id="checking-prerequisites_2">Checking Prerequisites</h4>
+<p>Currently, EPICpy for Windows requires that you have Python 3.9.x installed on your computer. 
+If you do not, please do that first. It doesn't matter where it is installed, or how you install it.
+One source is to grab an official installer from the Python Software Foundation (https://www.python.org). 
+Another is to install it using PyEnv (https://github.com/pyenv/pyenv). Then again, your system Python might already 
+have Python 3.10 installed. Try this:</p>
+<pre><code class="language-bash">python3 --version
 </code></pre>
-<hr>
-
-<h4 id="running-on-macos">Running on MacOS</h4>
-<p>Setup:</p>
-<ul>
-<li>Download and Install an X-Windows Server: <a href="https://www.xquartz.org/">XQuartz</a> (or alternatively install the <a href="https://brew.sh/">"homebrew" package manager</a> for MacOS and then install with <code>brew install xquartz</code>)</li>
-<li>Start XQuartz</li>
-<li>In XQuartz:<ul>
-<li>enable <code>Allow Connections from Network Clients</code> in Security Settings</li>
-</ul>
-</li>
-<li>Determine your local ip address with this command: <code>ifconfig en0</code></li>
-<li>Download the EPICpy dockerfile: <a href="https://people.ucsc.edu/~nogard/software/epicpy/Dockerfile.zip">Dockerfile</a> listed above.</li>
-</ul>
-<p>Installation:</p>
-<pre><code class="language-bash"># unzip Dockerfile
-unzip Dockerfile.zip
-docker build -t epicpy - &lt; Dockerfile
+<p>if it reports Python 3.9.x, then your system Python is probably version 3.10. Great! </p>
+<p>Otherwise, even if you have Python3.9 installed <em>somewhere</em>, it can be difficult to locate it on Windows (if anyone has
+ an easy way to locate a specific version of Python on Windows, please let me know!). Thus, I recommend either 
+installing Python 3.9 using an installer from python.org (because you will have to <em>choose</em> the installation location), or 
+installing Python 3.9 using PyEnv. I recommend installing Pyenv. For 
+instructions, see the <a href="../installing_python_with_pyenv/">Installing Python With PyEnv section</a>.</p>
+<h4 id="installing-epicpy-with-pipx_3">Installing EPICpy with PipX</h4>
+<p>If you have Python 3.9.x somewhere on your computer, and you know the path, then you are ready to install EPICpy!</p>
+<p>If your system Python version is 3.9.x (i.e., running <code>python3 --version</code> returns 3.9.x), then you can simply run this 
+command</p>
+<pre><code class="language-bash">pipx install https://github.com/travisseymour/EPICpy
 </code></pre>
-<p>Operation:</p>
-<pre><code class="language-bash"># start the XQuartz application
-# now start EPICpy from within the epicpy virtual machine. You will need the ip address you printed out in the setup stage above.
-
-xhost + YOUR_LOCAL_IP_ADDRESS
-docker run -it --rm -e DISPLAY=YOUR_LOCAL_IP_ADDRESS:0 -v /tmp/.X11-unix:/tmp/.X11-unix epicpy
+<p>If Python 3.9.x is on your system somewhere, but not necessarily the default Python, then you will need to tell PipX 
+the location of Python 3.9.x on your computer. How you achieve that, depends on your setup.</p>
+<p>If you can start Python 3.9.x by typing <code>python39</code>, then you can install EPICpy as such:</p>
+<pre><code class="language-bash">pipx install https://github.com/travisseymour/EPICpy --python python39
 </code></pre>
-<p>Removal:</p>
-<pre><code class="language-bash">docker rmi -f epicpy
+<p>otherwise, you will need to supply the complete path to Python 3.9.x on your machine:</p>
+<pre><code class="language-bash"># the Python paths used here are for example purposes only, 
+# use a path that makes sense for your python setup
+pipx install https://github.com/travisseymour/EPICpy --python &quot;C:\Users\testuser\AppData\Local\Programs\Python\Python39\python.exe&quot;
+pipx install https://github.com/travisseymour/EPICpy --python &quot;C:\Users\testuser\.pyenv\pyenv-win\versions\3.9.13\python.exe&quot;
 </code></pre>
-<h4 id="running-on-linux">Running on Linux</h4>
-<p>Setup:</p>
-<ul>
-<li>Download the EPICpy dockerfile: <a href="https://people.ucsc.edu/~nogard/software/epicpy/Dockerfile.zip">Dockerfile</a> listed above.</li>
-</ul>
-<p>Installation:</p>
-<pre><code class="language-bash"># unzip Dockerfile and useful scripts
-unzip Dockerfile.zip
-docker build -t epicpy - &lt; Dockerfile
+<p>This process may take a few minutes, please be patient. If you like seeing stuff happen, add the --verbose flag, e.g.:</p>
+<pre><code class="language-bash">pipx install --verbose https://github.com/travisseymour/EPICpy --python python39
 </code></pre>
-<p>Operation:</p>
-<pre><code class="language-bash"># start EPICpy from within the epicpy virtual machine.
-xhost + local:docker
-docker run -it --rm --env=&quot;DISPLAY&quot; --net=host epicpy
-</code></pre>
-<p>Removal:</p>
-<pre><code class="language-bash">docker rmi -f epicpy
-</code></pre>
-<h4 id="running-on-windows-epicpy-via-docker-on-windows-is-not-recommended-see-note-below">Running on Windows <font color="red"><strong>[EPICpy via Docker on Windows is Not Recommended, see note below]</strong></font></h4>
-<p>Note that although I have successfully run EPICpy using the following instructions on Windows 10, but I don't recommend them for the following reasons:</p>
-<ol>
-<li>The resulting application runs significantly slower than when run from with docker on MacOS or Linux. It is also much slower than just using WLS2.</li>
-<li>Docker Desktop is a large app to add to your Windows startup and by default it launches its interface automatically. If you don't have other reasons to run Docker Desktop, doing so just for EPICpy is overkill.</li>
-<li>The commands required to run EPICpy via Docker involves you knowing your current lan ip address...this isn't too hard to figure out, but it might change, so it's not a set it and forget it thing for many people.</li>
-<li>Docker on Windows installs and uses the Windows Subsystem for Linux (WSL2) to manage the docker containers you install. Given that there is already a Linux version of EPICpy, it's far easier to just install WSL2 yourself and then run the Linux version at nearly native speed. <strong>I strongly suggest you take this approach on Windows</strong>. To do so, follow <a href="../linux_epicpy_under_wsl2/">these instructions</a>.</li>
-</ol>
-<p>Still want to run EPICpy via Docker? Ok, then follow the instructions below:</p>
-<p>Setup:</p>
-<ul>
-<li>
-<p>Download and Install an X-Windows Server: <a href="https://sourceforge.net/projects/vcxsrv/">VcXsrv</a>  (or alternatively install the windows <a href="https://chocolatey.org/">package manager "chocolately"</a> and then issue this command: <code>choco install vcxsrv</code>)</p>
-</li>
-<li>
-<p>In VcXsrv settings:</p>
-<ul>
-<li>all default settings are fine except 1, you have to enable <code>Disable access control</code> on the Extras tab.</li>
-<li>next, save config file to Desktop or one of the other locations they suggest.</li>
-</ul>
-</li>
-<li>Determine your local ip address with this command: <code>ifconfig en0</code> in windows powershell, or <code>ipconfig /all</code> in the windows command prompt. If neither of those approaches is helpful, see this <a href="https://www.digitalcitizen.life/find-ip-address-windows/#ftoc-heading-1">website</a></li>
-</ul>
-<p>Installation:</p>
-<p><code>NOTE: commands below assume you're using Windows PowerShell</code></p>
-<pre><code class="language-bash"># unzip Dockerfile.zip using whatever file unzip/uncompress tool you normally use
-docker rm -f epicpy
-Get-Content Dockerfile | docker build -t epicpy -
-</code></pre>
-<p>Operation:</p>
-<pre><code class="language-bash"># start the VcXsrv application
-# now run the epicpy virtual machine
-docker run --rm -it -e DISPLAY=YOUR_LOCAL_IP_ADDRESS:0.0 epicpy
-</code></pre>
-<p>Removal:</p>
-<pre><code class="language-bash">docker rmi -f epicpy
-</code></pre>
-<h4 id="accessing-files-outside-the-virtual-machine">Accessing Files Outside the Virtual Machine</h4>
-<p>The <code>docker run</code> commands above will allow you to run the demo EPICpy models that are already inside the virtual machine, but they are only for demo purposes because they rest every time you start EPICpy under Docker. To reqlistically use EPICpy with Docker for EPIC modeling, you will need some way to work with files outside the virtual machine on your host computer. To do this, decide where you want your work folder to be. E.g., let's say we create a file on our host computer on the desktop called <code>epicwork</code> that contains the uncompressed devices.zip folder obtained earlier. To give the epicpy virtual machine read/<strong>write</strong> access to that folder, you would alter the docker run commands shown above as such:</p>
-<p><strong>MacOS</strong></p>
-<pre><code class="language-bash"># start the XQuartz application
-# now start EPICpy from within the epicpy virtual machine. You will need the ip address you printed out in the setup stage above.
-xhost + YOUR_LOCAL_IP_ADDRESS
-docker run -it --rm -e DISPLAY=YOUR_LOCAL_IP_ADDRESS:0 -v /tmp/.X11-unix:/tmp/.X11-unix -v /Users/YOUR_USERNAME/Desktop/epicwork:/home/nonroot/epicwork:cached epicpy
-</code></pre>
-<p><strong>Windows</strong></p>
-<pre><code class="language-bash"># start the VcXsrv application
-# now run the epicpy virtual machine
-docker run --rm -it -e DISPLAY=YOUR_LOCAL_IP_ADDRESS:0.0 -v c:\Users\YOUR_USERNAME\Desktop\epicwork:/home/nonroot/epicwork:cached epicpy
-</code></pre>
-<p><strong>Linux</strong></p>
-<pre><code class="language-bash"># start EPICpy from within the epicpy virtual machine.
-xhost + local:docker
-docker run -it --rm --env=&quot;DISPLAY&quot; --net=hostv -v /home/YOUR_USERNAME/Desktop/epicwork:/home/nonroot/epicwork:cached epicpy
-</code></pre>
-<p><mark>NOTE</mark>: I've had trouble on some Ubuntu machines with the mounted folder not having write permissions, preventing EPICpy from running. I tried one suggested solution...using this alternative syntax:</p>
-<pre><code class="language-bash"># start EPICpy from within the epicpy virtual machine.
-xhost + local:docker
-docker run -it --rm --env=&quot;DISPLAY&quot; --net=hostv --mount src=/home/YOUR_USERNAME/Desktop/epicwork,target=/home/nonroot/epicwork,type=bind epicpy
-</code></pre>
-<p>but the permissions issue persists. <u>If anyone figures this out, please let me know</u>.</p>
-<p><strong>That's It!</strong></p>
-<p>Now when you go to load a device, you should see your <code>epicwork</code> folder listed alongside the static <code>devices</code> folder. Any change you make to files in <code>epicwork/devices</code> will persist and show up within the epicpy virtual machine, as well as on the corresponding folder on your host machine.</p>
+<h3 id="check-your-epicpy-install">Check your EPICpy install</h3>
+<p>To run EPICpy, just open a terminal and type <code>EPICpy</code>, this should open several windows associated with the EPICpy 
+application. In the menu, navigate to <strong>Help-&gt;Tests-&gt;Standard_Run</strong>. This should cause a test run of the demo 
+choice-task device. If it completes and shows a colorful results graph, then all is well.</p>
               
             </div>
           </div><footer>

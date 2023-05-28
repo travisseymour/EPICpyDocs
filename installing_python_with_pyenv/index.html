@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://cogmodlab.ucsc.edu/2022/03/14/epic/installing_python_with_pyenv/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Installing Python Using PyEnv - EPICpy Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Installing Python Using PyEnv";
+        var mkdocs_page_input_path = "installing_python_with_pyenv.md";
+        var mkdocs_page_url = "/2022/03/14/epic/installing_python_with_pyenv/";
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> EPICpy Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../installing/">Installing EPICpy</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../epicpysimcomponents/">Simulation Components</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../epicinterface_windows/">EPICpy GUI Windows</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../epicinterface_options/">EPICpy GUI Options</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../example/">Example Simulation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../model_programming/">Model Programming</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../epicpy_development_setup/">EPICpy Development Setup</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../epicresources/">EPIC Resources</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../faq/">Frequently Asked Questions</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">EPICpy Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+      <li>Installing Python Using PyEnv</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="installing-python-using-pyenv">Installing Python Using PyEnv</h1>
+<p>The easiest way to install and manage multiple versions of Python is by using PyEvn (https://github.com/pyenv/pyenv). See below for instructions on installing PyEnv and an EPICpy compatible version of Python on your system.</p>
+<h2 id="install-pyevn">Install PyEvn</h2>
+<p>To install PyEnv, use one of these commands:</p>
+<h3 id="linux">Linux:</h3>
+<p>On Linux, required prerequisites needed for PyEnv will depend heavily on what's already installed. It's likely that some or all of the following are already installed. However, for completeness, here is the full setup:</p>
+<p>First, you need to make sure you have the standard set of build tools installed</p>
+<pre><code class="language-bash">sudo apt install build-essential
+</code></pre>
+<p>Next, you need several prerequisites specifically required by PyEnv:</p>
+<pre><code class="language-bash">sudo apt install libssl-dev libffi-dev libncurses5-dev zlib1g zlib1g-dev libreadline-dev libbz2-dev libsqlite3-dev make gcc curl git
+</code></pre>
+<p>Now you can install PyEnv:</p>
+<pre><code class="language-bash">curl https://pyenv.run | bash
+</code></pre>
+<p>(If you'd feel safer, you can grab this command from the pyenv-installer website: https://github.com/pyenv/pyenv-installer)</p>
+<p>After this completes, it will ask you to copy this to the end of your shell config (e.g., on typically bash-based Linux systems, you would add this to the end of your <code>~/.bashrc</code> file):</p>
+<pre><code>export PYENV_ROOT=&quot;$HOME/.pyenv&quot;
+command -v pyenv &gt;/dev/null || export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;
+eval &quot;$(pyenv init -)&quot;
+</code></pre>
+<p>If you use another type of shell, then there will be some equivalent way to approach this task.</p>
+<p>Finally, type this command to reset your terminal (or just close and re-open it):</p>
+<pre><code class="language-bash">exec $SHELL
+</code></pre>
+<hr>
+
+<h3 id="macos">MacOS:</h3>
+<p>For MacOS, you will need the Homebrew package manager installed. If not, go to the <a href="../installing_a_package_manager/">Installing A Package Manager</a> section first. Technically, you might be able to get away without installing Homebrew if you already have various development tools installed, but I have not tried this.</p>
+<pre><code class="language-bash">curl https://pyenv.run | bash
+</code></pre>
+<p>(If you'd feel safer, you can grab this command from the pyenv-installer website: https://github.com/pyenv/pyenv-installer)</p>
+<p>After this completes, it will ask you to copy this to the end of your shell config (e.g., on bash based systems, this would be <code>.bashrc</code>, on zsh based systems, this would be '.zprofile'):</p>
+<pre><code>export PYENV_ROOT=&quot;$HOME/.pyenv&quot;
+command -v pyenv &gt;/dev/null || export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;
+eval &quot;$(pyenv init -)&quot;
+</code></pre>
+<p>Afterward, close Terminal and then restart it so that those changes can take effect.</p>
+<hr>
+
+<h3 id="windows">Windows</h3>
+<p>Open a PowerShell terminal window and type in this command to set the required permissions to install PyEnv:</p>
+<pre><code class="language-bash">Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine
+</code></pre>
+<p>Now install PyEnv:</p>
+<pre><code class="language-bash">Invoke-WebRequest -UseBasicParsing -Uri &quot;https://raw.githubusercontent.com/pyenv-win/pyenv-win/master/pyenv-win/install-pyenv-win.ps1&quot; -OutFile &quot;./install-pyenv-win.ps1&quot;; &amp;&quot;./install-pyenv-win.ps1&quot;
+</code></pre>
+<p>(If you'd feel safer copying the command from the website, go here: <a href="https://github.com/pyenv-win/pyenv-win">https://github.com/pyenv-win/pyenv-win</a>)</p>
+<p>When that finishes, you must close and re-open PowerShell!</p>
+<h2 id="install-python-using-pyenv">Install Python Using PyEnv</h2>
+<pre><code class="language-bash"># MacOS and Linux
+pyenv install 3.10
+# Windows
+pyenv install 3.9.13
+</code></pre>
+<p>which will install the latest version of Python 3.10 (e.g., this is currently 3.10.11) on Linux and MacOS. If on Windows, you'd be installing the latest version of Python 3.9 (e.g., this is currently 3.9.16).</p>
+<h2 id="obtain-python-location">Obtain Python Location</h2>
+<p>You can always see which versions of Python you have installed with PyEnv by typing this command</p>
+<pre><code class="language-bash">pyenv versions
+</code></pre>
+<p>returns something like this:</p>
+<pre><code>  3.6.9
+  3.8.7
+  3.9.7
+  3.9.10
+  3.10.11
+  3.11.2
+</code></pre>
+<h3 id="on-linux-and-macos">on Linux and MacOS</h3>
+<p>On Linux and MacOS, the path to your PyEnv Python versions will be something like this:</p>
+<p>/home/<strong>USERNAME</strong>/.pyenv/versions/<strong>VERSION</strong>/bin/python3</p>
+<p>e.g., if your username is <code>testuser</code> and the version you want to run is 3.10.11, then your path would be:</p>
+<pre><code class="language-bash">/home/testusr/.pyenv/versions/3.10.11/bin/python3
+</code></pre>
+<h3 id="on-windows">on Windows</h3>
+<p>On Windows, the path to your PyEnv Python versions will be something like this:</p>
+<p>C:\Users[<strong>USERNAME</strong>].pyenv\pyenv-win\versions[<strong>VERSION</strong>]\python.exe</p>
+<p>e.g., if your username is <code>testuser</code> and the version you want to run is 3.9.13, then your path would be:</p>
+<pre><code class="language-bash">C:\Users\testuser\.pyenv\pyenv-win\versions\3.9.13\python.exe
+</code></pre>
+<p>Note that you can uninstall a version of Python anytime by making a call like this:</p>
+<pre><code class="language-bash">pyenv uninstall 3.9.13
+</code></pre>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

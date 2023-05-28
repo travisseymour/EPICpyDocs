@@ -34,7 +34,7 @@
           <a href=".." class="icon icon-home"> EPICpy Documentation
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -109,7 +109,7 @@
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
       <li>Model Programming</li>
     <li class="wy-breadcrumbs-aside">
     </li>
@@ -201,20 +201,31 @@ self.make_auditory_sound_event(wstim_snd_name, Symbol(&quot;Signal&quot;), GU.Po
 </code></pre>
 <p>For a more detailed introduction, see the chapter <em>Anatomy of A Device File</em>) in the upcoming book <strong><strong>An EPIC Introduction to Computational Cognitive Modeling</strong></strong>.</p>
 <h3 id="device-files-in-epicpy">Device Files in EPICpy</h3>
-<p>Device files in EPICpy are python files that must include some other boilerplate at the top to facilitate use in the simulation, as well as some components of the EPICLib library (via cppyy bindings). For example, devices will minimally need access to the Device_base class and the Output_tee class:</p>
-<pre><code class="language-python"># cppyy imports for required base classes
-
-epiclib_include(&quot;Framework classes/Device_base.h&quot;)
-epiclib_include(&quot;Utility Classes/Output_tee.h&quot;)
-
-from cppyy.gbl import Device_base
-from cppyy.gbl import Output_tee
+<p>Device files in EPICpy are python files that will import several components of the EPICLib library (via a Python C module compiled from the EPICLib C++ code). However, they do not import directly from EPICLib, instead, all device imports are through the <strong>epicpydevice</strong> package. For example, devices will minimally need access to the <strong>Device_base</strong> class and the <strong>Output_tee</strong> class. Consider these imports atop the choice_device.py file:</p>
+<pre><code class="language-python">from epicpydevice import epicpy_device_base
+from epicpydevice.output_tee import Output_tee
+from epicpydevice.epic_statistics import Mean_accumulator
+from epicpydevice.symbol_utilities import concatenate_to_Symbol, get_nth_Symbol
+from epicpydevice.device_exception import Device_exception
+from epicpydevice.speech_word import Speech_word
+import epicpydevice.geometric_utilities as GU
+from epicpydevice.symbol import Symbol
+from epicpydevice.standard_symbols import (
+    Red_c,
+    Green_c,
+    Blue_c,
+    Yellow_c,
+    Black_c,
+    Text_c,
+    Color_c,
+    Shape_c,
+    Circle_c,
+)
 
 # etc
 </code></pre>
 <p>Although you can name your device code file whatever you want, every device code file (e.g., see <code>choice_device.py</code>) must contain a class named <code>EpicDevice</code> that derives from the class <code>EpicPyDevice</code>. The class EpicPyDevice is defined in a file called <code>epicpy_device_base.py</code>. to achieve this, every EPICpy device must import the epicpy_device_base module defined in the file epicpy_device_base.py. For example:</p>
-<pre><code class="language-python">from baseclasses import epicpy_device_base
-
+<pre><code class="language-python">from epicpydevice import epicpy_device_base
 
 class EpicDevice(epicpy_device_base.EpicPyDevice):
     def __init__(self, ot: Output_tee, parent: Any, device_folder: Path):
@@ -226,32 +237,9 @@ class EpicDevice(epicpy_device_base.EpicPyDevice):
             device_folder=device_folder,
         )
 
-        # etc
+    # etc
 </code></pre>
-<p>You may wonder why epicpy_device_base.py exists...why not have it be part of the EPICpy codebase or the EPIClib C++ codebase like all the other imports. The purpose of this separation is in service of those wanting to use a Python IDE for device and encoder programming <strong><em>without</em></strong> having to setup the entire EPICpy development environment. E.g., A desirable workflow would be to using the standalone EPICpy application to run EPIC simulations and use a Python IDE (like <a href="https://www.jetbrains.com/pycharm/download/">PyCharm</a> or <a href="https://vscodium.com/">VSCode</a>) or a Python-aware text editor (like <a href="https://www.sublimetext.com/">SublimeText</a> or <a href="https://atom.io/">Atom</a>) for writing/editing EPICpy devices and encoders. Such a workflow would thus not require the EPICpy codebase, any of its dependencies, or even Python itself, but would still offer code completion for any methods or properties defined within the EPICPyDevice class.</p>
-<p><strong>Accessing EPIC Internals -- C++ Required</strong></p>
-<p>Even though epicpy_device_base.py provides a bit of abstraction for constructing EPICpy devices, device programmers wanting to pull in more methods and symbols from EPICLib than are present in the demo devices may need to consult the C++ header files (we're working on more Python abstraction to eliminate the last bit of C++ reliance for Python programmers). Consider the following code from choice_device.py:</p>
-<pre><code class="language-python">epiclib_include(&quot;Utility Classes/Symbol.h&quot;)
-epiclib_include(&quot;Utility Classes/Output_tee.h&quot;)
-epiclib_include(&quot;Utility Classes/Statistics.h&quot;)
-epiclib_include(&quot;Standard_Symbols.h&quot;)
-epiclib_include(&quot;Utility Classes/Symbol_utilities.h&quot;)
-epiclib_include(&quot;Utility Classes/Geometry.h&quot;)
-epiclib_include(&quot;Framework classes/Speech_word.h&quot;)
-epiclib_include(&quot;Framework classes/Device_event_types.h&quot;)
-epiclib_include(&quot;Framework classes/Device_exception.h&quot;)
-
-from cppyy.gbl import Symbol
-from cppyy.gbl import Output_tee
-from cppyy.gbl import Mean_accumulator
-from cppyy.gbl import Red_c, Green_c, Blue_c, Yellow_c, Black_c
-from cppyy.gbl import Text_c, Color_c, Shape_c, Circle_c
-from cppyy.gbl import concatenate_to_Symbol
-from cppyy.gbl import Geometry_Utilities as GU
-from cppyy.gbl import Speech_word
-from cppyy.gbl import Device_exception
-</code></pre>
-<p>These imports allow the device to use EPIC's Symbol class (in <code>Symbol.h</code>), the Mean_accumulator class (in <code>Statistics.h</code>), the Speech_word class (in <code>Speech_word.h</code>), among others. How is a device programmer to know what useful classes exist in EPIC? They would need to have some idea what is available in the corresponding C++ files. Similarly, in order to speak in terms that the EPIC simulation understands, shapes and colors specified in visual object creation must be in terms of the constants defined in <code>Standard_Symbols.h</code> (e.g., Blue_c and Circle_c). Thus, to branch out beyond what is demonstrated in the 3 demo devices, device modelers may find it is necessary to download and read through the Framework and Utility classes in EPIClib, as well as be aware of the contents of <code>Standard_Symbols.h</code>. To save some effort, EPICpy allows access to pandas, scipy, numpy, and other Python-based statistical facilities that could be used instead of Statistics.h. For example, using a pandas Series object (and it's <code>mean()</code> method) instead of EPIClib's Mean_accumulator class would be just as efficient, while offering a Python interface. To further remove the need for Python device programmers to read/understand C++ header files, we are planning to (at some point) write Python interfaces to the most likely EPIClib Utility, Framework, and Symbol classes.</p>
+<p>You may wonder why epicpy_device_base.py exists...why not have it be part of the EPICpy codebase or the EPIClib C++ codebase like all the other imports. The purpose of this separation is in service of those wanting to use a Python IDE for device and encoder programming <strong><em>without</em></strong> having to set up the entire EPICpy development environment. E.g., A desirable workflow would be to using the standalone EPICpy application to run EPIC simulations and use a Python IDE (e.g., <a href="https://www.jetbrains.com/pycharm/download/">PyCharm</a> for writing/editing EPICpy devices and encoders. Such a workflow would thus not require the EPICpy codebase, any of its dependencies, or even Python itself, but would still offer code completion for any methods or properties defined within the EPICPyDevice class.</p>
 <p><strong>Device Parameter Strings</strong></p>
 <p>Device parameter strings are space delimited parameters used to specify a simulation run. For example, for the demo choice-device, the default parameter string is "10 4 Easy, Draft", corresponding to the number of trials, the number of colors to use, the difficulty condition, and a run-note to include. Traditionally, if a modeller wanted to run this simulation for both the Easy and Hard condition, it would be necessary to run "10 4 Easy Draft", then change it to "10 4 Hard Draft" and run the simulation again.</p>
 <p>EPICpy adds a new ability to specify parameter ranges in device parameter strings. For example, this parameter string:</p>
@@ -263,16 +251,16 @@ from cppyy.gbl import Device_exception
 <p>This one parameter string leads to 10 runs of 80-trials each of the Easy condition and the Hard condition. Thus, this one parameter string automates 20 separate simulation runs.</p>
 <p><strong>Simulation User Options</strong></p>
 <p>EPICpy allows device programmers to expose device options via the EPICpy GUI. For example, one common use is to let the modeller decide whether or not certain debug messages are shown during a simulation. What kinds of options are available are entirely up to the device programmer, who only needs to specify a dictionary called self.option filled with string:boolean key:value pairs. For example, here are the options defined in the demo choice device:</p>
-<pre><code class="language-python">        # Optionally expose some boolean device options to the user via the GUI.
-        self.option = dict()  # from EpicPyDevice, default is dict()
-        # useful for showing debug information during development
-        self.option[&quot;show_debug_messages&quot;] = False
-        # useful for showing device state info during trial run
-        self.option[&quot;show_trial_events&quot;] = False
-        # useful for outputting trial parameters and data during task run
-        self.option[&quot;show_trial_data&quot;] = True
-        # useful for long description of the task and parameters
-        self.option[&quot;show_task_description&quot;] = True
+<pre><code class="language-python"># Optionally expose some boolean device options to the user via the GUI.
+self.option = dict()  # from EpicPyDevice, default is dict()
+# useful for showing debug information during development
+self.option[&quot;show_debug_messages&quot;] = False
+# useful for showing device state info during trial run
+self.option[&quot;show_trial_events&quot;] = False
+# useful for outputting trial parameters and data during task run
+self.option[&quot;show_trial_data&quot;] = True
+# useful for long description of the task and parameters
+self.option[&quot;show_task_description&quot;] = True
 </code></pre>
 <p>Corresponding code in the device would need conditions that take advantage of these options, e.g.:</p>
 <pre><code class="language-python">if self.option['show_debug_messages']:
@@ -341,15 +329,16 @@ Then
 <p>Another option is to create a visual encoder that allows EPIC to bypass this step and directly perceive the Shape property value Rectangle as the "shape" BatteryIndicator, and the Shape property Plus as the "shape" EcoModeIndicator. In this case, the role of the visual encoder is embody a type of perceptual expertise whereby particpants have sufficient experience with the interface that they no longer must translate the rectangle into the concept of BatteryIndicator. </p>
 <h3 id="perceptual-encoder-files-in-epicpy">Perceptual Encoder Files in EPICpy</h3>
 <p>Like device files, perceptual encoders are python code files. Because they are loaded by the user via the GUI, it doesn't matter what you name your encoder files, just that they be text files containing Python code and have a .py file extension. Another requirements for encoders is that they import the proper encoder base from EPIClib. For example, for a visual encoder:</p>
-<pre><code class="language-python">epicpy_include(&quot;Framework classes/Visual_encoder_base.h&quot;)
-
-from cppyy.gbl import Visual_encoder_base
+<pre><code class="language-python">from epicpydevice.epicpy_visual_encoder_base import EPICPyVisualEncoder
 </code></pre>
 <p>Next, you must either define a class named <code>VisualEncoder</code> that derives from <code>Visual_encoder_base</code> or a class named <code>AuditoryEncoder</code> that derives from <code>Auditory_encoder_base</code>. For example, for a visual encoder:</p>
-<pre><code class="language-python">class VisualEncoder(Visual_encoder_base):
-    def __init__(self, encoder_name: str, parent):
-        super(VisualEncoder, self).__init__(encoder_name)
-        # etc
+<pre><code class="language-python">class VisualEncoder(EPICPyVisualEncoder):
+    def __init__(self, encoder_name: str, parent: Any = None):
+        super(VisualEncoder, self).__init__(
+            encoder_name=encoder_name if encoder_name else &quot;VisualEncoder&quot;,
+            parent=parent,
+        )
+    # etc.
 </code></pre>
 <p>To achieve the encoder functionality described above, we could have the device use a distinct simple shape for each car warning icon (circle, rectangle, triangle, etc.) and then write an encoder that re-encoded those simple shapes into the coneptual shapes drivers have learned, e.g.:</p>
 <pre><code class="language-python">def set_object_property(self, object_name: Symbol, property_name: Symbol, property_value: Symbol, encoding_time: int):
@@ -376,7 +365,7 @@ from cppyy.gbl import Visual_encoder_base
         return False
 </code></pre>
 <p>Note that this approach is only advisable if the behavior being modeled is not expected to be significantly affected by the time it takes to perceive the warning shapes. Otherwise, your model may not be particularly compelling.</p>
-<p>Another use of encoders may be to represent encoding error. E.g., rather than creating a set of production rules that embody a full model of why and how people mis-perceive stimulus properties, a modeler may decide to simply codify the probability of making an ecoding error and hard-code the expected error. For example, the visual encoder distributed with the demo choice-device randomly mis-encodes some stimulus colors at a specified failure rate:</p>
+<p>Another use of encoders may be to represent encoding error. E.g., rather than creating a set of production rules that embody a full model of why and how people mis-perceive stimulus properties, a modeler may decide to simply codify the probability of making an encoding error and hard-code the expected error. For example, the visual encoder distributed with the demo choice-device randomly mis-encodes some stimulus colors at a specified failure rate:</p>
 <pre><code class="language-python">    def set_object_property(self, object_name: Symbol, property_name: Symbol,
         property_value: Symbol, encoding_time: int) -&gt; bool:
         &quot;&quot;&quot;

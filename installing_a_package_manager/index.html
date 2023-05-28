@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://cogmodlab.ucsc.edu/2022/03/14/epic/epicpystats/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://cogmodlab.ucsc.edu/2022/03/14/epic/installing_a_package_manager/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>EPICpy Statistics Facility - EPICpy Documentation</title>
+    <title>Installing a Package Manager - EPICpy Documentation</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "EPICpy Statistics Facility";
-        var mkdocs_page_input_path = "epicpystats.md";
-        var mkdocs_page_url = "/2022/03/14/epic/epicpystats/";
+        var mkdocs_page_name = "Installing a Package Manager";
+        var mkdocs_page_input_path = "installing_a_package_manager.md";
+        var mkdocs_page_url = "/2022/03/14/epic/installing_a_package_manager/";
       </script>
     
     <script src="../js/jquery-3.6.0.min.js" defer></script>
@@ -94,7 +94,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
-      <li>EPICpy Statistics Facility</li>
+      <li>Installing a Package Manager</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -103,20 +103,37 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="epicpy-statistics-facility">EPICpy Statistics Facility</h1>
-<p>Python has a rich set of modules and packages for statistical analysis and graphing. Because EPICpy includes the <a href="https://pingouin-stats.org/">Pingouin Statistical Package</a>, device programmers have access to the following facilities (see Pingouin docs for other imported packages):</p>
-<ul>
-<li><a href="https://pingouin-stats.org/">pingouin</a></li>
-<li><a href="https://www.statsmodels.org/">statsmodels</a></li>
-<li><a href="https://pandas.pydata.org/">pandas</a></li>
-<li><a href="https://github.com/Zsailer/pandas_flavor">pandas-flavor</a></li>
-<li><a href="https://numpy.org/">numpy</a></li>
-<li><a href="https://www.scipy.org/">scipy</a></li>
-<li><a href="https://matplotlib.org/">matplotlib</a></li>
-<li><a href="https://seaborn.pydata.org/">seaborn</a></li>
-</ul>
-<p>Access to these packages in device code is enabled through standard Python import statements. Display of statistical analyses and graphs is enabled by using the <code>stats_write()</code> method which can accept text, pandas dataframes and other objects, as well as figures and other matplotlib-based objects.</p>
-<p>Although we don't recommend programming full data analyses at the end of each simulation run, this statistical facility will allow most conceivable post-run analyses a modeler might need.</p>
+                <h1 id="installing-a-package-manager">Installing a Package Manager</h1>
+<h2 id="linux">Linux</h2>
+<p>On Linux, <u>you do not need to install a package manager</u>. All Linux variants come with a standard package manager, e.g.,
+ <code>apt</code> on Debian-based distributions, <code>yum</code> on RedHat-based distributions, and <code>pacman</code> on Arch-based distributions. 
+All instructions on this website assume you are installing on a Debian-based system, and thus use the <code>apt</code> package 
+manager in examples. However, you should be able to easily edit these calls to the appropriate versions on your version 
+of Linux.</p>
+<h2 id="macos">MacOS</h2>
+<p>Homebrew (https://brew.sh/) is a package manager for MacOS. Some MacOS users already have Homebrew installed. 
+To see if you already have Homebrew, just enter <code>brew list</code> on the commandline. If you get anything other than 
+an error, you already have Homebrew. If you, you must install it:</p>
+<p>To install Homebrew, open Terminal and paste this into a terminal:</p>
+<pre><code class="language-bash">/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;
+</code></pre>
+<p>(or if you'd feel safer grabbing it directly from the Homebrew website, go here: https://brew.sh/)</p>
+<p>This will take a moment. When it's done, you will have a working installation of Homebrew. </p>
+<p>NOTE: you may be instructed to run these two commands (or something similar) in the terminal to add Homebrew to your PATH:</p>
+<pre><code class="language-bash">(echo; echo 'eval &quot;$(/usr/local/bin/brew shellenv&quot;') &gt;&gt; /Users/testuser/.zprofile
+eval &quot;$(/usr/local/bin/brew shellenv)&quot;
+</code></pre>
+<h2 id="windows">Windows</h2>
+<p>Chocolatey (https://chocolatey.org/) is a package manager for Windows. Some Windows users already have Chocolatey 
+installed. 
+To see if you already have Chocolatey, just enter <code>choco list</code> on the commandline. If you get anything other than 
+an error, you already have Chocolatey. If not, you must install it:</p>
+<p>To install Chocolatey, open PowerShell in Administer mode, and then paste this into a terminal </p>
+<pre><code class="language-bash">Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))&quot;
+</code></pre>
+<p>(or if you'd feel safer grabbing it directly from the Chocolatey website, go here: https://chocolatey.org/install 
+and copy it)</p>
+<p>This will take a moment. When it's done, you will have a working installation of Chocolatey. </p>
               
             </div>
           </div><footer>
