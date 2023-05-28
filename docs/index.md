@@ -2,7 +2,7 @@
 
 You can find EPICpy related content at one of these locations:
 
-* [Overview, Binary Installers, Dockerfile](https://cogmodlab.ucsc.edu/2022/03/14/epic/)
+* [Overview](https://cogmodlab.ucsc.edu/2022/03/14/epic/)
 * [Detailed Documentation @ Github Pages](https://travisseymour.github.io/EPICpyDocs/) (You're Reading It Now!)
 * [EPICpy Article](https://joss.theoj.org/papers/10.21105/joss.04533)
 * [Development Environment @ Github](https://github.com/travisseymour/epicpy)
@@ -15,7 +15,7 @@ This is the documentation for **EPICpy**, a tool for simulating human performanc
 
 ## What These Docs <b>ARE NOT</b>
 
-<font color="Blue">This documentation is not a detailed introduction to EPIC, device programming, perceptual encoder programming, or production rule programming</font>. To learn more about EPIC and how it works, please see the documents in the [Epic Resources](epicresources.md) section (in particular, the first three). 
+<font color="Orange">This documentation is not a detailed introduction to EPIC, device programming, perceptual encoder programming, or production rule programming</font>. To learn more about EPIC and how it works, please see the documents in the [Epic Resources](epicresources.md) section (in particular, the first three). 
 
 ## What is EPIC
 
@@ -92,21 +92,21 @@ The previous section lays out 4 main challenges that potential EPIC modelers fac
 
 #### EPICpy uses Python rather than C++
 
-First, it should be pointed out that EPICpy is not **completely** written in Python. EPICLib itself, that is, the cognitive architecture and various routines to allow creation and management of simulations using EPIC's subsystems, is still written in C++. In fact, to promote easily keeping up with ongoing changes to EPICLib that are underway, EPICpy allows easy drop-in updates of C++ from the [David Kieras'sEPIC github repository](https://github.com/dekieras/EPIC) if updates are posted.
+First, it should be pointed out that EPICpy is not **completely** written in Python. EPICLib itself, that is, the cognitive architecture and various routines to allow creation and management of simulations using EPIC's subsystems, is still written in C++ and compiled into an importable module for Python on Macos, Linux, and Windows.
 
 Everything else is programmed in Python. This includes task devices and perceptual encoders, which are programmed in Python and are stored and loaded into EPICpy as raw Python code. This means that no compilation is required; An EPICpy device written on one operating system will work exactly the same on another operating system. Most EPIC modeling is some combination of work on devices, encoders, and rule files. In EPICpy, these are all just text files.
 
 #### EPICpy requires no device/encoder compilation 
 
-Because EPICpy devices and encoders are now just text-based Python code files, it means that the majority of EPIC modeling work can now be done with a code/text editor, no C++ or Python development environment is required. Just update your device in a text editor, have EPICpy re-load it, and press run to see your changes (or error messages, if something goes awry). In a sense, EPICpy itself becomes your development environment. Because Python code is relatively easy to read and write, it will be much easier to find students and assistants who have sufficient skill to create or edit devices and encoders.
+Because EPICpy devices and encoders are now just text-based Python code files, it means that the majority of EPIC modeling work can now be done with a code/text editor, no C++ or Python development environment is required. Just update your device in a text editor, have EPICpy re-load it, and press run to see your changes (or error messages, if something goes awry). In a sense, EPICpy itself becomes your development environment. Because Python code is relatively easy to read and write, it will be much easier to find students, assistants and collaborators who have sufficient skill to create or edit devices and encoders.
 
 #### EPICpy GUI written in Python
 
-The EPICpy GUI application itself is written in Python. This means that if one desires to actually alter the operation of the EPICpy interface, they are free to do so. However, this would require setting up the EPICpy development environment on your computer. Running such a updated version of EPICpy would be easy, but compiling your changes back into a cross-platform executable will take further steps and knowledge. If you want to do this, see the appropriate "**EPICpy Development Environment**" section on the [Installing EPICpy](installing.md) page.
+The EPICpy GUI application itself is written in Python. This means that if one desires to actually alter the operation of the EPICpy interface, they are free to do so. However, this would require setting up the EPICpy development environment on your computer. Running such an updated version of EPICpy would be easy, but compiling your changes back into a cross-platform executable will take further steps and knowledge. If you want to do this, see the appropriate "**EPICpy Development Environment**" section on the [Installing EPICpy](installing.md) page.
 
 #### EPICpy allows use of Python statistical and graphing
 
-Python has a rich set of modules and pacagkes for statistical analysis and graphing. Because EPICpy includes the [Pingouin Statistical Package](https://pingouin-stats.org/), device programmers have access to the following facilities (see Pingouin docs for other imported packages):
+Python has a rich set of modules and packages for statistical analysis and graphing. Because EPICpy includes the [Pingouin Statistical Package](https://pingouin-stats.org/), device programmers have access to the following facilities (see Pingouin docs for other imported packages):
 
 * [pingouin](https://pingouin-stats.org/)
 * [statsmodels](https://www.statsmodels.org/)
@@ -123,15 +123,9 @@ Although we don't recommend programming full data analyses at the end of each si
 
 #### EPICpy is Cross Platform
 
-EPICpy was developed by Travis L. Seymour, PhD on the [Ubuntu](https://ubuntu.com/) Linux operating system (as well as variants such as [Linux Mint](https://linuxmint.com/) and [Pop!_OS](https://pop.system76.com/)). To produce standalone executable applications and native installers for Linux (any modern Ubuntu variant) and MacOS (MacOS 10.13 and later), the  [FMan build system](https://build-system.fman.io/) was used. Although there is not a native Windows version at the moment, Windows 10 and 11 users can easily run the Linux version via the [Windows Subsystem for Linux v2 (WLS2)](https://docs.microsoft.com/en-us/windows/wsl/about). To run the Linux version of EPICpy on Windows, please see the corresponding section on the [Installing EPICpy](installing.md) page.
+EPICpy was developed by Travis L. Seymour, PhD on the [Ubuntu](https://ubuntu.com/) Linux operating system (as well as variants such as [Linux Mint](https://linuxmint.com/) and [Pop!_OS](https://pop.system76.com/)). To facilitate the installation and use of EPICpy across platforms, we are using the PipX system for automatically running Python applications in isolated environments. After users instal PipX itself, it's a single command across operating systems to install EPICpy. However, because EPICLib itself is compiled, there are some limitations: On Linux and Macos, Python 3.10.?? must be installed, and on Windows 10 and 11, Python 3.9.?? must be installed. Once PipX and the needed version of Python are installed, EPICpy should install and run on either of these three operating systems. For detailed installation instructions, please see the corresponding section on the [Installing EPICpy](installing.md) page.
 
-Thus, EPICpy can be used on Linux, MacOS, and Windows based computers. 
-
-To download EPICpy, go to [https://cogmodlab.ucsc.edu/software/epicpy/docs/](https://cogmodlab.ucsc.edu/software/epicpy/)
-
-It is only possible to produce MacOS installer on machines one has access to. Thus, I have only provided versions for MacOS 10.13 - 12.0. Although EPICpy *should* work on machines using the non-Intel chips Apple now uses, this has yet to be confirmed.
-
-Currently, only a debian-based installer is provided for users of Ubuntu-type Linux operating systems. Although we may at some point consider installer for those using Arch, Fedora, and other variants of Linux, this will only be considered if there is sufficient interest.
+Thus, EPICpy can be used on Linux, MacOS (Intel and Arm), and Windows based computers.
 
 #### Other New Features in EPICpy
 
@@ -144,10 +138,12 @@ Currently, only a debian-based installer is provided for users of Ubuntu-type Li
 * Automatically Remembers and Reinstates Dimensions of all Dialog Windows.
 * Automatically Reinstates GUI Settings and Parameters For Each Device (including all window positions and sizes)
 * Ability to Load and Run Multiple Rulesets Sequentially
-* Ability to Add Parameters to Device Condition String To Enable Parametric Model Runs (e.g., `10 [Easy|Hard]` would run 10 trials of the Easy condition and then 10 trial of the Hard condition.)
+* Ability to Add Parameters to the Device Condition String to enable parametric model runs (e.g., `10 [Easy|Hard]` would run 10 trials of the Easy condition and then 10 trial of the Hard condition.)
 * Adjustable Application Font Size
 * Adjustable Detail for Sound and Speech Object Display (e.g., determine which attributes of the `Speech_word` class to show on the perceptual output window)
-* Selectable EPIC Architecture Versions (currently models can be run under the 11/28/2014 release of EPIC or the 6/28/2016 release.)
+* <strike>Selectable EPIC Architecture Versions (currently models can be run under the 11/28/2014 release of EPIC or the 6/28/2016 release.)</strike> EPICLib is now fixed to the 2016 release.
 * Access to Some Device Configuration from the GUI (e.g., device programmer might expose toggle for showing debug information, or altering device operation)
 * Added Window-Management Facilities (e.g., Double-clicking output window brings all windows to front, Minimize all windows, Show all windows, Restore Default Layout)
 * It is Now Possible to **UN**load perceptual encoders. Unloaded encoders will not be re-loaded during subsequent session reloads.
+* Built-in (though crude) text editor with automatic (not currently perfect) syntax-highlighting for EPIC Production-Rule files. Files will default to opening using your system's defaults.
+

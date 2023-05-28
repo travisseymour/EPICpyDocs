@@ -4,7 +4,10 @@ When you first run EPICpy, the graphical user interface (GUI) should look like t
 
 [![EPIC GUI Initial](resources/images/epicpy_gui_clean_small.png)](resources/images/epicpy_gui_clean.png)
 
+<!--
+TODO: Let's keep this here in case mac users complain and ask for this to return
 EPICpy's menu will be found atop the **Normal Output Window** for most platforms, but for MacOS, the menu will be attached to the top of the screen rather than the top of the Normal Output Window. In some cases, you might not see the top-screen menu on MacOS until after you have mouse-clicked inside the Normal Output Window at least once.
+-->
 
 ## File Menu
 
@@ -65,16 +68,30 @@ Although it is possible to save Normal and Trace Output content after a run, thi
 This dialog will present 0 or more checkboxes that allow toggling features of the current task device without altering the corresponding code. Note that exposing options for this menu is optional and some devices may not expose any.
 
 ### EPICLib Settings Dialog
-
+<font color="#8b0000">NOTE: This dialog has been disabled for now -- currently, only the 06/08/2016 version of EPICLib is available.</font>
+<!--
 [![EPICLib Settings Dialog](resources/images/dialog_epiclib_settings_small.png)](resources/images/dialog_epiclib_settings.png)
 
 This dialog indicates the EPIClib versions that are currently available. By default, the "Use Latest Version" setting is selected. However, if one wants to run a simulation that relies on an older version of EPIClib, this dialog can be useful.
+-->
 
 ### Sound Text Settings Dialog
 
 [![Sound Text Settings Dialog](resources/images/sound_text_settings_small.png)](resources/images/sound_text_settings.png)
 
 Sound and Speech objects displayed on the Auditory Views can be adorned with several pieces of information. Note that sounds always show the Timbre and Speech always show the Content.
+
+### Font Settings Dialog
+
+[![Font Settings Dialog](resources/images/font_settings_small.png)](resources/images/font_settings.png)
+
+Although the font used by EPICpy is set, this dialog allows you to set the font size used.
+
+### Text Editor Settings Dialog
+
+[![Font Settings Dialog](resources/images/text_editor_settings_small.png)](resources/images/text_editor_settings.png)
+
+Although the font used by EPICpy is set, this dialog allows you to set the font size used.
 
 ## Running/Managing Simulations
 

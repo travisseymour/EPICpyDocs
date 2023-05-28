@@ -1,6 +1,6 @@
 # EPICpy Simulation Components
 
-This page describes of what it means to simulate human performance using EPIC under EPICpy, by going over each of the key components of a simulation run. For an overview of what EPIC and EPICpy are, and what they are used for, see the [Home Page](index.md) page. To see an example simulation walkthrough, see the [Epic Simulation Example](example.md) page.
+This page describes of what it means to simulate human performance using EPIC under EPICpy, by going over each of the key components of a simulation run. For an overview of what EPIC and EPICpy are, and what they are used for, see the [Home Page](index.md). To see an example simulation walkthrough, see the [Epic Simulation Example](example.md) page.
 
 [![EPICpy Overview](resources/images/epicpy_overview_small.png)](resources/images/epicpy_overview.png)
 
