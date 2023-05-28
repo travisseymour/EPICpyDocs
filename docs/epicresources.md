@@ -18,7 +18,7 @@
 
 [Kieras, D. (2010). Modeling Visual Search of Displays of Many Objects: The Role of Differential Acuity and Fixation Memory. Proceedings of the 10th International Conference on Cognitive Modeling, ICCM 2010.](resources/articles/Modeling_Visual_Search_of_Displays_of_Many_Objects.pdf)
 
-[Kieras, D. E., Meyer, D. E., & Ballas, J. (2001). Towards demystification of direct manipulation: Cognitive modelsing charts the gulf of execution. Proceedings of The CHI2001 Conference on Human Factors in Computing Systems (pp. 128-135). New York: Association of Computing Machinery, 2001.](resources/articles/KierasMeyerBallas2001.pdf)
+[Kieras, D. E., Meyer, D. E., & Ballas, J. (2001). Towards demystification of direct manipulation: Cognitive modeling charts the gulf of execution. Proceedings of The CHI2001 Conference on Human Factors in Computing Systems (pp. 128-135). New York: Association of Computing Machinery, 2001.](resources/articles/KierasMeyerBallas2001.pdf)
 
 [Kieras, D. E., Meyer, D. E., Ballas, J. A., & Lauber, E. J. (2000). Modern Computational Perspectives on Executive Mental Processes and Cognitive Control: Where to from Here?. In S. Monsell & J. Driver (eds.) Control of Cognitive Processes: Attention and Performance XVIII, (pp. 681-712). Cambridge, MA: M.I.T. Press, 2000.](resources/articles/KierasMeyerBallasLauber2000.pdf)
 
@@ -44,4 +44,4 @@
 
 [Hornof, A. J. & Kieras, D. E. (1997). Cognitive modeling reveals menu search is both random and systematic. Proceedings of the CHI'97 Conference on Human Factors in Computing Systems, 107-114. New York: ACM.](resources/articles/CHI97.pdf)
 
-[Seymour, T.L., Schumacher, E.H., (2009). Electromyographic Evidence for Response Conflict in the Exclude Recognition Task. Cognitive, Affective & Behvioral Neuroscience, 9(1), 71-82.](resources/articles/seymourschumacher2009CABN.pdf)
+[Seymour, T.L., Schumacher, E.H., (2009). Electromyographic Evidence for Response Conflict in the Exclude Recognition Task. Cognitive, Affective & Behavioral Neuroscience, 9(1), 71-82.](resources/articles/seymourschumacher2009CABN.pdf)

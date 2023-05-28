@@ -9,7 +9,7 @@ To install PyEnv, use one of these commands:
 
 ### Linux:
 
-On Linux, required prereqs needed for PyEnv will depend heavily on what's already installed. It's likely that some or all of the following are already installed. However, for completness, here is the full setup:
+On Linux, required prerequisites needed for PyEnv will depend heavily on what's already installed. It's likely that some or all of the following are already installed. However, for completeness, here is the full setup:
 
 First, you need to make sure you have the standard set of build tools installed
 
@@ -17,7 +17,7 @@ First, you need to make sure you have the standard set of build tools installed
 sudo apt install build-essential
 ```
 
-Next, you need several prereqs specifically required by PyEnv:
+Next, you need several prerequisites specifically required by PyEnv:
 
 ```bash
 sudo apt install libssl-dev libffi-dev libncurses5-dev zlib1g zlib1g-dev libreadline-dev libbz2-dev libsqlite3-dev make gcc curl git
@@ -28,7 +28,7 @@ Now you can install PyEnv:
 ```bash
 curl https://pyenv.run | bash
 ```
-(If you'd feel safer, you can grab this command from the pyenv-installer webste: https://github.com/pyenv/pyenv-installer)
+(If you'd feel safer, you can grab this command from the pyenv-installer website: https://github.com/pyenv/pyenv-installer)
 
 After this completes, it will ask you to copy this to the end of your shell config (e.g., on typically bash-based Linux systems, you would add this to the end of your `~/.bashrc` file):
 
@@ -54,7 +54,7 @@ For MacOS, you will need the Homebrew package manager installed. If not, go to t
 ```bash
 curl https://pyenv.run | bash
 ```
-(If you'd feel safer, you can grab this command from the pyenv-installer webste: https://github.com/pyenv/pyenv-installer)
+(If you'd feel safer, you can grab this command from the pyenv-installer website: https://github.com/pyenv/pyenv-installer)
 
 After this completes, it will ask you to copy this to the end of your shell config (e.g., on bash based systems, this would be `.bashrc`, on zsh based systems, this would be '.zprofile'):
 

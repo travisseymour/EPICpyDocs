@@ -5,7 +5,7 @@ When you first run EPICpy, the graphical user interface (GUI) should look like t
 [![EPIC GUI Initial](resources/images/epicpy_gui_clean_small.png)](resources/images/epicpy_gui_clean.png)
 
 <!--
-TODO: Let's keep this here in case mac users complain and ask for this to return
+TODO: Let's keep this here in case MacOS users complain and ask for this to return
 EPICpy's menu will be found atop the **Normal Output Window** for most platforms, but for MacOS, the menu will be attached to the top of the screen rather than the top of the Normal Output Window. In some cases, you might not see the top-screen menu on MacOS until after you have mouse-clicked inside the Normal Output Window at least once.
 -->
 
@@ -16,7 +16,7 @@ EPICpy's menu will be found atop the **Normal Output Window** for most platforms
 - **Load Device**: Presents a file dialog that allows you to select and load an EPICpy "Device File". Device files define a particular virtual task and are coded in Python.
 - **Compile Rules**: Presents a file dialog that allows you to select and load an EPICpy "Production Rule" text file. Production Rules are written in IF-THEN style according to the Parsimonious Production Rule System [(Covrigaru & Kieras 1995)](resources/articles/CovrigaruKieras1987_ONR_TR26.pdf). The verb "Compile" indicates that after loading this file, EPIC will attempt to evaluate the rules and use them to construct a rule network. Any errors in the rule syntax will be noted in the Normal Output Window.
 - **Recompile Rules**: Compiles the most recently production rule file to have been successfully compiled.
-- **Export Normal/Trace/Stats Output**: Opens a file-save dialog allowing to the contents of the Normal-, Trace-, or Stats- Window to be stored as a file on disk.
+- **Export Normal/Trace/Stats Output**: Opens a file-save dialog allowing to the contents of the Normal-, Trace-, or Stats-Window to be stored as a file on disk.
 
 ## Find Menu
 
@@ -43,7 +43,7 @@ This dialog allows detailed tracing of various EPIC processors' information duri
 - **PPS Compiler Messages**: Prints extra diagnostic information when (re)compiling production rules.
 - **Spatial scale pixels/degree**: Magnification factor for view windows. Larger values zoom in, smaller values zoom out.
 - **Show Model Parameter Before Each Run**: Does as the name suggests, can be useful when saving Normal Output Window content to have an indication of the corresponding EPIC parameterization. If you are new to EPIC modelling, you should study this output -- the defaults may or may not be relevant for your task, although care should be taken before changing EPIC parameters without sufficient cause.
-- **Allow device to draw view underlay images**: It is possible for devices to specify images the draw underneath normal Visual- or Auditory View content. This toggle allows such drawing to be enabled/disabled without altering the device code. Images need to be placed in a folder next to the defice called **images**. Images will only be shown if this setting is ON *and* the task device explicitly calls for them to be drawn.
+- **Allow device to draw view underlay images**: It is possible for devices to specify images the draw underneath normal Visual- or Auditory View content. This toggle allows such drawing to be enabled/disabled without altering the device code. Images need to be placed in a folder next to the device called **images**. Images will only be shown if this setting is ON *and* the task device explicitly calls for them to be drawn.
 - **Compiler Details**: Currently does nothing.
 - **Run Details**: Prints detailed information about the operation of PPS during simulation runs. Not often useful for most modellers, but can be useful for investigating why complex rules are or are not firing.
 - **Center Dot**: Toggles the drawing of a small dot on Visual Views to indicate where the center of the view is as other objects move around.
@@ -112,7 +112,7 @@ Run Command Duration allows you to specify the stopping rule for the simulation:
 
 As the simulation runs, EPIC will draw any visual or auditory information being represented on the device and in the sensory and perceptual systems on the Physical, Sensory, and Perceptual View windows, respectively. Although updates to these windows are being done quickly, these drawing routines and the information exchange that fuel them can slow down the simulation. In general, when developing a model, it is common to enable display refresh so that you can visually monitor the view windows as the simulation progresses. However, when producing large simulated runs, it will be much faster to disable this graphical output. Here are the options:
 
-- **After Each Step**: This is essentially the normal mode of operation whereby the contents of the device display and EPIC's visual and perceptual processors are depicted in the view windows dynamically as the simulation progresses. This mode is significatly slower than choosing **None During Run**.
+- **After Each Step**: This is essentially the normal mode of operation whereby the contents of the device display and EPIC's visual and perceptual processors are depicted in the view windows dynamically as the simulation progresses. This mode is significantly slower than choosing **None During Run**.
 - **None During Run**: In this mode, view window updates are completely disabled. When the simulation ends, you _may_ see something drawn on the view windows, but only if there were objects represented in the corresponding processors when the simulation ended.
 
 **Text Refresh**

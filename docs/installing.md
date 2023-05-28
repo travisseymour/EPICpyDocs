@@ -201,7 +201,7 @@ pipx install --verbose https://github.com/travisseymour/EPICpy --python python3.
 
 #### Installing PipX with Homebrew
 
-Because MacOS does not have a default package manager, I'm assuming that you have installed the Homebrew package manager. If not, see the [Instaling A Package Manager section](installing_a_package_manager.md). If you are using an alternative 
+Because MacOS does not have a default package manager, I'm assuming that you have installed the Homebrew package manager. If not, see the [Installing A Package Manager section](installing_a_package_manager.md). If you are using an alternative 
 MacOS package manager, then adjust the commands below accordingly.
 
 

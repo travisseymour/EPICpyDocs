@@ -4,7 +4,7 @@
 
 On Linux, <u>you do not need to install a package manager</u>. All Linux variants come with a standard package manager, e.g.,
  `apt` on Debian-based distributions, `yum` on RedHat-based distributions, and `pacman` on Arch-based distributions. 
-All instructions on this website assume you are installing on a Debing-based system, and thus use the `apt` pacakage 
+All instructions on this website assume you are installing on a Debian-based system, and thus use the `apt` package 
 manager in examples. However, you should be able to easily edit these calls to the appropriate versions on your version 
 of Linux.
 
@@ -20,7 +20,7 @@ To install Homebrew, open Terminal and paste this into a terminal:
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-(or if you'd feel safer grabbing it direcly from the Homebrew website, go here: https://brew.sh/)
+(or if you'd feel safer grabbing it directly from the Homebrew website, go here: https://brew.sh/)
 
 This will take a moment. When it's done, you will have a working installation of Homebrew. 
 

@@ -15,7 +15,7 @@ Why these versions? The upper limit is 3.10 because some modules we use are not 
 
 - [PyBind11](https://github.com/pybind/pybind11) (pybind11): Library for generating Python bindings for existing C++ code. We are currently using this to produce a Python3.9 compatible library of EPIClib for Windows and a Python3.10 compatible library for MacOS and Linux.
 - [PySide2 GUI Framework](https://wiki.qt.io/Qt_for_Python) (pyside2): Used to build the Graphical User Interface. _Note: We are momentarily using PyQt5 instead of PySide2, but this will change shortly and allow for an overall more permissive license for EPICpy_.
-- [Pingouin Stats System](https://pingouin-stats.org/) (pingouin): Meta-package providing access variety of statistical and gpraphing packages.
+- [Pingouin Stats System](https://pingouin-stats.org/) (pingouin): Meta-package providing access variety of statistical and graphing packages.
 - [PipX](https://github.com/pypa/pipx) (pipx): Allows easy cross-platform distributing Python applications.
 
 <hr>
@@ -117,7 +117,7 @@ The following assumes you are following along with the [PyCharm Integrated Pytho
 ###### Obtain PyCharm's Free Community Edition IDE
 
 ```bash
-# If you like using Connonicals proprietary Snap Linux app installer
+# If you like using Canonical's proprietary Snap Linux app installer
 # To install snap https://itsfoss.com/install-snap-linux/
 sudo snap install pycharm-community --classic
 
@@ -173,13 +173,13 @@ Tested on these MacOS Versions:
 
 - [x] 10.15 Catalina
 - [ ] 11 Big Sur
-- [ ] 12 Monteray
+- [ ] 12 Monterey
 
 Most recent MacOS distributions come with Python 3 already installed, so you probably already have Python. However, you will need to make sure you build your virtual environment below using Python 3.10. In particular, adjust the path of the `python3 -m venv venv` command below so that it points to the correct version of Python (or use your own method to create the proper virtual environment). If you need help managing and locating various versions of Python, see this section: [Installing Python With PyEnv](installing_python_with_pyenv.md).
 
 #### Install Prerequisites
 
-You will need to install the XCode commandline build utilities. A super easy way to do this is to just install the Homebrew package manager. You may have already done this, if not see the section on [Installing a Package Manager](installing_a_package_manager.md). Another approach is to install XCode (it's a 10GB dowload, and you'll need an additional 10GB of space to install it) from the Apple Store and then use XCode to install the commandline utilities. This is challenging if you don't have the latest version of MacOS, as the version of XCode in the Apple Store may not be installable. Generally, I strongly recommend [installing Homebrew](installing_a_package_manager.md); not only does it install the build tools you need, but it's much faster than installing XCode, will install on any version of MacOS. Besides, having Homebrew is super useful anyway. If you already have XCode installed, you may be good to go.
+You will need to install the XCode commandline build utilities. A super easy way to do this is to just install the Homebrew package manager. You may have already done this, if not see the section on [Installing a Package Manager](installing_a_package_manager.md). Another approach is to install XCode (it's a 10GB download, and you'll need an additional 10GB of space to install it) from the Apple Store and then use XCode to install the commandline utilities. This is challenging if you don't have the latest version of MacOS, as the version of XCode in the Apple Store may not be installable. Generally, I strongly recommend [installing Homebrew](installing_a_package_manager.md); not only does it install the build tools you need, but it's much faster than installing XCode, will install on any version of MacOS. Besides, having Homebrew is super useful anyway. If you already have XCode installed, you may be good to go.
 
 #### Retrieve Source Files from GitHub
 
@@ -296,7 +296,7 @@ Although Windows doesn't ship with Python 3 already installed, you may have prev
 
 #### Install Prerequisites
 
-Windows doesn't come with `git` installed. You will need git to obtain the EPICpy files from the software repository on Github.com.
+Windows doesn't come with `git` installed. You will need git to obtain the EPICpy files from the software repository on GitHub.com.
 
 If you've installed the Chocolatey package manager, then you can just enter this command:
 
