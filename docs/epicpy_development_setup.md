@@ -56,7 +56,7 @@ sudo apt install qtbase5-dev
 
 ```bash
 # note: this will create the EPICpy source folder in the directory from which you type these commands: 
-git clone https://github.com/travisseymour/EPICpy
+git clone https://github.com/travisseymour/EPICpy.git
 cd EPICpy
 ```
 
@@ -149,7 +149,7 @@ Choose **Existing**, make sure the **Location** field contains the path to the P
 
 ###### Set The Sources Root
 
-Set the Sources Root by right-clicking on the `epicpy2` folder and choosing **MarkDirectoryAs-->SourcesRoot**.
+Set the Sources Root by right-clicking on the `epicpy` folder and choosing **MarkDirectoryAs-->SourcesRoot**.
 
 ![](resources/images/pycharm_sources_root.png)
 
@@ -185,7 +185,7 @@ You will need to install the XCode commandline build utilities. A super easy way
 
 ```bash
 # note: this will create the EPICpy source folder in the directory from which you type these commands: 
-git clone https://github.com/travisseymour/EPICpy
+git clone https://github.com/travisseymour/EPICpy.git
 cd EPICpy
 ```
 
@@ -273,7 +273,7 @@ Choose **Existing**, make sure the **Location** field contains the path to the P
 
 ###### Set Sources Root
 
-Set the Sources Root by right-clicking on the `epicpy2` folder and choosing **MarkDirectoryAs-->SourcesRoot**.
+Set the Sources Root by right-clicking on the `epicpy` folder and choosing **MarkDirectoryAs-->SourcesRoot**.
 
 ![](resources/images/pycharm_sources_root.png)
 
@@ -310,7 +310,7 @@ If you don't have Chocolatey, you can install it using the instructions in the [
 
 ```bash
 # note: this will create the EPICpy source folder in the directory from which you type these commands: 
-git clone https://github.com/travisseymour/EPICpy
+git clone https://github.com/travisseymour/EPICpy.git
 cd EPICpy
 ```
 
@@ -401,7 +401,7 @@ Choose **Existing**, make sure the **Location** field contains the path to the P
 
 ###### Set Sources Root
 
-Set the Sources Root by right-clicking on the `epicpy2` folder and choosing **MarkDirectoryAs-->SourcesRoot**.
+Set the Sources Root by right-clicking on the `epicpy` folder and choosing **MarkDirectoryAs-->SourcesRoot**.
 
 ![](resources/images/pycharm_sources_root.png)
 

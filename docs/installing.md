@@ -113,7 +113,7 @@ pipx install **[PATH TO SOURCE FILES]** --python **[PATH TO THE VERSION OF PYTHO
 e.g., if your username was "testuser" and you used PyEnv to install Python 3.10.11, the something like this should work:
 
 ```bash
-pipx install https://github.com/travisseymour/EPICpy --python /home/testuser/.pyenv/versions/3.10.11/bin/python3
+pipx install 'git+https://github.com/travisseymour/EPICpy.git' --python /home/testuser/.pyenv/versions/3.10.11/bin/python3
 ```
 
 This process may take a few minutes, please be patient. 
@@ -121,7 +121,7 @@ This process may take a few minutes, please be patient.
 NOTE: If you like seeing stuff happen while you wait, then add the `--verbose` flag, e.g.:
 
 ```bash
-pipx install --verbose https://github.com/travisseymour/EPICpy --python /home/testuser/.pyenv/versions/3.10.11/bin/python3
+pipx install --verbose 'git+https://github.com/travisseymour/EPICpy.git' --python /home/testuser/.pyenv/versions/3.10.11/bin/python3
 ```
 
 <hr/>
@@ -167,7 +167,7 @@ pipx install **[PATH TO SOURCE FILES]** --python **[PATH TO THE VERSION OF PYTHO
 e.g., if your username was "testuser" and you used PyEnv to install Python 3.10.11, the something like this should work:
 
 ```bash
-pipx install https://github.com/travisseymour/EPICpy --python /Users/testuser/.pyenv/versions/3.10.11/bin/python3
+pipx install 'git+https://github.com/travisseymour/EPICpy.git' --python /Users/testuser/.pyenv/versions/3.10.11/bin/python3
 ```
 
 This process may take a few minutes, please be patient. 
@@ -175,7 +175,7 @@ This process may take a few minutes, please be patient.
 NOTE: If you like seeing stuff happen while you wait, then add the `--verbose` flag, e.g.:
 
 ```bash
-pipx install --verbose https://github.com/travisseymour/EPICpy --python /Users/testuser/.pyenv/versions/3.10.11/bin/python3
+pipx install --verbose 'git+https://github.com/travisseymour/EPICpy.git' --python /Users/testuser/.pyenv/versions/3.10.11/bin/python3
 ```
 
 <hr/>
@@ -226,7 +226,7 @@ pipx install **[PATH TO SOURCE FILES]** --python **[PATH TO THE VERSION OF PYTHO
 e.g., if your username was "testuser" and you used PyEnv to install Python 3.10.11, the something like this should work:
 
 ```bash
-C:\Users\testuser\.pyenv\pyenv-win\versions\3.9.13\python3.exe -m pipx install https://github.com/travisseymour/EPICpy --python C:\Users\testuser\.pyenv\pyenv-win\versions\3.9.13\python3.exe
+C:\Users\testuser\.pyenv\pyenv-win\versions\3.9.13\python3.exe -m pipx install 'git+https://github.com/travisseymour/EPICpy.git' --python C:\Users\testuser\.pyenv\pyenv-win\versions\3.9.13\python3.exe
 ```
 
 This process may take a few minutes, please be patient. 
@@ -234,7 +234,7 @@ This process may take a few minutes, please be patient.
 NOTE: If you like seeing stuff happen while you wait, then add the `--verbose` flag, e.g.:
 
 ```bash
-C:\Users\testuser\.pyenv\pyenv-win\versions\3.9.13\python3.exe -m pipx --verbose install https://github.com/travisseymour/EPICpy --python C:\Users\testuser\.pyenv\pyenv-win\versions\3.9.13\python3.exe
+C:\Users\testuser\.pyenv\pyenv-win\versions\3.9.13\python3.exe -m pipx --verbose install 'git+https://github.com/travisseymour/EPICpy.git' --python C:\Users\testuser\.pyenv\pyenv-win\versions\3.9.13\python3.exe
 ```
 
 <hr/>
