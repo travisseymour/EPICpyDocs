@@ -131,16 +131,15 @@ eval &quot;$(pyenv init -)&quot;
 <hr>
 
 <h3 id="macos">MacOS:</h3>
-<p>For MacOS, you will need the Homebrew package manager installed. If not, go to the <a href="../installing_a_package_manager/">Installing A Package Manager</a> section first. Technically, you might be able to get away without installing Homebrew if you already have various development tools installed, but I have not tried this.</p>
-<pre><code class="language-bash">curl https://pyenv.run | bash
+<p>For MacOS, you will need the Homebrew package manager installed. If not, go to the <a href="../installing_a_package_manager/">Installing A Package Manager</a> section first.</p>
+<pre><code class="language-bash">brew install pyenv
 </code></pre>
-<p>(If you'd feel safer, you can grab this command from the pyenv-installer website: https://github.com/pyenv/pyenv-installer)</p>
 <p>After this completes, it will ask you to copy this to the end of your shell config (e.g., on bash based systems, this would be <code>.bashrc</code>, on zsh based systems, this would be '.zprofile'):</p>
 <pre><code>export PYENV_ROOT=&quot;$HOME/.pyenv&quot;
 command -v pyenv &gt;/dev/null || export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;
 eval &quot;$(pyenv init -)&quot;
 </code></pre>
-<p>Afterward, close Terminal and then restart it so that those changes can take effect.</p>
+<p>Afterward, close Terminal and then restart it so that those changes can take effect. <strong>&lt;-- Don't forget this step!</strong></p>
 <hr>
 
 <h3 id="windows">Windows</h3>
