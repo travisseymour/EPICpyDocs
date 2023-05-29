@@ -55,11 +55,13 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#obtaining-package-managers">Obtaining Package Managers</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#python-install-location">Python Install Location</a>
-    </li>
     <li class="toctree-l3"><a class="reference internal" href="#note-on-older-linux-versions">NOTE on Older Linux Versions</a>
     </li>
         </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#installing-a-package-manager">Installing A Package Manager</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#installing-python-using-pyenv">Installing Python Using PyEnv</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#installing-epicpy-with-pipx">Installing EPICpy With PipX</a>
         <ul>
@@ -67,17 +69,13 @@
         <ul>
     <li class="toctree-l4"><a class="reference internal" href="#installing-pipx">Installing PipX</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#checking-prerequisites">Checking Prerequisites</a>
-    </li>
     <li class="toctree-l4"><a class="reference internal" href="#installing-epicpy-with-pipx_1">Installing EPICpy with PipX</a>
     </li>
         </ul>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#macos">MacOS</a>
         <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#installing-pipx-with-homebrew">Installing PipX with Homebrew</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#checking-prerequisites_1">Checking Prerequisites</a>
+    <li class="toctree-l4"><a class="reference internal" href="#installing-pipx_1">Installing PipX</a>
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#installing-epicpy-with-pipx_2">Installing EPICpy with PipX</a>
     </li>
@@ -85,9 +83,7 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#windows">Windows</a>
         <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#installing-pipx-with-chocolatey">Installing PipX with Chocolatey</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#checking-prerequisites_2">Checking Prerequisites</a>
+    <li class="toctree-l4"><a class="reference internal" href="#installing-pipx_2">Installing PipX</a>
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#installing-epicpy-with-pipx_3">Installing EPICpy with PipX</a>
     </li>
@@ -185,35 +181,15 @@
 </ul>
 <p>If your goal is to use EPICpy to a) run EPIC simulations, b) create or edit device files, c) create and edit perceptual encoder files, or c) create or run rule files, then there is no need to set up and configure the entire EPICpy development environment. All you need to do is install EPICpy using PipX and download the demo task-device package.</p>
 <h2 id="installation-overview">Installation Overview</h2>
+<p>NOTE: There are so many ways to install Python on various operating systems, not to mention multiple ways to install PipX, that it would get cumbersome to try and capture them all in these instructions. Thus, the instructions below give a single way to install EPICpy on each operating system without breaking any other Python installation that your system may be using.</p>
 <h4 id="necessary-python-versions">Necessary Python Versions</h4>
 <p>To install EPICpy, you need:</p>
 <ol>
-<li>A supported version of Python installed on your computer. For Linux and MacOS, that's Python 3.10. For Windows, that's Python 3.9. These versions do not have to be the default version of Python on your system, they just need to be installed somewhere so PipX can use that Python install to create a virtual environment. If you need to install one of these versions, please see the <a href="../installing_python_with_pyenv/">Installing Python With PyEnv section</a></li>
-<li>PipX installed on your computer</li>
+<li>A supported version of Python installed on your computer. For Linux and MacOS, that's Python 3.10. For Windows, that's Python 3.9. These versions do not have to be the default version of Python on your system, they just need to be installed in a known location. </li>
+<li>PipX installed. PipX can be installed either using a package manager</li>
 </ol>
 <h4 id="obtaining-package-managers">Obtaining Package Managers</h4>
-<p>On Linux, PipX can be installed using the built-in package installer. However, on MacOS and Windows, package managers 
-have to be installed manually. On MacOS, we recommend Homebrew. On Windows, we recommend Chocolatey. Other package 
-managers should work as well, as long as you can use them to install PipX. To learn how to install a package manager 
-on MacOS or Windows, go to the [Installing Package Managers section]</p>
-<h4 id="python-install-location">Python Install Location</h4>
-<p>Unless your default Python (i.e., what runs when you type <code>python3</code>) is Python 3.10 on Linux and MacOS or Python 3.9 on 
-Windows, you will have to supply the path to the appropriate Python version when you use PipX to install EPICpy. On 
-Linux and MacOS, you can probably find out the answer to this question by using this command:</p>
-<pre><code class="language-bash">which python3
-# OR
-which python3.10
-</code></pre>
-<p>but it <em>could</em> still miss something, depending on how exactly you installed Python 3.</p>
-<p>On Windows, this is no easy feat at all. </p>
-<p>If you have the necessary version of Python as your system Python, then you're already ready to install.
-Otherwise, if you already know the path to the necessary version of Python, then you're ready to install.
-For everyone else, I recommend installing PyEnv <a href="https://github.com/pyenv/pyenv">https://github.com/pyenv/pyenv</a>. PyEnv will allow you to install any
- number of Python versions each in isolated folders under a unified directory. It's easy to add or delete Python 
-independently and without fear of altering your system copy of Python. If you do not Python 3.10 on MacOS and Linux, or 
-you're on Windows and you don't have Python 3.9, or you have the necessary version of Python but don't know <em>where</em> it 
-is on your computer, then please follow the instructions in the <a href="../installing_python_with_pyenv/">Installing Python With PyEnv section</a> for installing 
-PyEnv and obtaining the location of any PyEnv-installed version of Python.</p>
+<p>On Linux, PipX can be installed using the built-in package installer. MacOS doesn't come with a package manager, so we will have to install one. At the moment, installing PipX on windows using the preferred package manager isn't working, so we will use Python itself to install PipX on Windows.</p>
 <h4 id="note-on-older-linux-versions">NOTE on Older Linux Versions</h4>
 <p>NOTE: For those running older versions of Linux, EPICpy may not run if your have an older version of GLIBC.
 To determine where you stand, run this command:</p>
@@ -223,6 +199,11 @@ To determine where you stand, run this command:</p>
 likely that it will not work.</p>
 <hr>
 
+<h2 id="installing-a-package-manager">Installing A Package Manager</h2>
+<p>⇨ MacOS users, follow the instructions in the <a href="../installing_a_package_manager/">Installing a Package Manager</a> section before continuing.</p>
+<h2 id="installing-python-using-pyenv">Installing Python Using PyEnv</h2>
+<p>Regardless of which operating system you are using and whether you already have a suitable version of Python installed, we strongly recommend installing PyEnv and using PyEnv to install the appropriate version of Python. This way, the version of Python you are using for EPICpy will be separate from other versions and won't inadvertently break anything in your operating system.</p>
+<p>⇨ Go to the <a href="../installing_python_with_pyenv/">Installing Python with PyEnv</a> section and install Python now.</p>
 <h2 id="installing-epicpy-with-pipx">Installing EPICpy With PipX</h2>
 <h3 id="linux">Linux</h3>
 <h4 id="installing-pipx">Installing PipX</h4>
@@ -231,18 +212,8 @@ likely that it will not work.</p>
 NOTE: I have only tested this on Debian systems, but theoretically, it should be universal.</p>
 <pre><code class="language-bash"># recommended approach
 sudo apt install pipx
-# later, if you want to update PipX, use:
-sudo apt upgrade pipx # will get run automatically with other system updates
 </code></pre>
-<p>OR, an alternative approach would be</p>
-<pre><code class="language-bash"># alternate approach
-python3 -m pip install --user pipx
-# later, if you want to update PipX, use:
-python3 -m pip install --user --upgrade pipx
-</code></pre>
-<p>This is an important step. It resets the terminal shell...alternatively you could just close and reopen the terminal</p>
-<pre><code class="language-bash">exec $SHELL
-</code></pre>
+<p>Now, close and reopen your terminal &lt;-- <strong>Do Not Skip This Step!</strong></p>
 <p>Make sure any installed apps will be on your path (otherwise, it will be challenging to use them after installation).</p>
 <pre><code class="language-bash">pipx ensurepath
 </code></pre>
@@ -252,56 +223,27 @@ pipx install [PackageName|LocalPackageDirectory|PackageURL]
 pipx uninstall [PackageName]
 pipx upgrade [PackageName]
 </code></pre>
-<h4 id="checking-prerequisites">Checking Prerequisites</h4>
-<p>Currently, EPICpy for Linux requires that you have Python 3.10.x installed on your computer. 
-If you do not, please do that first. It doesn't matter where it is installed, or how you install it.
-One source is to grab an official installer from the Python Software Foundation (https://www.python.org). 
-Another is to install it using PyEnv (https://github.com/pyenv/pyenv). Then again, your system Python might already have Python 3.10 installed. Try this:</p>
-<pre><code class="language-bash">python3 --version
-</code></pre>
-<p>if it reports Python 3.10.x, then your system Python is probably version 3.10. Great! </p>
-<p>Otherwise, you can ask Linux if it can find Python 3.10 anywhere:</p>
-<pre><code class="language-bash">which python3.10
-</code></pre>
-<p>if this returns a path, copy it and set it aside. This is the location of Python 3.10 on your machine.</p>
-<p>If neither of those returns good news, then you will need to install Python 3.10 in order to proceed. Afterward, either 
-note where you installed Python 3.10, or try running <code>which python3.10</code> again. I recommend installing Pyenv. For 
-instructions, see the <a href="../installing_python_with_pyenv/">Installing Python With PyEnv section</a>.</p>
 <h4 id="installing-epicpy-with-pipx_1">Installing EPICpy with PipX</h4>
-<p>If you have Python 3.10.x somewhere on your computer, and you are running a recent-ish version of Linux, 
-and you have PipX installed, then you are ready to install EPICpy!</p>
-<p>If your system Python version is 3.10.x (i.e., running <code>python3 --version</code> returns 3.10.x), then you can simply run this 
-command</p>
-<pre><code class="language-bash">pipx install https://github.com/travisseymour/EPICpy
-</code></pre>
-<p>If Python 3.10.x is on your system somewhere, but not necessarily the default Python, then you will need to tell PipX 
-the location of Python 3.10.x on your computer. How you achieve that, depends on your setup.</p>
-<p>If you can start Python 3.10.x by typing <code>python3.10</code>, then you can install EPICpy as such:</p>
-<pre><code class="language-bash">pipx install https://github.com/travisseymour/EPICpy --python python3.10
-</code></pre>
-<p>otherwise, you will need to supply the complete path to Python 3.10.x on your machine:</p>
-<pre><code class="language-bash"># the Python path used here is for example purposes only, 
-# use one that makes sense on your computer
-pipx install https://github.com/travisseymour/EPICpy --python /home/testuser/.pyenv/shims/python3.10
+<p>I'm assuming you followed the instructions in the <a href="../installing_python_with_pyenv/">Installing Python with PyEnv</a> section already. If not do so now.</p>
+<p>Generally, the command for installing a program with PipX is as follows:</p>
+<p>pipx install <strong>[PATH TO SOURCE FILES]</strong> --python <strong>[PATH TO THE VERSION OF PYTHON TO USE WITH THE APPLIATION]</strong></p>
+<p>e.g., if your username was "testuser" and you used PyEnv to install Python 3.10.11, the something like this should work:</p>
+<pre><code class="language-bash">pipx install https://github.com/travisseymour/EPICpy --python /home/testuser/.pyenv/versions/3.10.11/bin/python3
 </code></pre>
 <p>This process may take a few minutes, please be patient. </p>
-<p>NOTE: If you like seeing stuff happen, add the <code>--verbose</code> flag, e.g.:</p>
-<pre><code class="language-bash">pipx install --verbose https://github.com/travisseymour/EPICpy --python python3.10
+<p>NOTE: If you like seeing stuff happen while you wait, then add the <code>--verbose</code> flag, e.g.:</p>
+<pre><code class="language-bash">pipx install --verbose https://github.com/travisseymour/EPICpy --python /home/testuser/.pyenv/versions/3.10.11/bin/python3
 </code></pre>
 <hr/>
 
 <h3 id="macos">MacOS</h3>
-<h4 id="installing-pipx-with-homebrew">Installing PipX with Homebrew</h4>
-<p>Because MacOS does not have a default package manager, I'm assuming that you have installed the Homebrew package manager. If not, see the <a href="../installing_a_package_manager/">Installing A Package Manager section</a>. If you are using an alternative 
-MacOS package manager, then adjust the commands below accordingly.</p>
-<p>Install PipX onto your system using Homebrew, issue this command:</p>
-<pre><code class="language-bash">brew install pipx
-# later, if you want to update PipX, use:
-brew upgrade pipx
+<h4 id="installing-pipx_1">Installing PipX</h4>
+<p>The instructions below assume you have installed the Homebrew package manager on your machine. If not, go to the <a href="../installing_a_package_manager/">Installing a Package Manager</a> section and do so now.</p>
+<p>Once you have installed Homebrew, you can install PipX using this command:</p>
+<pre><code class="language-bash"># recommended approach
+brew install pipx
 </code></pre>
-<p>This is an important step. It resets the terminal shell...alternatively you could just close and reopen the terminal</p>
-<pre><code class="language-bash">exec $SHELL
-</code></pre>
+<p>Now, close and reopen your terminal &lt;-- <strong>Do Not Skip This Step!</strong></p>
 <p>Make sure any installed apps will be on your path (otherwise, it will be challenging to use them after installation).</p>
 <pre><code class="language-bash">pipx ensurepath
 </code></pre>
@@ -311,94 +253,53 @@ pipx install [PackageName|LocalPackageDirectory|PackageURL]
 pipx uninstall [PackageName]
 pipx upgrade [PackageName]
 </code></pre>
-<h4 id="checking-prerequisites_1">Checking Prerequisites</h4>
-<p>Currently, EPICpy for MacOS requires that you have Python 3.10.x installed on your computer. 
-If you do not, please do that first. It doesn't matter where it is installed, or how you install it.
-One source is to grab an official installer from the Python Software Foundation (https://www.python.org). 
-Another is to install it using PyEnv (https://github.com/pyenv/pyenv). 
-Then again, your system Python might already have Python 3.10 installed. Try this:</p>
-<pre><code class="language-bash">python3 --version
-</code></pre>
-<p>if it reports Python 3.10.x, then your system Python is probably version 3.10. Great! </p>
-<p>Otherwise, you can ask MacOS if it can find Python 3.10 anywhere:</p>
-<pre><code class="language-bash">which python3.10
-</code></pre>
-<p>if this returns a path, copy it and set it aside. This is the location of Python 3.10 on your machine.</p>
-<p>If neither of those returns good news, then you will need to install Python 3.10 in order to proceed. Afterward, either 
-note where you installed Python 3.10, or try running <code>which python3.10</code> again. I recommend installing Pyenv. For 
-instructions, see the <a href="../installing_python_with_pyenv/">Installing Python With PyEnv section</a>.</p>
 <h4 id="installing-epicpy-with-pipx_2">Installing EPICpy with PipX</h4>
-<p>If you have Python 3.10.x somewhere on your computer, and you are running a version Catalina or later of MacOS, 
-then you are ready to install EPICpy!</p>
-<p>If your system Python version is 3.10.x (i.e., running <code>python3 --version</code> returns 3.10.x), then you can simply run this 
-command</p>
-<pre><code class="language-bash">pipx install https://github.com/travisseymour/EPICpy
+<p>I'm assuming you followed the instructions in the <a href="../installing_python_with_pyenv/">Installing Python with PyEnv</a> section already. If not do so now.</p>
+<p>Generally, the command for installing a program with PipX is as follows:</p>
+<p>pipx install <strong>[PATH TO SOURCE FILES]</strong> --python <strong>[PATH TO THE VERSION OF PYTHON TO USE WITH THE APPLIATION]</strong></p>
+<p>e.g., if your username was "testuser" and you used PyEnv to install Python 3.10.11, the something like this should work:</p>
+<pre><code class="language-bash">pipx install https://github.com/travisseymour/EPICpy --python /Users/testuser/.pyenv/versions/3.10.11/bin/python3
 </code></pre>
-<p>If Python 3.10.x is on your system somewhere, but not necessarily the default Python, then you will need to tell PipX 
-the location of Python 3.10.x on your computer. How you achieve that, depends on your setup.</p>
-<p>If you can start Python 3.10.x by typing <code>python3.10</code>, then you can install EPICpy as such:</p>
-<pre><code class="language-bash">pipx install https://github.com/travisseymour/EPICpy --python python3.10
-</code></pre>
-<p>otherwise, you will need to supply the complete path to Python 3.10.x on your machine:</p>
-<pre><code class="language-bash"># the Python path used here is for example purposes only, 
-# use one that makes sense on your python setup
-pipx install https://github.com/travisseymour/EPICpy --python /home/testuser/.pyenv/shims/python3.10
-</code></pre>
-<p>This process may take a few minutes, please be patient. If you like seeing stuff happen, add the --verbose flag, e.g.:</p>
-<pre><code class="language-bash">pipx install --verbose https://github.com/travisseymour/EPICpy --python python3.10
+<p>This process may take a few minutes, please be patient. </p>
+<p>NOTE: If you like seeing stuff happen while you wait, then add the <code>--verbose</code> flag, e.g.:</p>
+<pre><code class="language-bash">pipx install --verbose https://github.com/travisseymour/EPICpy --python /Users/testuser/.pyenv/versions/3.10.11/bin/python3
 </code></pre>
 <hr/>
 
 <h3 id="windows">Windows</h3>
-<h4 id="installing-pipx-with-chocolatey">Installing PipX with Chocolatey</h4>
-<p>To install PipX onto your system using the Chocolatey package manager, issue the following command. If you do not have 
-Chocolatey installed, see the <a href="../installing_a_package_manager/">Installing A Package Manager section</a>:</p>
-<pre><code class="language-bash">choco install pipx
+<p>Note: The following was tested in PowrShell in Administer mode</p>
+<h4 id="installing-pipx_2">Installing PipX</h4>
+<p>I'm assuming you followed the instructions in the <a href="../installing_python_with_pyenv/">Installing Python with PyEnv</a> section already. If not do so now.</p>
+<p>Once you have installed Homebrew, you can install PipX using this command:</p>
+<p>(assuming your username is "testuser" and you installed Python 3.9.13)</p>
+<pre><code class="language-bash">C:\Users\testuser\.pyenv\pyenv-win\versions\3.9.13\python3.exe -m pip install pipx
 </code></pre>
-<p>Close and reopen the PowerShell in administer mode.</p>
-<p>Now make sure any installed apps will be on your path (otherwise, it will be challenging to use them after installation).</p>
-<pre><code class="language-bash">pipx ensurepath
+<p>Now, close and reopen your terminal &lt;-- <strong>Do Not Skip This Step!</strong></p>
+<p>Make sure any installed apps will be on your path (otherwise, it will be challenging to use them after installation).</p>
+<pre><code class="language-bash">C:\Users\testuser\.pyenv\pyenv-win\versions\3.9.13\python3.exe -m pipx ensurepath
 </code></pre>
 <p>Basic PipX use</p>
-<pre><code class="language-bash">pipx list
+<pre><code class="language-bash"># NOTE: Replace &quot;python3&quot; below with the full path to the version of
+# Python you used to install PipX. 
+# E.g., C:\Users\testuser\.pyenv\pyenv-win\versions\3.9.13\python3.exe
+pipx list
 pipx install [PackageName|LocalPackageDirectory|PackageURL]
 pipx uninstall [PackageName]
 pipx upgrade [PackageName]
 </code></pre>
-<h4 id="checking-prerequisites_2">Checking Prerequisites</h4>
-<p>Currently, EPICpy for Windows requires that you have Python 3.9.x installed on your computer. 
-If you do not, please do that first. It doesn't matter where it is installed, or how you install it.
-One source is to grab an official installer from the Python Software Foundation (https://www.python.org). 
-Another is to install it using PyEnv (https://github.com/pyenv/pyenv). Then again, your system Python might already 
-have Python 3.10 installed. Try this:</p>
-<pre><code class="language-bash">python3 --version
-</code></pre>
-<p>if it reports Python 3.9.x, then your system Python is probably version 3.10. Great! </p>
-<p>Otherwise, even if you have Python3.9 installed <em>somewhere</em>, it can be difficult to locate it on Windows (if anyone has
- an easy way to locate a specific version of Python on Windows, please let me know!). Thus, I recommend either 
-installing Python 3.9 using an installer from python.org (because you will have to <em>choose</em> the installation location), or 
-installing Python 3.9 using PyEnv. I recommend installing Pyenv. For 
-instructions, see the <a href="../installing_python_with_pyenv/">Installing Python With PyEnv section</a>.</p>
 <h4 id="installing-epicpy-with-pipx_3">Installing EPICpy with PipX</h4>
-<p>If you have Python 3.9.x somewhere on your computer, and you know the path, then you are ready to install EPICpy!</p>
-<p>If your system Python version is 3.9.x (i.e., running <code>python3 --version</code> returns 3.9.x), then you can simply run this 
-command</p>
-<pre><code class="language-bash">pipx install https://github.com/travisseymour/EPICpy
+<p>I'm assuming you followed the instructions in the <a href="../installing_python_with_pyenv/">Installing Python with PyEnv</a> section already. If not do so now.</p>
+<p>Generally, the command for installing a program with PipX is as follows:</p>
+<p>pipx install <strong>[PATH TO SOURCE FILES]</strong> --python <strong>[PATH TO THE VERSION OF PYTHON TO USE WITH THE APPLIATION]</strong></p>
+<p>e.g., if your username was "testuser" and you used PyEnv to install Python 3.10.11, the something like this should work:</p>
+<pre><code class="language-bash">C:\Users\testuser\.pyenv\pyenv-win\versions\3.9.13\python3.exe -m pipx install https://github.com/travisseymour/EPICpy --python C:\Users\testuser\.pyenv\pyenv-win\versions\3.9.13\python3.exe
 </code></pre>
-<p>If Python 3.9.x is on your system somewhere, but not necessarily the default Python, then you will need to tell PipX 
-the location of Python 3.9.x on your computer. How you achieve that, depends on your setup.</p>
-<p>If you can start Python 3.9.x by typing <code>python39</code>, then you can install EPICpy as such:</p>
-<pre><code class="language-bash">pipx install https://github.com/travisseymour/EPICpy --python python39
+<p>This process may take a few minutes, please be patient. </p>
+<p>NOTE: If you like seeing stuff happen while you wait, then add the <code>--verbose</code> flag, e.g.:</p>
+<pre><code class="language-bash">C:\Users\testuser\.pyenv\pyenv-win\versions\3.9.13\python3.exe -m pipx --verbose install https://github.com/travisseymour/EPICpy --python C:\Users\testuser\.pyenv\pyenv-win\versions\3.9.13\python3.exe
 </code></pre>
-<p>otherwise, you will need to supply the complete path to Python 3.9.x on your machine:</p>
-<pre><code class="language-bash"># the Python paths used here are for example purposes only, 
-# use a path that makes sense for your python setup
-pipx install https://github.com/travisseymour/EPICpy --python &quot;C:\Users\testuser\AppData\Local\Programs\Python\Python39\python.exe&quot;
-pipx install https://github.com/travisseymour/EPICpy --python &quot;C:\Users\testuser\.pyenv\pyenv-win\versions\3.9.13\python.exe&quot;
-</code></pre>
-<p>This process may take a few minutes, please be patient. If you like seeing stuff happen, add the --verbose flag, e.g.:</p>
-<pre><code class="language-bash">pipx install --verbose https://github.com/travisseymour/EPICpy --python python39
-</code></pre>
+<hr/>
+
 <h3 id="check-your-epicpy-install">Check your EPICpy install</h3>
 <p>To run EPICpy, just open a terminal and type <code>EPICpy</code>, this should open several windows associated with the EPICpy 
 application. In the menu, navigate to <strong>Help-&gt;Tests-&gt;Standard_Run</strong>. This should cause a test run of the demo 
