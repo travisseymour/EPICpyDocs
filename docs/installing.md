@@ -19,10 +19,10 @@ Linux Versions:
 MacOS Versions:
 
 - [x] 10.15 "Catalina" (Intel)
-- [ ] 11 "Big Sur" (Intel)
-- [ ] 12 "Monteray" (Intel)
+- [x] 11 "Big Sur" (Intel)
+- [x] 12 "Monteray" (Intel)
+- [ ] 13 "Ventura" (Intel)
 - [ ] 12 "Monteray" (M1)
-- [ ] 13 "Ventura" 
 
 Windows Versions:
 
