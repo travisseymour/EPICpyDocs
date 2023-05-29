@@ -49,12 +49,11 @@ exec $SHELL
 
 ### MacOS:
 
-For MacOS, you will need the Homebrew package manager installed. If not, go to the [Installing A Package Manager](installing_a_package_manager.md) section first. Technically, you might be able to get away without installing Homebrew if you already have various development tools installed, but I have not tried this.
+For MacOS, you will need the Homebrew package manager installed. If not, go to the [Installing A Package Manager](installing_a_package_manager.md) section first.
 
 ```bash
-curl https://pyenv.run | bash
+brew install pyenv
 ```
-(If you'd feel safer, you can grab this command from the pyenv-installer website: https://github.com/pyenv/pyenv-installer)
 
 After this completes, it will ask you to copy this to the end of your shell config (e.g., on bash based systems, this would be `.bashrc`, on zsh based systems, this would be '.zprofile'):
 
@@ -64,7 +63,7 @@ command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 ```
 
-Afterward, close Terminal and then restart it so that those changes can take effect.
+Afterward, close Terminal and then restart it so that those changes can take effect. **<-- Don't forget this step!**
 
 <hr>
 
