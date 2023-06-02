@@ -74,6 +74,14 @@ Regardless of which operating system you are using and whether you already have 
 
 ### Linux
 
+### Installing Necessary System Package
+
+On Linux, you will likely need to install a system package allowing apps to interface with [XLib's cursor functions](https://packages.debian.org/sid/amd64/libs/libxcb-cursor0). This will avoid an `xcb plugin` error when you try to run EPICpy. The necessary command is below:
+
+```bash
+sudo apt install libxcb-cursor0
+```
+
 #### Installing PipX
 
 Install PipX onto your system using your package manager. All Linux variants come with a standard package manager, e.g.,
