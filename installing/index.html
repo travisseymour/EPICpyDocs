@@ -66,6 +66,8 @@
     <li class="toctree-l2"><a class="reference internal" href="#installing-epicpy-with-pipx">Installing EPICpy With PipX</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#linux">Linux</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#installing-necessary-system-package">Installing Necessary System Package</a>
         <ul>
     <li class="toctree-l4"><a class="reference internal" href="#installing-pipx">Installing PipX</a>
     </li>
@@ -206,6 +208,10 @@ likely that it will not work.</p>
 <p>⇨ Go to the <a href="../installing_python_with_pyenv/">Installing Python with PyEnv</a> section and install Python now.</p>
 <h2 id="installing-epicpy-with-pipx">Installing EPICpy With PipX</h2>
 <h3 id="linux">Linux</h3>
+<h3 id="installing-necessary-system-package">Installing Necessary System Package</h3>
+<p>On Linux, you will likely need to install a system package allowing apps to interface with <a href="https://packages.debian.org/sid/amd64/libs/libxcb-cursor0">XLib's cursor functions</a>. This will avoid an <code>xcb plugin</code> error when you try to run EPICpy. The necessary command is below:</p>
+<pre><code class="language-bash">sudo apt install libxcb-cursor0
+</code></pre>
 <h4 id="installing-pipx">Installing PipX</h4>
 <p>Install PipX onto your system using your package manager. All Linux variants come with a standard package manager, e.g.,
  <code>apt</code> on Debian-based distributions, <code>yum</code> on RedHat-based distributions, and <code>pacman</code> on Arch-based distributions. 
