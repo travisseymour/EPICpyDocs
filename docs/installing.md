@@ -18,11 +18,11 @@ Linux Versions:
 
 MacOS Versions:
 
-- [x] 10.15 "Catalina" (Intel)
-- [x] 11 "Big Sur" (Intel)
-- [x] 12 "Monteray" (Intel)
-- [ ] 13 "Ventura" (Intel)
-- [ ] 12 "Monteray" (M1)
+- [x] 10.15 "Catalina" (Intel CPU)
+- [x] 11 "Big Sur" (Intel CPU)
+- [x] 12 "Monteray" (Intel CPU)
+- [ ] 13 "Ventura" (Intel CPU)
+- [ ] 12 "Monteray" (Apple CPU)
 
 Windows Versions:
 
@@ -30,6 +30,11 @@ Windows Versions:
 - [ ] 11
 
 If your goal is to use EPICpy to a) run EPIC simulations, b) create or edit device files, c) create and edit perceptual encoder files, or c) create or run rule files, then there is no need to set up and configure the entire EPICpy development environment. All you need to do is install EPICpy using PipX and download the demo task-device package.
+
+## Related Pages
+
+- [Installing Pacakage Managers](installing_a_package_manager.md)
+- [Installing Python with PyEnv](installing_python_with_pyenv.md)
 
 ## Installation Overview
 

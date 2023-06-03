@@ -8,6 +8,7 @@ nav:
   - EPICpy GUI Options: epicinterface_options.md
   - Example Simulation: example.md
   - Model Programming: model_programming.md
+  - Text Editors for EPCIpy: text_editor_for_epic_modeling.md
   - EPICpy Development Setup: epicpy_development_setup.md
   - EPIC Resources: epicresources.md
   - Frequently Asked Questions: faq.md

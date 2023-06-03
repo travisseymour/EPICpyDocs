@@ -125,7 +125,7 @@ Although we don't recommend programming full data analyses at the end of each si
 
 EPICpy was developed by Travis L. Seymour, PhD on the [Ubuntu](https://ubuntu.com/) Linux operating system (as well as variants such as [Linux Mint](https://linuxmint.com/) and [Pop!_OS](https://pop.system76.com/)). To facilitate the installation and use of EPICpy across platforms, we are using the PipX system for automatically running Python applications in isolated environments. After users install PipX itself, it's a single command across operating systems to install EPICpy. However, because EPICLib itself is compiled, there are some limitations: On Linux and Macos, Python 3.10.?? must be installed, and on Windows 10 and 11, Python 3.9.?? must be installed. Once PipX and the needed version of Python are installed, EPICpy should install and run on either of these three operating systems. For detailed installation instructions, please see the corresponding section on the [Installing EPICpy](installing.md) page.
 
-Thus, EPICpy can be used on Linux, MacOS (Intel and Arm), and Windows based computers.
+Thus, EPICpy can be used on Linux, MacOS (Intel and Apple CPUs), and Windows based computers.
 
 #### Other New Features in EPICpy
 
@@ -145,5 +145,5 @@ Thus, EPICpy can be used on Linux, MacOS (Intel and Arm), and Windows based comp
 * Access to Some Device Configuration from the GUI (e.g., device programmer might expose toggle for showing debug information, or altering device operation)
 * Added Window-Management Facilities (e.g., Double-clicking output window brings all windows to front, Minimize all windows, Show all windows, Restore Default Layout)
 * It is Now Possible to **UN**load perceptual encoders. Unloaded encoders will not be re-loaded during subsequent session reloads.
-* Built-in (though crude) text editor with automatic (not currently perfect) syntax-highlighting for EPIC Production-Rule files. Files will default to opening using your system's defaults.
+* ~~Built-in (though crude) text editor with automatic (not currently perfect) syntax-highlighting for EPIC Production-Rule files. Files will default to opening using your system's defaults.~~
 
