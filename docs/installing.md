@@ -60,13 +60,13 @@ To do the steps below, you will need the `cUrl` and `git` utilities installed on
 - **git**: MacOS does not ship with `git`, and unfortunately, it's not simple to install it. Here are some options:
   - Install `XCode` from the Apple Store. It's large and will take some time to download and install. Once installed, open `XCode` and accept the license agreement. If it asks you to install the commandline-tools, say yes (that's when `git` is installed). Once `XCode` is installed, and you have accepted the license agreement, then `git --version` should work. If so, you now have `git`.
   - Install `homebrew` from this [website](https://brew.sh/), which will ask you to run this script in a terminal:
-  - ```bash
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    ```
+  ```bash
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  ```
   - Once `homebrew` has finished installing, you can type this command in a terminal:
-  - ```bash
-    brew install git
-    ```
+  ```bash
+  brew install git
+  ```
   - There are other options on the `git` [website](https://git-scm.com/downloads/mac)
 
 ### Windows 10 (and _probably_ Windows 11)

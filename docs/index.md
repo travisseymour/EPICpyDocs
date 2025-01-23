@@ -145,8 +145,8 @@ Thus, EPICpy can be used on Linux, MacOS (Intel and Apple CPUs), and Windows bas
 * Access to Some Device Configuration from the GUI (e.g., device programmer might expose toggle for showing debug information, or altering device operation)
 * Added Window-Management Facilities (e.g., Double-clicking output window brings all windows to front, Minimize all windows, Show all windows, Restore Default Layout)
 * It is Now Possible to **UN**load perceptual encoders. Unloaded encoders will not be re-loaded during subsequent session reloads.
-* ~~Built-in (though crude) text editor with automatic (not currently perfect) syntax-highlighting for EPIC Production-Rule files. Files will default to opening using your system's defaults.~~
+
 
 ---
 
-Jan 23 2025 12:45am
+Jan 23 2025 12:52am
