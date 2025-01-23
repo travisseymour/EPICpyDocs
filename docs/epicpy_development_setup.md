@@ -360,13 +360,10 @@ pip install -r requirements.txt
 
 The following assumes you are following along with the [PyCharm Integrated Python Development Environment](https://www.jetbrains.com/pycharm/). For others (e.g., VSCode, Sublime, etc.) should modify the instructions accordingly.
 
-NOTE: The command below assumes you've installed the Chocolatey package manager. If you do not, then you can install it using the instructions in the [Installing A Package Manager](installing_a_package_manager.md) section.
 
 ###### Obtain PyCharm's Free Community Edition IDE
 
-```bash
-choco install pycharm-community
-```
+Go to the JetBrains website, scroll down and see the instructions for PyCharm Community Edition: https://www.jetbrains.com/pycharm/download/
 
 ###### Start PyCharm
 
