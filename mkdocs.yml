@@ -1,5 +1,5 @@
 site_name: EPICpy Documentation
-site_url: https://cogmodlab.ucsc.edu/2022/03/14/epic/
+site_url: https://github.com/travisseymour/EPICpy
 nav:
   - Home: index.md
   - Installing EPICpy: installing.md
