@@ -59,24 +59,28 @@ To do the steps below, you will need the `cUrl` and `git` utilities installed on
 - **cUrl**: Linux typically has `curl` installed. You can check this by running `curl --version` in a terminal. If it complains, you can install `curl` using your package manager, e.g. `sudo apt install curl`
 - **git**: MacOS does not ship with `git`, and unfortunately, it's not simple to install it. Here are some options:
   - Install `XCode` from the Apple Store. It's large and will take some time to download and install. Once installed, open `XCode` and accept the license agreement. If it asks you to install the commandline-tools, say yes (that's when `git` is installed). Once `XCode` is installed, and you have accepted the license agreement, then `git --version` should work. If so, you now have `git`.
-  - Install `homebrew` from this website (https://brew.sh/), which will ask you to run this script in a terminal:
+  - Install `homebrew` from this [website](https://brew.sh/), which will ask you to run this script in a terminal:
+  
     ```bash
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     ```
-    Once `homebrew` has finished installing, you can type this command in a terminal:
+  
+  - Once `homebrew` has finished installing, you can type this command in a terminal:
+    
     ```bash
     brew install git
     ```
-  - There are other options on the `git` website (https://git-scm.com/downloads/mac
+  
+  - There are other options on the `git` [website](https://git-scm.com/downloads/mac)
 
 ### Windows 10 (and _probably_ Windows 11)
 
 - **cUrl**: Windows 10 typically has `curl` installed. You can check this by running `curl --version` in a terminal. 
-- **git**: Windows does not ship with `git`, but you can install it by going to the `git` website (https://git-scm.com/downloads/win), downloading the appropriate binary installer, and running it. To verify the installation, go to the terminal and type `git --version`.
+- **git**: Windows does not ship with `git`, but you can install it by going to the `git` [website](https://git-scm.com/downloads/win), downloading the appropriate binary installer, and running it. To verify the installation, go to the terminal and type `git --version`.
 
 ## 2. Install the `uv` Python Tool Manager
 
-The official instructions for installing `uv` can be found on their installation page (https://docs.astral.sh/uv/getting-started/installation/). The critical steps are duplicated here:
+The official instructions for installing `uv` can be found on their [installation page](https://docs.astral.sh/uv/getting-started/installation/). The critical steps are duplicated here:
 
 ### MacOS and Linux
 
@@ -122,7 +126,7 @@ On Windows, you might get a listing like this:
 
 [![EPIC GUI Initial](resources/images/python_list_windows.png)](resources/images/python_list_windows.png)
 
-Because we'd be looking for Python 3.9, I might make note of this path: <mark>add path here</mark>
+Because we'd be looking for Python 3.9, I might make note of this path: `AppData\Local\Programs\Python\Python39\python.exe`
 
 ## 4. Use `uv` To Install A Suitable Python Version (if you didn't find on earlier)
 
