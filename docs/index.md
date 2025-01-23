@@ -147,3 +147,6 @@ Thus, EPICpy can be used on Linux, MacOS (Intel and Apple CPUs), and Windows bas
 * It is Now Possible to **UN**load perceptual encoders. Unloaded encoders will not be re-loaded during subsequent session reloads.
 * ~~Built-in (though crude) text editor with automatic (not currently perfect) syntax-highlighting for EPIC Production-Rule files. Files will default to opening using your system's defaults.~~
 
+---
+
+Jan 22 2025 11:51pm
