@@ -36,11 +36,11 @@ Tested on these Linux Versions:
 - [x] 20.04
 - [x] 22.04
 
-Most recent Linux distributions come with Python 3 already installed, so you probably already have Python. However, you will need to make sure you build your virtual environment using Python 3.10. In particular, adjust the path of the `python3 -m venv venv` command below so that it points to the correct version of Python (or use your own method to create the proper virtual environment). If you need help managing and locating various versions of Python, see this section: [Installing Python With PyEnv](installing_python_with_pyenv.md).
+Most recent Linux distributions come with Python 3 already installed, so you probably already have Python. However, you will need to make sure you build your virtual environment using Python 3.10. In particular, adjust the path of the `python3 -m venv venv` command below so that it points to the correct version of Python (or use your own method to create the proper virtual environment)..
 
 #### Install Prerequisites
 
-If you haven't already installed them (e.g., if you [previously installed PyEnv](installing_python_with_pyenv.md), then you already have these), you should install the following:
+If you haven't already installed them, then you already have these), you should install the following:
 
 ```bash
 sudo apt install build-essential libssl-dev libffi-dev libncurses5-dev zlib1g zlib1g-dev libreadline-dev libbz2-dev libsqlite3-dev make gcc curl git
@@ -62,7 +62,7 @@ cd EPICpy
 
 #### Set Up A Virtual Environment
 
-NOTE: this section assumes you already have Python 3.10 on your machine and know the path or command required to start it.  If not, see the [Installing Python with PyEnv](installing_python_with_pyenv.md) section.
+NOTE: this section assumes you already have Python 3.10 on your machine and know the path or command required to start it.
 
 ###### Set up a Virtual Environment Using Python 3.10
 
@@ -175,11 +175,11 @@ Tested on these MacOS Versions:
 - [ ] 11 Big Sur
 - [ ] 12 Monterey
 
-Most recent MacOS distributions come with Python 3 already installed, so you probably already have Python. However, you will need to make sure you build your virtual environment below using Python 3.10. In particular, adjust the path of the `python3 -m venv venv` command below so that it points to the correct version of Python (or use your own method to create the proper virtual environment). If you need help managing and locating various versions of Python, see this section: [Installing Python With PyEnv](installing_python_with_pyenv.md).
+Most recent MacOS distributions come with Python 3 already installed, so you probably already have Python. However, you will need to make sure you build your virtual environment below using Python 3.10. In particular, adjust the path of the `python3 -m venv venv` command below so that it points to the correct version of Python (or use your own method to create the proper virtual environment). 
 
 #### Install Prerequisites
 
-You will need to install the XCode commandline build utilities. A super easy way to do this is to just install the Homebrew package manager. You may have already done this, if not see the section on [Installing a Package Manager](installing_a_package_manager.md). Another approach is to install XCode (it's a 10GB download, and you'll need an additional 10GB of space to install it) from the Apple Store and then use XCode to install the commandline utilities. This is challenging if you don't have the latest version of MacOS, as the version of XCode in the Apple Store may not be installable. Generally, I strongly recommend [installing Homebrew](installing_a_package_manager.md); not only does it install the build tools you need, but it's much faster than installing XCode, will install on any version of MacOS. Besides, having Homebrew is super useful anyway. If you already have XCode installed, you may be good to go.
+You will need to install the XCode commandline build utilities. A super easy way to do this is to just install the Homebrew package manager. You may have already done this, if not see this website (https://brew.sh/). Another approach is to install XCode (it's a 10GB download, and you'll need an additional 10GB of space to install it) from the Apple Store and then use XCode to install the commandline utilities. This is challenging if you don't have the latest version of MacOS, as the version of XCode in the Apple Store may not be installable. Generally, I strongly recommend installing Homebrew(https://brew.sh/); not only does it install the build tools you need, but it's much faster than installing XCode, will install on any version of MacOS. Besides, having Homebrew is super useful anyway. If you already have XCode installed, you may be good to go.
 
 #### Retrieve Source Files from GitHub
 
@@ -191,7 +191,7 @@ cd EPICpy
 
 #### Set Up A Virtual Environment
 
-NOTE: this section assumes you already have Python 3.10 on your machine and know the path or command required to start it.  If not, see the [Installing Python with PyEnv](installing_python_with_pyenv.md) section.
+NOTE: this section assumes you already have Python 3.10 on your machine and know the path or command required to start it.
 
 ###### Set up a Virtual Environment Using Python 3.10
 
@@ -292,19 +292,11 @@ If all goes well, you should be looking at the EPICpy GUI.
 - [x] 10
 - [ ] 11
 
-Although Windows doesn't ship with Python 3 already installed, you may have previously installed Python. However, you will need to make sure you build your virtual environment below using Python 3.9. In particular, adjust the path of the `python3 -m venv venv` command below so that it points to the correct version of Python (or use your own method to create the proper virtual environment). If you need help managing and locating various versions of Python, see this section: [Installing Python With PyEnv](installing_python_with_pyenv.md).
+Although Windows doesn't ship with Python 3 already installed, you may have previously installed Python. However, you will need to make sure you build your virtual environment below using Python 3.9. In particular, adjust the path of the `python3 -m venv venv` command below so that it points to the correct version of Python (or use your own method to create the proper virtual environment). 
 
 #### Install Prerequisites
 
-Windows doesn't come with `git` installed. You will need git to obtain the EPICpy files from the software repository on GitHub.com.
-
-If you've installed the Chocolatey package manager, then you can just enter this command:
-
-```bash
-choco install git
-```
-
-If you don't have Chocolatey, you can install it using the instructions in the [Installing A Package Manager](installing_a_package_manager.md) section.
+Windows doesn't come with `git` installed. You will need git to obtain the EPICpy files from the software repository on GitHub.com. You can install `git` by using an installer from this website (https://git-scm.com/downloads)
 
 #### Retrieve Files from GitHub
 
@@ -316,7 +308,7 @@ cd EPICpy
 
 #### Set Up A Virtual Environment
 
-NOTE: this section assumes you already have Python 3.10 on your machine and know the path or command required to start it.  If not, see the [Installing Python with PyEnv](installing_python_with_pyenv.md) section.
+NOTE: this section assumes you already have Python 3.10 on your machine and know the path or command required to start it.  If not, install `uv` and then un `uv python install 3.10`
 
 ###### Set up a Virtual Environment Using Python 3.10
 
