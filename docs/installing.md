@@ -82,25 +82,31 @@ sudo apt install git
 
 #### `cUrl`
 
-Linux typically has `curl` installed. You can check this by running 
+MacOS typically has `curl` installed. You can check this by running 
 
 ```bash
 curl --version
 ```
 
-in a terminal. If it complains, you can install `curl` using a package manager like homebrew, e.g.
+in a terminal. If it complains, you can install `curl` using a package manager like [homebrew](https://brew.sh/), e.g.
 
 ```bash
-sudo apt install curl
+brew install curl
 ```
 `
 #### `git`
 
 MacOS does not ship with `git`, and unfortunately, it's not simple to install it. Here are some options:
 
-A) Install `XCode` from the Apple Store. It's large and will take some time to download and install. Once installed, open `XCode` and accept the license agreement. If it asks you to install the commandline-tools, say yes (that's when `git` is installed). Once `XCode` is installed, and you have accepted the license agreement, then `git --version` should work. If so, you now have `git`. 
+**OPTION 1**: Install `XCode` from the Apple Store. It's large (approx 10GB) and will take some time to download and install. During installation, you will need an additional 10GB free. Once installed, open `XCode` and accept the license agreement. If it asks you to install the commandline-tools, say yes (that's when `git` is installed). Once `XCode` is installed, and you have accepted the license agreement, then commands like
 
-B) Install `homebrew` from this [website](https://brew.sh/), which will ask you to run this script in a terminal:
+```bsh
+git --version
+```
+
+should work. If so, you now have `git`. 
+
+**OPTION 2**: Install `homebrew` from this [website](https://brew.sh/), which will ask you to run this script in a terminal:
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
