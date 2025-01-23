@@ -53,18 +53,47 @@ To do the steps below, you will need the `cUrl` and `git` utilities installed on
 
 #### `cUrl`
 
-Linux typically has `curl` installed. You can check this by running `curl --version` in a terminal. If it complains, you can install `curl` using your package manager, e.g. `sudo apt install curl`
+Linux typically has `curl` installed. You can check this by running
+
+```bash
+curl --version
+```
+
+in a terminal. If it complains, you can install `curl` using your package manager, e.g. 
+
+```bash
+sudo apt install curl
+```
 
 #### `git`
 
-Linux often has `git` installed. You can check this by running `git --version` in a terminal. If it complains, you can install `git` using your package manager, e.g. `sudo apt install git`
+Linux often has `git` installed. You can check this by running
+
+```bash
+git --version
+```
+in a terminal. If it complains, you can install `git` using your package manager, e.g. 
+
+```bash
+sudo apt install git
+```
 
 ### MacOS
 
 #### `cUrl`
 
-Linux typically has `curl` installed. You can check this by running `curl --version` in a terminal. If it complains, you can install `curl` using your package manager, e.g. `sudo apt install curl`
+Linux typically has `curl` installed. You can check this by running 
 
+```bash
+curl --version
+```
+
+in a terminal. If it complains, you can install `curl` using a package manager like homebrew, e.g.
+
+```bash
+sudo apt install curl
+```
+`
 #### `git`
 
 MacOS does not ship with `git`, and unfortunately, it's not simple to install it. Here are some options:
