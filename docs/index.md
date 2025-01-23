@@ -141,7 +141,7 @@ Thus, EPICpy can be used on Linux, MacOS (Intel and Apple CPUs), and Windows bas
 * Ability to Add Parameters to the Device Condition String to enable parametric model runs (e.g., `10 [Easy|Hard]` would run 10 trials of the Easy condition and then 10 trial of the Hard condition.)
 * Adjustable Application Font Size
 * Adjustable Detail for Sound and Speech Object Display (e.g., determine which attributes of the `Speech_word` class to show on the perceptual output window)
-* <strike>Selectable EPIC Architecture Versions (currently models can be run under the 11/28/2014 release of EPIC or the 6/28/2016 release.)</strike> EPICLib is now fixed to the 2016 release.
+* EPICLib is now fixed to the 2016 release.
 * Access to Some Device Configuration from the GUI (e.g., device programmer might expose toggle for showing debug information, or altering device operation)
 * Added Window-Management Facilities (e.g., Double-clicking output window brings all windows to front, Minimize all windows, Show all windows, Restore Default Layout)
 * It is Now Possible to **UN**load perceptual encoders. Unloaded encoders will not be re-loaded during subsequent session reloads.
@@ -149,4 +149,4 @@ Thus, EPICpy can be used on Linux, MacOS (Intel and Apple CPUs), and Windows bas
 
 ---
 
-Jan 23 2025 10:50am
+Jan 23 2025 10:51am
