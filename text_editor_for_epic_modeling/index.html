@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://github.com/travisseymour/EPICpy/text_editor_for_epic_modeling/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Text Editors for EPCIpy - EPICpy Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Text Editors for EPCIpy";
+        var mkdocs_page_input_path = "text_editor_for_epic_modeling.md";
+        var mkdocs_page_url = "/travisseymour/EPICpy/text_editor_for_epic_modeling/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> EPICpy Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../installing/">Installing EPICpy</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../epicpysimcomponents/">Simulation Components</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../epicinterface_windows/">EPICpy GUI Windows</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../epicinterface_options/">EPICpy GUI Options</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../example/">Example Simulation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../model_programming/">Model Programming</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Text Editors for EPCIpy</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#pulsar-text-editor-formerly-atom">Pulsar Text Editor (Formerly Atom)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#installing-pulsar">Installing Pulsar</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#set-up-pulsar-to-syntax-highlight-epic-rule-files">Set Up Pulsar to Syntax-Highlight EPIC Rule Files</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#linux-and-macos">Linux and MacOS</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#windows">Windows</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#try-it">Try it!</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#sublime-text-editor-paid-but-continuous-free-trial">Sublime Text Editor [PAID, but continuous free trial]</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#download-sublime-text">Download Sublime Text</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#install-package-control">Install Package Control</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#install-package-development-tool">Install Package Development Tool</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#install-the-syntax-highlighting-definition-for-epics-rule-files">Install the Syntax Highlighting Definition for EPIC's Rule Files</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#try-it_1">Try it</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#bbedit-text-editor-macos-only">BBEdit Text Editor [MacOS Only]</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#downloading-bbedit">Downloading BBEdit</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#settling-up-syntax-highlighting-for-epic-rule-files">Settling Up Syntax Highlighting for EPIC Rule Files</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#try-it_2">Try it</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../epicpy_development_setup/">EPICpy Development Setup</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../epicresources/">EPIC Resources</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../faq/">Frequently Asked Questions</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">EPICpy Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Text Editors for EPCIpy</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="text-editors-for-epic-modeling">Text Editors for EPIC Modeling.</h1>
+<p>Although almost any real text editor will work for EPIC modeling, I recommend you use a <strong><em>programmer's text editor</em></strong>. Often, the default "text editor" on an operating system is ill-suited for modeling. In particular, <strong>TextEdit.app</strong> on MacOS and <strong>Notepad.exe</strong> on Windows are poor choices. I personally use <strong>Sublime Text</strong> for editing EPIC rules. In my classes on EPIC, I have had good luck with the <strong>Pulsar Editor</strong> (based on the now abandoned <strong>Atom Editor</strong>). Finally, in the before time (in the long-long ago), when I used Apple computers, I used BBEdit (formerly TextWrangler).</p>
+<p>There are dozens of good programmers text editors. The reason I'm mentioning the ones I use or have used in the past is because I have created syntax-highlighting definitions for EPIC production rules when using those editors. In case you don't know what syntax-highlighting is. Be default, if you were to load a rule file into one of these editors (or any other editor), it would look like this:</p>
+<p><a href="resources/images/editor_rules_no_highlighting.png"><img alt="Rule Text Without Highlighting" src="resources/images/editor_rules_no_highlighting.png" /></a></p>
+<p>However, with syntax highlighting enabled, the same text would appear like this:</p>
+<p><a href="resources/images/editor_rules_with_highlighting.png"><img alt="Rule Text Without Highlighting" src="resources/images/editor_rules_with_highlighting.png" /></a></p>
+<p>This is much easier to read and results in fewer errors of various kinds.</p>
+<p>Below are instructions for installing text editors for which I have already created syntax-highlighting definitions for. They are cross-platform and free to use unless otherwise noted.</p>
+<h2 id="pulsar-text-editor-formerly-atom">Pulsar Text Editor (Formerly Atom)</h2>
+<h3 id="installing-pulsar">Installing Pulsar</h3>
+<p>You can download an executable installer for Pulsar on your operating system here:</p>
+<p><a href="https://pulsar-edit.dev/download.html">https://pulsar-edit.dev/download.html</a></p>
+<h3 id="set-up-pulsar-to-syntax-highlight-epic-rule-files">Set Up Pulsar to Syntax-Highlight EPIC Rule Files</h3>
+<h4 id="linux-and-macos">Linux and MacOS</h4>
+<p>Close Pulsar and then enter this into a terminal:</p>
+<pre><code class="language-bash">ppm install language-epic
+</code></pre>
+<h4 id="windows">Windows</h4>
+<p>On Windows, installing Pulsar will not put ppm on your path. In fact, it puts the old <code>apm</code> file in a folder on your machine <em>something</em> like this:</p>
+<p><code>C:\Users\YOURUSERNAME\AppData\Local\Programs\Pulsar\resources\app\ppm\bin</code></p>
+<p>Therefore, to install the syntax highlighting file on Windows, you will enter <em>something</em> like this:</p>
+<pre><code class="language-bash">C:\Users\YOURUSERNAME\AppData\Local\Programs\Pulsar\resources\app\ppm\bin\apm.cmd install language-epic
+</code></pre>
+<h3 id="try-it">Try it!</h3>
+<p>Now open Pulsar and load a .prs rule file. You should see pretty colors.</p>
+<p><strong>NOTE</strong>: If you have previous experience with Atom or Pulsar, you may wonder why I'm not suggesting that this package be installed from the GUI facility within Pulsar. Currently, only about 80 packages appear available this way and language-epic isn't one of them, even though it was formerly available in both Atom and Pulsar.</p>
+<hr/>
+
+<h2 id="sublime-text-editor-paid-but-continuous-free-trial">Sublime Text Editor [<font color="orange">PAID, but continuous free trial</font>]</h2>
+<h3 id="download-sublime-text">Download Sublime Text</h3>
+<p>You can obtain Sublime Text at <a href="https://www.sublimetext.com/">https://www.sublimetext.com/</a>. These instructions should work with the <a href="https://www.sublimetext.com/download">current version of Sublime Text</a> (currently, version 4.x), but I've only tested them with <a href="https://www.sublimetext.com/3">Sublime Text version 3.x</a>.</p>
+<h3 id="install-package-control">Install Package Control</h3>
+<p>Open the <code>Tools</code> menu.
+Select <code>Package Control</code></p>
+<p>This will download the latest version of Package Control. <strong>If that doesn't work</strong>, use this manual method (copied from https://packagecontrol.io/installation):</p>
+<ol>
+<li>Click the Preferences &gt; Browse Packages… menu</li>
+<li>Browse up a folder and then into the Installed Packages/ folder</li>
+<li>Download <a href="https://packagecontrol.io/Package%20Control.sublime-package">Package Control.sublime-package</a> and copy it into the Installed Packages/ directory</li>
+<li>Restart Sublime Text</li>
+</ol>
+<h3 id="install-package-development-tool">Install Package Development Tool</h3>
+<ol>
+<li>Go to <code>Preferences</code>--&gt;<code>Package Control</code>.</li>
+<li>Then type in <em><strong>install</strong></em> until you see "<strong>Package Control: Install Package</strong>" and click on it.</li>
+<li>Now type <em><strong>PackageDev</strong></em> and click on it. Wait a moment (a progress messages may briefly show in the bottom left of Sublime Text's main window.)</li>
+</ol>
+<h3 id="install-the-syntax-highlighting-definition-for-epics-rule-files">Install the Syntax Highlighting Definition for EPIC's Rule Files</h3>
+<ol>
+<li>Go to <code>Tools</code>--&gt;<code>Packages</code>--&gt;<code>Package Development</code>--&gt;<code>New Syntax Definition</code></li>
+<li>Sublime will give you a sample syntax definition file called "<strong>untitled</strong>".</li>
+<li>Clear out all the default text.</li>
+<li>Copy and paste the contents of the <a href="../resources/other/epicrules.sublime-syntax">Subline Text EPIC-rules Syntax Highlighting File</a> into this window.</li>
+<li>Now go to the menu and choose <code>File</code>--&gt;<code>Save As</code>. Note that it will automatically point to some folder like <code>Sublime-text/Packages/User</code>, which is the right location!
+Save the file you just edited into this folder with this <em>exact</em> filename: "<strong>epicrules.sublime-syntax</strong>".</li>
+</ol>
+<h3 id="try-it_1">Try it</h3>
+<p>Open up any .prs file, it should automatically be detected as a rule file and you should see colorful syntax highlighting!</p>
+<hr/>
+
+<h2 id="bbedit-text-editor-macos-only">BBEdit Text Editor [<font color="purple">MacOS Only</font>]</h2>
+<h2 id="downloading-bbedit">Downloading BBEdit</h2>
+<p>There is a paid and free mode of BBEdit. Here is what they say about this on their webpage:</p>
+<pre><code>BBEdit offers a 30-day evaluation period. During that period, all of BBEdit’s features are available. When it ends, you can still use BBEdit — with no nag screens or unsolicited interruptions, for free, forever. After the evaluation period, you may re-enable all of BBEdit’s exclusive features at any time by purchasing a license.
+</code></pre>
+<ul>
+<li>
+<p>Download BBEdit from here: <a href="http://www.barebones.com/products/bbedit/download.html">http://www.barebones.com/products/bbedit/download.html</a>.</p>
+</li>
+<li>
+<p>Install like any other Mac app. </p>
+</li>
+</ul>
+<h2 id="settling-up-syntax-highlighting-for-epic-rule-files">Settling Up Syntax Highlighting for EPIC Rule Files</h2>
+<ul>
+<li>Download the <a href="../resources/other/productionrule.plist">BBEdit EPIC-rules Syntax Highlighting File</a> and save it as <code>productionrule.plist</code>.</li>
+</ul>
+<p>You <em>may</em> need to start and then close BBEdit for the following instructions to work:</p>
+<ul>
+<li>copy the file <code>productionrule.plist</code> to the folder <code>/Users/YOURUSERNAME/Library/Application Support/BBEdit/Language Modules/</code></li>
+</ul>
+<p><strong>NOTE</strong>: If somehow you are using an old copy of TextWrangler instead of BBEdit (which has superseded it), then this will still work if you copy <code>productionrule.plist</code> to this folder instead: <code>/Users/YOURUSERNAME/Library/Application Support/TextWrangler/Language Modules/</code></p>
+<h2 id="try-it_2">Try it</h2>
+<p>Open up any .prs file, it should automatically be detected as a production-rule file, and you should see colorful syntax highlighting!</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../model_programming/" class="btn btn-neutral float-left" title="Model Programming"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../epicpy_development_setup/" class="btn btn-neutral float-right" title="EPICpy Development Setup">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../model_programming/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../epicpy_development_setup/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
