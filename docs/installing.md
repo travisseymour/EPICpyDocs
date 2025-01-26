@@ -4,11 +4,10 @@
 
 Although we have not tested widely, the following setups should work:
 
-- Windows 10
+- Windows 10 and Windows 11
 - MacOS Monteray and later (Intel and ARM based chips)
 - Linux with Ubuntu based distros version 20.10 and later
 
-Window 11 should work, but is not yet tested. 
 Linux versions earlier than 20.10 _could_ work, but `ldd --version` would have to print some version >= 2.32, and you might end up having to install several other libraries.
 
 ### <font color="blue">**Installing Prerequisites**</font>
