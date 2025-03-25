@@ -56,7 +56,7 @@ If you prefer a command-line solutions:
     1. Install [scoop](https://scoop.sh/)
     2. run `scoop install git`
 - Linux:
-    1. run `sudo apt install git` (replace `apt install` with whatever works on your system)
+    1. run `sudo apt install git`
 
 **Installing `uv`**
 
@@ -137,39 +137,7 @@ ls
 dir # ls will also work if you are using powershell
 ```
 
-### <font color="blue">**Downloading EPICpy and epiccoder [EASY Approach]**</font>
-
-I have created a python program that you can use to install `EPICpy` and `epiccoder` easily if you have `uv` installed. 
-
-_NOTE: If you are wisely not in the habit or running random code files, feel free to inspect [tool_install.py](https://git.ucsc.edu/nogard/mhpfiles/-/blob/main/tool_install.py) before taking this next step to ensure that there are no malicious steps. If you want some assurance, consider pasting the code into a LLM and asking it what the code does (or whatever approach you'd like to do to reassure yourself)._
-
-Simply running this command should work on MacOS, Linux, and Windows:
-
-```bash
-uv run tool_install.py
-```
-
-If it fails, it will try to tell you what prerequisite you are missing. Although it requires that you have at least installed `uv` and have _some_ version of Python installed.
-
-
-To ensure that `EPICpy` correctly installed, try running it:
-
-```bash
-EPICpy
-```
-
-If you see the EPICpy graphical interface, it worked!
-
-To ensure that `epiccoder` correctly installed, try running it:
-
-```bash
-epiccoder
-```
-
-If you see the epiccoder graphical interface, it worked!
-
-
-### <font color="blue">**Downloading EPICpy and epiccoder [Manual Approach]**</font>
+### <font color="blue">Downloading EPICpy and epiccoder</font>
 
 To install `EPICpy` and `epiccoder` manually, first make sure you have successfully installed curl, git, uv, and either Python3.9 (if you run Windows), or Python3.10 (if you run Linux or MacOs).
 
@@ -273,12 +241,6 @@ If you see the epiccoder graphical interface, it worked!
 
 ```bash
 uv tool upgrade EPICpy epiccoder
-```
-
-or use this script:
-
-```bash
-uv run update_tools.py
 ```
 
 Now, run a simulation:
