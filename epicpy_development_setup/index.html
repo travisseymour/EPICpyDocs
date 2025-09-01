@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://github.com/travisseymour/EPICpy/epicpy_development_setup/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>EPICpy Development Setup - EPICpy Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "EPICpy Development Setup";
+        var mkdocs_page_input_path = "epicpy_development_setup.md";
+        var mkdocs_page_url = "/travisseymour/EPICpy/epicpy_development_setup/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> EPICpy Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../installing/">Installing EPICpy</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../epicpysimcomponents/">Simulation Components</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../epicinterface_windows/">EPICpy GUI Windows</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../epicinterface_options/">EPICpy GUI Options</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../example/">Example Simulation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../model_programming/">Model Programming</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../text_editor_for_epic_modeling/">Text Editors for EPCIpy</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">EPICpy Development Setup</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#setup-dev-environment">Setup Dev Environment</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#linux">Linux</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#tested-on-these-linux-variants">Tested on these Linux Variants</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#install-prerequisites">Install Prerequisites</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#retrieve-source-files-from-github">Retrieve Source Files from GitHub</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#set-up-a-virtual-environment">Set Up A Virtual Environment</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#setup-epicpy-in-your-python-ide">Setup EPICpy in Your Python IDE</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#run-epicpy">Run EPICpy</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#macos">MacOS</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#tested-on-these-apple-chipsets">Tested on these Apple Chipsets:</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#install-prerequisites_1">Install Prerequisites</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#retrieve-source-files-from-github_1">Retrieve Source Files from GitHub</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#set-up-a-virtual-environment_1">Set Up A Virtual Environment</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#setup-epicpy-in-your-python-ide_1">Setup EPICpy in Your Python IDE</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#run-epicpy_1">Run EPICpy</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#windows">Windows</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#tested-on-these-windows-versions">Tested on these Windows Versions:</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#install-prerequisites_2">Install Prerequisites</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#retrieve-files-from-github">Retrieve Files from GitHub</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#set-up-a-virtual-environment_2">Set Up A Virtual Environment</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#setup-epicpy-in-your-python-ide_2">Setup EPICpy in Your Python IDE</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#run-epicpy_2">Run EPICpy</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../epicresources/">EPIC Resources</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../faq/">Frequently Asked Questions</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">EPICpy Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">EPICpy Development Setup</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="epicpy-development">EPICpy Development</h1>
+<h2 id="overview">Overview</h2>
+<p>EPICpy is developed using the following technologies:</p>
+<p><strong>Require Python Versions</strong></p>
+<p>Version 3.9.16 on Windows
+Version 3.10.11 on Linux and MacOS</p>
+<p>Why these versions? The upper limit is 3.10 because some modules we use are not currently rewritten for Python 3.11 or are not sufficiently stable. When this changes, the version will be switched to 3.11 on MacOS and Linux. On Windows, the supported Python version is 3.9 because AFAIK, Microsoft Visual Studio 2019 built in Python (required at the moment to build EPICLib with PyBind11) is limited to 3.9. Our goal is to switch to the latest version of MSVS shortly which may support Python 3.10 and allow EPICpy to run with Python 3.10 on Windows.</p>
+<p><strong>Key Packages</strong></p>
+<ul>
+<li><a href="https://github.com/pybind/pybind11">PyBind11</a> (pybind11): Library for generating Python bindings for existing C++ code. We are currently using this to produce a Python3.9 compatible library of EPIClib for Windows and a Python3.10 compatible library for MacOS and Linux.</li>
+<li><a href="https://wiki.qt.io/Qt_for_Python">PySide2 GUI Framework</a> (pyside2): Used to build the Graphical User Interface. <em>Note: We are momentarily using PyQt5 instead of PySide2, but this will change shortly and allow for an overall more permissive license for EPICpy</em>.</li>
+<li><a href="https://pingouin-stats.org/">Pingouin Stats System</a> (pingouin): Meta-package providing access variety of statistical and graphing packages.</li>
+<li><a href="https://github.com/pypa/pipx">PipX</a> (pipx): Allows easy cross-platform distributing Python applications.</li>
+</ul>
+<hr>
+
+<h2 id="setup-dev-environment">Setup Dev Environment</h2>
+<h3 id="linux">Linux</h3>
+<h4 id="tested-on-these-linux-variants">Tested on these Linux Variants</h4>
+<ul>
+<li>[x] Debian-based Linux variants (e.g., Ubuntu, Mint, PopOS, etc.)</li>
+<li>[ ] Redhat-based Linux variants (e.g., Redhat, Fedora, Centos, etc.)</li>
+<li>[ ] Arch-based Linux variants (e.g., ArchLinux, Manjaro, EndeavourOS, etc.)</li>
+</ul>
+<p>Tested on these Linux Versions:</p>
+<ul>
+<li>[x] 18.04</li>
+<li>[x] 20.04</li>
+<li>[x] 22.04</li>
+</ul>
+<p>Most recent Linux distributions come with Python 3 already installed, so you probably already have Python. However, you will need to make sure you build your virtual environment using Python 3.10. In particular, adjust the path of the <code>python3 -m venv venv</code> command below so that it points to the correct version of Python (or use your own method to create the proper virtual environment)..</p>
+<h4 id="install-prerequisites">Install Prerequisites</h4>
+<p>If you haven't already installed them, then you already have these), you should install the following:</p>
+<pre><code class="language-bash">sudo apt install build-essential libssl-dev libffi-dev libncurses5-dev zlib1g zlib1g-dev libreadline-dev libbz2-dev libsqlite3-dev make gcc curl git
+</code></pre>
+<p>You will also need to install the PyQt5 Development files:</p>
+<pre><code class="language-bash">sudo apt install qtbase5-dev
+</code></pre>
+<h4 id="retrieve-source-files-from-github">Retrieve Source Files from GitHub</h4>
+<pre><code class="language-bash"># note: this will create the EPICpy source folder in the directory from which you type these commands: 
+git clone https://github.com/travisseymour/EPICpy.git
+cd EPICpy
+</code></pre>
+<h4 id="set-up-a-virtual-environment">Set Up A Virtual Environment</h4>
+<p>NOTE: this section assumes you already have Python 3.10 on your machine and know the path or command required to start it.</p>
+<h6 id="set-up-a-virtual-environment-using-python-310">Set up a Virtual Environment Using Python 3.10</h6>
+<p>Create the virtual environment</p>
+<pre><code class="language-bash">cd EPICpy
+# vvv replace with path to your copy of Python 3.10
+~/.pyenv/versions/3.10.11/bin/python3 -m venv venv
+</code></pre>
+<p>Activate the virtual environment</p>
+<pre><code class="language-bash">source venv/bin/activate
+</code></pre>
+<p>Check it</p>
+<pre><code class="language-bash">python -V
+</code></pre>
+<p>This should report <code>Python 3.10.x</code></p>
+<h6 id="install-dependencies">Install Dependencies</h6>
+<p>Activate the virtual environment</p>
+<pre><code class="language-bash">source venv/bin/activate
+</code></pre>
+<p>Update Python package manager</p>
+<pre><code class="language-bash"># update pip  and wheel
+pip install -U pip wheel
+</code></pre>
+<p>Install the EPICpy Python requirements</p>
+<pre><code class="language-bash"># install EPICpy requirements
+pip install -r requirements.txt
+</code></pre>
+<h4 id="setup-epicpy-in-your-python-ide">Setup EPICpy in Your Python IDE</h4>
+<p>The following assumes you are following along with the <a href="https://www.jetbrains.com/pycharm/">PyCharm Integrated Python Development Environment</a>. For others (e.g., VSCode, Sublime, etc.) should modify the instructions accordingly.</p>
+<h6 id="obtain-pycharms-free-community-edition-ide">Obtain PyCharm's Free Community Edition IDE</h6>
+<pre><code class="language-bash"># If you like using Canonical's proprietary Snap Linux app installer
+# To install snap https://itsfoss.com/install-snap-linux/
+sudo snap install pycharm-community --classic
+
+# If you like to live the FOSS way using the Flatpak Linux app installer
+# To install flatpak https://itsfoss.com/flatpak-guide/
+flatpak install com.jetbrains.PyCharm-Community
+</code></pre>
+<h6 id="start-pycharm">Start PyCharm</h6>
+<h6 id="open-the-epicpy-folder-as-a-new-pycharm-project">Open The EPICpy folder as a new PyCharm Project</h6>
+<p><img alt="" src="../resources/images/pycharm_projec_open_1.png" />
+<img alt="" src="../resources/images/pycharm_projec_open_2.png" /></p>
+<h6 id="open-the-file-viewer">Open The File Viewer</h6>
+<p><img alt="" src="../resources/images/pycharm_show_files.png" /></p>
+<h6 id="set-up-the-interpreter">Set Up The Interpreter</h6>
+<p>Click on the <strong>\&lt;NoInterpreter&gt;</strong> button in the bottom right of the IDE, choose <strong>AddNewInterpreter</strong>, then <strong>AddLocalInterpreter</strong>:</p>
+<p><img alt="" src="../resources/images/pycharm_add_interpreter_1.png" /></p>
+<p>Choose <strong>Existing</strong>, make sure the <strong>Location</strong> field contains the path to the Python 3.10 virtual environment (<code>venv</code> folder) you created earlier and press <strong>OK</strong>:</p>
+<p><img alt="" src="../resources/images/pycharm_add_interpreter_2.png" /></p>
+<h6 id="set-the-sources-root">Set The Sources Root</h6>
+<p>Set the Sources Root by right-clicking on the <code>epicpy</code> folder and choosing <strong>MarkDirectoryAs--&gt;SourcesRoot</strong>.</p>
+<p><img alt="" src="../resources/images/pycharm_sources_root.png" /></p>
+<h4 id="run-epicpy">Run EPICpy</h4>
+<p>Finally, right-click the file <code>main.py</code> and choose <strong>Run main</strong></p>
+<p>If all goes well, you should be looking at the EPICpy GUI.</p>
+<hr>
+
+<h3 id="macos">MacOS</h3>
+<h5 id="tested-on-these-apple-chipsets">Tested on these Apple Chipsets:</h5>
+<ul>
+<li>[x] Intel</li>
+<li>[ ] M1</li>
+<li>[ ] M2</li>
+</ul>
+<p>Tested on these MacOS Versions:</p>
+<ul>
+<li>[x] 10.15 Catalina</li>
+<li>[ ] 11 Big Sur</li>
+<li>[ ] 12 Monterey</li>
+</ul>
+<p>Most recent MacOS distributions come with Python 3 already installed, so you probably already have Python. However, you will need to make sure you build your virtual environment below using Python 3.10. In particular, adjust the path of the <code>python3 -m venv venv</code> command below so that it points to the correct version of Python (or use your own method to create the proper virtual environment). </p>
+<h4 id="install-prerequisites_1">Install Prerequisites</h4>
+<p>You will need to install the XCode commandline build utilities. A super easy way to do this is to just install the Homebrew package manager. You may have already done this, if not see this website (https://brew.sh/). Another approach is to install XCode (it's a 10GB download, and you'll need an additional 10GB of space to install it) from the Apple Store and then use XCode to install the commandline utilities. This is challenging if you don't have the latest version of MacOS, as the version of XCode in the Apple Store may not be installable. Generally, I strongly recommend installing Homebrew(https://brew.sh/); not only does it install the build tools you need, but it's much faster than installing XCode, will install on any version of MacOS. Besides, having Homebrew is super useful anyway. If you already have XCode installed, you may be good to go.</p>
+<h4 id="retrieve-source-files-from-github_1">Retrieve Source Files from GitHub</h4>
+<pre><code class="language-bash"># note: this will create the EPICpy source folder in the directory from which you type these commands: 
+git clone https://github.com/travisseymour/EPICpy.git
+cd EPICpy
+</code></pre>
+<h4 id="set-up-a-virtual-environment_1">Set Up A Virtual Environment</h4>
+<p>NOTE: this section assumes you already have Python 3.10 on your machine and know the path or command required to start it.</p>
+<h6 id="set-up-a-virtual-environment-using-python-310_1">Set up a Virtual Environment Using Python 3.10</h6>
+<p>Create the virtual environment</p>
+<pre><code class="language-bash">cd EPICpy
+# vvv replace with path to your copy of Python 3.10
+~/.pyenv/versions/3.10.11/bin/python3 -m venv
+</code></pre>
+<p>Activate the virtual environment</p>
+<pre><code class="language-bash">source venv/bin/activate
+</code></pre>
+<p>Check it</p>
+<pre><code class="language-bash">python -V
+</code></pre>
+<p>This should report <code>Python 3.10.x</code></p>
+<h6 id="install-dependencies_1">Install Dependencies</h6>
+<p>Activate the virtual environment</p>
+<pre><code class="language-bash">source venv/bin/activate
+</code></pre>
+<p>Update Python package manager</p>
+<pre><code class="language-bash"># update pip  and wheel
+pip install -U pip wheel
+</code></pre>
+<p>Install the EPICpy Python requirements</p>
+<pre><code class="language-bash"># install EPICpy requirements
+pip install -r requirements.txt
+# If you have an fbs pro install command, run that now. It can also be upgraded later if you purchased fbs pro (optional).
+</code></pre>
+<h4 id="setup-epicpy-in-your-python-ide_1">Setup EPICpy in Your Python IDE</h4>
+<p>The following assumes you are following along with the <a href="https://www.jetbrains.com/pycharm/">PyCharm Integrated Python Development Environment</a>. For others (e.g., VSCode, Sublime, etc.) should modify the instructions accordingly.</p>
+<h6 id="obtain-pycharms-free-community-edition-ide_1">Obtain PyCharm's Free Community Edition IDE</h6>
+<pre><code class="language-bash">brew install --cask pycharm-ce
+</code></pre>
+<h6 id="start-pycharm_1">Start PyCharm</h6>
+<h6 id="open-the-epicpy-folder-as-a-new-pycharm-project_1">Open The EPICpy folder as a new PyCharm Project</h6>
+<p><img alt="" src="../resources/images/pycharm_projec_open_1.png" />
+<img alt="" src="../resources/images/pycharm_projec_open_2.png" /></p>
+<h6 id="open-the-file-viewer_1">Open The File Viewer</h6>
+<p><img alt="" src="../resources/images/pycharm_show_files.png" /></p>
+<h6 id="set-up-the-python-interpreter">Set Up The Python Interpreter</h6>
+<p>Click on the <strong>\&lt;NoInterpreter&gt;</strong> button in the bottom right of the IDE, choose <strong>AddNewInterpreter</strong>, then <strong>AddLocalInterpreter</strong>:</p>
+<p><img alt="" src="../resources/images/pycharm_add_interpreter_1.png" /></p>
+<p>Choose <strong>Existing</strong>, make sure the <strong>Location</strong> field contains the path to the Python 3.10 virtual environment (<code>venv</code> folder) you created earlier and press <strong>OK</strong>:</p>
+<p><img alt="" src="../resources/images/pycharm_add_interpreter_2.png" /></p>
+<h6 id="set-sources-root">Set Sources Root</h6>
+<p>Set the Sources Root by right-clicking on the <code>epicpy</code> folder and choosing <strong>MarkDirectoryAs--&gt;SourcesRoot</strong>.</p>
+<p><img alt="" src="../resources/images/pycharm_sources_root.png" /></p>
+<h4 id="run-epicpy_1">Run EPICpy</h4>
+<p>Finally, right-click the file <code>main.py</code> and choose <strong>Run main</strong></p>
+<p>If all goes well, you should be looking at the EPICpy GUI.</p>
+<hr>
+
+<h3 id="windows">Windows</h3>
+<h4 id="tested-on-these-windows-versions">Tested on these Windows Versions:</h4>
+<ul>
+<li>[x] 10</li>
+<li>[ ] 11</li>
+</ul>
+<p>Although Windows doesn't ship with Python 3 already installed, you may have previously installed Python. However, you will need to make sure you build your virtual environment below using Python 3.9. In particular, adjust the path of the <code>python3 -m venv venv</code> command below so that it points to the correct version of Python (or use your own method to create the proper virtual environment). </p>
+<h4 id="install-prerequisites_2">Install Prerequisites</h4>
+<p>Windows doesn't come with <code>git</code> installed. You will need git to obtain the EPICpy files from the software repository on GitHub.com. You can install <code>git</code> by using an installer from this website (https://git-scm.com/downloads)</p>
+<h4 id="retrieve-files-from-github">Retrieve Files from GitHub</h4>
+<pre><code class="language-bash"># note: this will create the EPICpy source folder in the directory from which you type these commands: 
+git clone https://github.com/travisseymour/EPICpy.git
+cd EPICpy
+</code></pre>
+<h4 id="set-up-a-virtual-environment_2">Set Up A Virtual Environment</h4>
+<p>NOTE: this section assumes you already have Python 3.10 on your machine and know the path or command required to start it.  If not, install <code>uv</code> and then un <code>uv python install 3.10</code></p>
+<h6 id="set-up-a-virtual-environment-using-python-310_2">Set up a Virtual Environment Using Python 3.10</h6>
+<p>Create the virtual environment</p>
+<pre><code class="language-bash">cd EPICpy
+# vvv replace with path to your copy of Python 3.10
+C:\Users\testuser\.pyenv\pyenv-win\versions\3.9.13\python.exe -m venv venv
+</code></pre>
+<p>Activate the virtual environment</p>
+<pre><code class="language-bash">venv/Scripts/activate
+</code></pre>
+<p>Check it</p>
+<pre><code class="language-bash">python -V
+</code></pre>
+<p>This should report <code>Python 3.9.x</code></p>
+<h6 id="install-dependencies_2">Install Dependencies</h6>
+<p>Activate the virtual environment</p>
+<pre><code class="language-bash">source venv/bin/activate
+</code></pre>
+<p>Update Python package manager</p>
+<pre><code class="language-bash"># update pip  and wheel
+pip install -U pip wheel
+</code></pre>
+<p>Install the EPICpy Python requirements</p>
+<pre><code class="language-bash"># install EPICpy requirements
+pip install -r requirements.txt
+</code></pre>
+<h4 id="setup-epicpy-in-your-python-ide_2">Setup EPICpy in Your Python IDE</h4>
+<p>The following assumes you are following along with the <a href="https://www.jetbrains.com/pycharm/">PyCharm Integrated Python Development Environment</a>. For others (e.g., VSCode, Sublime, etc.) should modify the instructions accordingly.</p>
+<h6 id="obtain-pycharms-free-community-edition-ide_2">Obtain PyCharm's Free Community Edition IDE</h6>
+<p>Go to the JetBrains website, scroll down and see the instructions for PyCharm Community Edition: https://www.jetbrains.com/pycharm/download/</p>
+<h6 id="start-pycharm_2">Start PyCharm</h6>
+<h6 id="open-the-epicpy-folder-as-a-new-pycharm-project_2">Open The EPICpy folder as a new PyCharm Project</h6>
+<p><img alt="" src="../resources/images/pycharm_projec_open_1.png" />
+<img alt="" src="../resources/images/pycharm_projec_open_2_win.png" /></p>
+<h6 id="open-the-file-viewer_2">Open The File Viewer</h6>
+<p><img alt="" src="../resources/images/pycharm_show_files_win.png" /></p>
+<h6 id="setup-up-python-interpreter">Setup UP Python Interpreter</h6>
+<p>Click on the <strong>\&lt;NoInterpreter&gt;</strong> button in the bottom right of the IDE, choose <strong>AddNewInterpreter</strong>, then <strong>AddLocalInterpreter</strong>:</p>
+<p><img alt="" src="../resources/images/pycharm_add_interpreter_1.png" /></p>
+<p>If instead of \&lt;NoInterpreter&gt; it says "Python3.9(EPICpy)" then PyCharm has already found and correctly installed your virtual environment! Otherwise, continue setting up the interpreter:</p>
+<p>Choose <strong>Existing</strong>, make sure the <strong>Location</strong> field contains the path to the Python 3.10 virtual environment (<code>venv</code> folder) you created earlier and press <strong>OK</strong>:</p>
+<p><img alt="" src="../resources/images/pycharm_add_interpreter_2.png" /></p>
+<h6 id="set-sources-root_1">Set Sources Root</h6>
+<p>Set the Sources Root by right-clicking on the <code>epicpy</code> folder and choosing <strong>MarkDirectoryAs--&gt;SourcesRoot</strong>.</p>
+<p><img alt="" src="../resources/images/pycharm_sources_root.png" /></p>
+<h4 id="run-epicpy_2">Run EPICpy</h4>
+<p>Finally, right-click the file <code>main.py</code> and choose <strong>Run main</strong></p>
+<p>If all goes well, you should be looking at the EPICpy GUI.</p>
+<hr>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../text_editor_for_epic_modeling/" class="btn btn-neutral float-left" title="Text Editors for EPCIpy"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../epicresources/" class="btn btn-neutral float-right" title="EPIC Resources">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../text_editor_for_epic_modeling/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../epicresources/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

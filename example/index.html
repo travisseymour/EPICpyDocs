@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://github.com/travisseymour/EPICpy/example/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Example Simulation - EPICpy Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Example Simulation";
+        var mkdocs_page_input_path = "example.md";
+        var mkdocs_page_url = "/travisseymour/EPICpy/example/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> EPICpy Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../installing/">Installing EPICpy</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../epicpysimcomponents/">Simulation Components</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../epicinterface_windows/">EPICpy GUI Windows</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../epicinterface_options/">EPICpy GUI Options</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Example Simulation</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#the-choice-task">The Choice Task</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#human-data">Human Data</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#an-epic-model-of-the-human-data">An EPIC Model of the Human Data</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#coming-up-with-a-better-model">Coming Up With A Better Model</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#whats-next">What's Next?</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../model_programming/">Model Programming</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../text_editor_for_epic_modeling/">Text Editors for EPCIpy</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../epicpy_development_setup/">EPICpy Development Setup</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../epicresources/">EPIC Resources</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../faq/">Frequently Asked Questions</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">EPICpy Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Example Simulation</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="epicpy-simulation-example">EPICpy Simulation Example</h1>
+<p>EPICpy comes with 2 sample devices, a <a href="../resources/articles/modern_mental_chronometry_meyer_et_al_1998.pdf">Donders-style Choice Task</a>, and a device based on the <a href="../resources/articles/findlay_1997_saccade_target_selection_during_visual_search.pdf">Experiment 5 paradigm from Findlay (1997)</a>. Please note that these devices are for demonstration purposes only and the production rules provided may not represent serious psychological models of human performance (especially the Choice Task device).</p>
+<p>Consider the Choice Task.</p>
+<h2 id="the-choice-task">The Choice Task</h2>
+<h3 id="overview">Overview</h3>
+<p><img alt="Choice Task" src="../resources/images/choice_task_easy.png" /></p>
+<p>This task asks participants to perform many trials. On each trial, a central warning symbol will be shown for 1000 ms, in this case the octothorpe/number-sign/hash symbol (#). This warning is used to indicate that the stimulus will be displayed next, and to encourage a central ocular fixation. Next the screen is blank for a randomly chosen duration between 500 and 1300 ms. After this period, a 2<sup>o</sup> diameter colored circle (the stimulus) is shown centered vertically on the display. On each trial, the horizontal eccentricity can vary randomly according to a uniform distribution. The horizontal offsets will either be -2<sup>o</sup>, -1<sup>o</sup>, 0<sup>o</sup>,  1<sup>o</sup>,  or 1<sup>o</sup> relative to the center of the display. Note that this is the "<strong>Hard</strong>" condition. There is also an "<strong>Easy</strong>" condition where the stimulus is always displayed in the center of the screen. Stimulus color is randomly chosen each trial from the color set, which can be set between 1 and 4. The full set of task colors is Red, Green, Blue and Yellow. Responses for Red, Green, Blue, and Yellow stimuli are made by pressing the U, I, O, and P keys on the keyboard using the Index, Middle, Ring, and Little fingers on participants' right hand, respectively. After the stimulus is presented, the task waits until a response is made before continuing. On each trial, response time (in milliseconds) and response accuracy are recorded and saved to disk. Between trials there is a 2500 ms delay before starting the next trial.</p>
+<p><img alt="Choice Task Events" src="../resources/images/choice_event_timeline.png" /></p>
+<p><strong>Choice Task Events</strong></p>
+<h3 id="human-data">Human Data</h3>
+<p>The figure below depicts some data one might observe when testing humans in the choice task described above ("Easy" condition, i.e., stimulus is always presented at screen center):</p>
+<p><img alt="Choice Task Human Data" src="../resources/images/choice_rt_by_color_human_easy.png" /></p>
+<p><strong>Choice Task Human Data</strong></p>
+<p>Based on the figure above, we can conclude that participants can generally make these choice responses in around half a second, with red being a little faster and green being a little slower than the others. Why is this? We'll come back to this question later. For now, let's consider a logically minimal strategy for this task in the form of a set of production rules.</p>
+<h3 id="an-epic-model-of-the-human-data">An EPIC Model of the Human Data</h3>
+<p>The <strong>choicetask_rules_VM.prs</strong> file include with the choice task demo device, and located in the <strong>rules</strong> subfolder. These rules embody a strategy for how participants might perform this task based solely on what is minimally required to follow task instructions:</p>
+<ul>
+<li>Participants first wait for a visual object to appear at display center, at which point they make a mental note that this object must be the fixation symbol they were expecting. They then begin waiting for the stimulus to arrive.</li>
+<li>Participants wait for a different visual object to appear at display center, at which point they look at it and make a mental note that this object must be the stimulus they were expecting. They then begin waiting to become aware of the object's color.</li>
+<li>Participants wait for the object's color, when this information arrives in WM (i.e., they become consciously aware of it), they make a note that they need to press the key associated with this particular color</li>
+<li>Assuming their hands are not currently busy doing anything else, participants subsequently plan a motor movement on their right hand corresponding to the color-key mapping they learned during the instructions. For example, if the stimulus is Red, they will initiate a movement with their right index finger to press the U key on the keyboard. The entire mapping is the keys UIOP for the colors RGBY, respectively.</li>
+<li>Once the manual response has been initiated, participants begin waiting for the next trial to begin.</li>
+</ul>
+<p>The following is a process model for the minimal ruleset:</p>
+<p><a href="../resources/images/choice_task_easy_process_diagram_v1.png"><img alt="Initial Process Model" src="../resources/images/choice_task_easy_process_diagram_v1_small.png" /></a></p>
+<p><strong>Initial Model Process Diagram</strong></p>
+<p>To run this model and see how well it fits (i.e., matches) our human data, we need to do the following:</p>
+<ol>
+<li>Start EPICpy</li>
+<li>Use <strong>File&#10145;Load_Device</strong> to load the Choice Task device (<strong>choice_device.py</strong>)</li>
+<li>Use <strong>File&#10145;Compile_Rules</strong> load the Choice Task Visual-Manual ruleset (<strong>choicetask_rules_VM</strong>)
+4.Press <strong>Run&#10145;Run_Settings</strong> to set up the device condition string to match the conditions under which our human data were collected. This would require the string <code>"80 4 Easy [r1|r2|r3|r4|r5|r6|r7|r8|r9|r10]"</code>, which indicates 80 trials per simulated run, a maximum of 4 possible colors, the Easy condition (stimulus always in screen center), and 10 runs named r1...r10 in the datafile.</li>
+<li>On the <strong>Run_Settings</strong> dialog, press the <strong>Delete_Current_Device_Datafile</strong> button to clear the data file (in case there already some data from a previous run).</li>
+<li>Use <strong>Run&#10145;Run</strong> to start the simulation (this will take some time to run, even on faster machines unless you disable put the <strong>RUN_SETTINGS</strong> in fast-mode (only update text output and view windows <em>after</em> the run finishes)).</li>
+</ol>
+<p><a href="../resources/video/choice_vid_one.gif"><img alt="First Video" src="../resources/video/choice_vid_one.gif" /></a></p>
+<p>The result of this simulation are compared to the human data in the following figure:</p>
+<p><img alt="Choice Task First Model Fit" src="../resources/images/choice_rt_fit_by_stimcolor_easy.png" /></p>
+<p>First Run Comparison of Human and Simulated Data</p>
+<p>According to this graph, the simulated data appears to represent significantly faster responses than observed in human subjects. Furthermore, it appears that stimulus color is less affected in the simulated data than in the human data. In other words, the fitness (aka "fit") between the human and simulated data is quite poor. This likely means that the performance strategy represented by our production rules is a poor model for the way humans performed the task.</p>
+<h3 id="coming-up-with-a-better-model">Coming Up With A Better Model</h3>
+<p>At list point, let's consider a more psychologically plausible theory for choice task performance:</p>
+<p><a href="../resources/images/choice_task_easy_process_diagram_v2.png"><img alt="Modified Process Model" src="../resources/images/choice_task_easy_process_diagram_v2.png" /></a></p>
+<p><strong>Modified Model Process Diagram</strong></p>
+<p>The default rules provided with the choicetask are just a minimal strategy, and not intended to be psychological realistic. Here we add 2 important changes:</p>
+<p><strong>1. Perceptual Rule Changes</strong>: The human data are from humans with only minimal practice, thus it is reasonable to assume that stimulus-response mapping is still in the declarative stage, and not yet automatized. To implement this, we will edit the rules so that response-selection and response-execution are separate stages. </p>
+<p>For example, we might make these changes to the rules:</p>
+<p><strong>Original Perpetual Rules</strong></p>
+<p><img alt="Original Perceptual Approach" src="../resources/images/choice_rule_change_1a.png" /></p>
+<p><strong>New Perpetual Rules</strong></p>
+<p><img alt="New Perceptual Approach" src="../resources/images/choice_rule_change_1b.png" /></p>
+<p><strong>2. Motor Rule Changes</strong>: Although the stimulus shape in this task is not required for accurate responses, relatively unpracticed participants may use the stimulus shape to distinguish it from the fading working memory trace of the fixation symbol. Thus, here we assume that participants wait to perceive the stimulus shape before considering its color.</p>
+<p><strong>Original Perpetual Rules</strong></p>
+<p><img alt="Original Motor Approach" src="../resources/images/choice_rule_change_2a_small.png" /></p>
+<p><strong>New Perpetual Rules</strong></p>
+<p><img alt="New Motor Approach" src="../resources/images/choice_rule_change_2b.png" /></p>
+<p>You can edit the currently loaded ruleset in any text editor. Right-clicking on the Normal Output window and selecting "<strong>Edit Production Rule File</strong>" will open the currently selected rules in your system's default editor for .prs text files. Once you are finished editing the ruleset and have saved it to disk (don't forget this step), use <strong>File&#10145;Recompile_Rules</strong>. Alternatively, you could choose <strong>File&#10145;Reload_Last_Session</strong>, which would reload both the device and the ruleset. </p>
+<p>Note that the data for the previous run is still within data_output.csv, so we need to clear out the data file in the <strong>Run_Settings</strong> dialog. Finally, we run the new model to see the modified fit using <strong>Run&#10145;Run</strong>.</p>
+<p><a href="../resources/video/choice_vid_two.gif"><img alt="First Video" src="../resources/video/choice_vid_two.gif" /></a></p>
+<p>The new model's fit between simulated EPIC data and Human data is shown below:</p>
+<p><img alt="Choice Task Model Second Fit" src="../resources/images/choice_rt_fit_by_stimcolor_easy_better.png" /></p>
+<p>The fit is better, but still not quite right.  </p>
+<h3 id="whats-next">What's Next?</h3>
+<p>Clearly, the minimal model is not sufficient, but our modifications are still not capturing the observed human performance. One thing you may have noticed in the task description is that there is a static mapping between the colors Red, Green, Blue, Yellow, and the keys U, I, O, and P. These keys are likewise statically assigned to the fingers Index, Middle, Ring, and Little. This means that there is a confound between color and finger. Although fine for a toy device, a serious psychological experiment would have counterbalanced these associations. In any case, this means that there are two possible explanations for the differences between colors observed in the human data. For example, why is the mean response to Red faster than for other colors? It is possible that humans are faster to perceive red than the other colors. It is also possible that humans are faster to push buttons with their index finger than other fingers. Such assumptions can be added to the model using a visual encoder (e.g., to allow faster perception of Red than other colors) or by altering the rules (e.g., by pre-preparing the Red response at the start of each trial to represent a response-bias).</p>
+<p>As this is the documentation for the EPICpy application, not EPIC modeling itself, one will have to look elsewhere to learn how to create/edit rulesets, write encoders, and generally explore the model space for a given task.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../epicinterface_options/" class="btn btn-neutral float-left" title="EPICpy GUI Options"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../model_programming/" class="btn btn-neutral float-right" title="Model Programming">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../epicinterface_options/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../model_programming/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

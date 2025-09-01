@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://github.com/travisseymour/EPICpy/epicpysimcomponents/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Simulation Components - EPICpy Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Simulation Components";
+        var mkdocs_page_input_path = "epicpysimcomponents.md";
+        var mkdocs_page_url = "/travisseymour/EPICpy/epicpysimcomponents/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> EPICpy Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../installing/">Installing EPICpy</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Simulation Components</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#epicpy-application">EPICpy Application</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#task-devices">Task Devices</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#perceptual-encoders">Perceptual Encoders</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#task-rules">Task Rules</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#initial-wm-contents">Initial WM Contents</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#epic-simulation-configuration">EPIC Simulation Configuration</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#named-locations">Named Locations</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#putting-it-all-together">Putting It All Together</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../epicinterface_windows/">EPICpy GUI Windows</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../epicinterface_options/">EPICpy GUI Options</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../example/">Example Simulation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../model_programming/">Model Programming</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../text_editor_for_epic_modeling/">Text Editors for EPCIpy</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../epicpy_development_setup/">EPICpy Development Setup</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../epicresources/">EPIC Resources</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../faq/">Frequently Asked Questions</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">EPICpy Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Simulation Components</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="epicpy-simulation-components">EPICpy Simulation Components</h1>
+<p>This page describes of what it means to simulate human performance using EPIC under EPICpy, by going over each of the key components of a simulation run. For an overview of what EPIC and EPICpy are, and what they are used for, see the <a href="../">Home Page</a>. To see an example simulation walkthrough, see the <a href="../example/">Epic Simulation Example</a> page.</p>
+<p><a href="../resources/images/epicpy_overview.png"><img alt="EPICpy Overview" src="../resources/images/epicpy_overview_small.png" /></a></p>
+<p><strong>Figure 1</strong></p>
+<p>Executive-Process/Interactive-Control (EPIC) is a Cognitive Architecture created by David Kieras and David Meyer. EPIC describes both an integrated theory of human performance and a computational approach to using that system to simulate human behavior. Detailed description of the EPIC architecture as a theory of human performance, and examples of how it can be applied to answering various psychological questions can be found at <a href="https://web.eecs.umich.edu/~kieras/epic.html">https://web.eecs.umich.edu/~kieras/epic.html</a> (also see the <a href="../epicresources/">EPIC Resources</a> page). EPIC itself is a library written in C++ (called EPICLib), but cannot be used directly. Instead, you need some control software that allows you to configure and manage simulations using EPIC. Previously, EPIC the architecture was combined with EPICapp, the GUI-based control software, also written in C++. This combination can be found at <a href="https://github.com/dekieras/EPIC">https://github.com/dekieras/EPIC</a> (requires MacOS with XCode installed).</p>
+<p>Using EPICpy, Like EPICapp before it, generally involves the components shown in Figure 1, expect that some elements are now written in Python rather than C++:</p>
+<h2 id="epicpy-application">EPICpy Application</h2>
+<p>The EPICpy Application contains both an interface to EPIC architecture (copied directly from the <a href="https://github.com/dekieras/EPIC">C++ code</a> maintained by its creator), which one only accesses through Task-Device programming. The EPICpy Application also offers a graphical user interface (GUI) for managing a simulation run. When launched, the EPICpy GUI will look similar to Figure 2:</p>
+<p><a href="../resources/images/epicpy_gui_clean.png"><img alt="EPICpy GUI Clean" src="../resources/images/epicpy_gui_clean_small.png" /></a></p>
+<p><strong>Figure 2</strong></p>
+<p>Notice that there are 3 windows for Vision, and 3 windows for Audition. For each modality, there is the Physical window (a depiction of what's on the task-device display screen), a Sensory Window (a depiction of what information is currently being represented within EPIC's sensory processors), and a Perceptual Window (a depiction of what information is currently represented within EPIC's perceptual processors).</p>
+<p>There is also the <strong>Normal Output</strong> window that shows most information about the simulation status, errors, etc. It also shows a continual trace of the current contents of EPIC's Working Memory (updated every 50 ms) while a simulation is running.</p>
+<p>The <strong>Trace Output</strong> window shows detailed trace information for various EPIC processors, but only if they are enabled in the settings. By default, no trace information will be displayed.</p>
+<p>The <strong>Stats Output</strong> window shows any statistical analysis information written by the device and can include text, tables, and graphs.</p>
+<p>EPICpy's GUI allows setting various general options via the <strong>Settings</strong> menu, as well as various model-specific options via the <strong>Settings</strong> and <strong>Run</strong> menus.</p>
+<p>The GUI also facilitates loading Task Devices, Task Rules, and Perceptual Encoders, which together represent a single psychological model for simulation.</p>
+<h2 id="task-devices">Task Devices</h2>
+<p>The <strong>File&#10145;Load_Device</strong> menu item is used to load a <strong>Task Device</strong> into the simulation environment. A task device is a Python code file that represents a simulated performance environment that EPIC (the simulated human performer) will interact with. The device represents the hardware and software that users interact with, and can present visual and auditory stimuli, manual and vocal response devices, and task logic. Thus, the task device controls the progression of a task and dictates when various stimuli are shown and how it handles inputs from EPIC.</p>
+<p>For example, researchers may run human participants in trials of a task using a computer monitor and speakers to display stimuli and warnings, as well as a keyboard to register responses. Data from this human run would be collected and stored. To understand performance in such a task, researcher might produce a hypothesis based on theory or performance in similar tasks. They may wish to test their hypothesis for how humans performed this task by simulating that performance. The task device would be constructed to mimic the human task device (again, including all relevant inputs and outputs, as well as corresponding data collection). The task device would be programmed to sufficient detail to serve as a reasonable test of the hypothesized performance strategy, but may omit details deemed insignificant. E.g., your hypothesized model for how one uses a word processor may omit representation of the web camera affixed to the top of the monitor if the presence of that camera is presumed to have no significant effect on task performance. Similarly, one might omit texture and shading in a model of driving performance, if these visual details are deemed irrelevant. Of course assumption about what to include, or exclude from the simulated task device could be incorrect, which is why such assumptions are effectively a part of the psychological model being tested.</p>
+<p>Currently, EPIC (the architecture) allows flexible object-based representations of visual and auditory stimuli (arbitrary sounds and speech) localized in space relative to the simulated performer. EPIC also allows a number of manual response devices (e.g., response-box, keyboard, joystick, mouse movement, etc.), each with multiple response styles. EPIC also supports ocular movements and vocal responses. Thus, these inputs and outputs are the ones available to task devices.</p>
+<p>For information on how to program EPICpy devices, see <a href="../model_programming/">Programming Overview</a> section.</p>
+<h2 id="perceptual-encoders">Perceptual Encoders</h2>
+<p>Although EPICpy does not provide a way for modelers to alter EPIC itself (the architecture which is programmed in C++ and imported into EPICpy as a compiled, shared library), there is a way to write Python code that alters perceptual processing within EPIC. A Perceptual Encoder is a set of Python code that represents a psychological model for how some stimulus features are encoded into EPIC's Working Memory following sensation and early perceptual processes, but prior to Worming Memory representation. </p>
+<p>For example, if a furniture novice is shown a display containing a number of furniture items, these objects may be encoded into working memory as ["chair", "table", "sofa", "lamp"]. A furniture expert may have enough experience that they instead perceive the same visual items as ["Eames", "VanDerRohe", "KnollBassett", "Arco"]. This transformation could be embodied in a Visual Encoder. Other visual encoders may make adjustments for participants with red-green color blindness, or add error to object spatial localization due to lack of experience or fatigue. Thus, an encoder translates or alters perceptual information before it is added to EPIC's Working Memory. EPIC also allows Auditory Encoders that do the same kind of transform but for auditory information. For example, an auditory encoder could be used to represent how people mis-hear certain words, or mis-localize certain sounds. Similarly, an auditory encoder can be used to perceive tones of 440, 880, and 1600 Hertz and perceive them as 'high', 'medium', and 'low'.</p>
+<p>EPICpy allows the simultaneous use of Visual and Auditory encoders. Encoders can be loaded using the <strong>File&#10145;Load_Visual_Encoder</strong>, and <strong>File&#10145;Load_Auditory_Encoder</strong> menu items. These items are only accessible <strong>after</strong> a device has been loaded. On subsequent device loads, EPICpy will automatically re-establish previously used encoders. Encoders can also be unloaded from a simulation using the <strong>File&#10145;Unload_Visual_Encoder</strong>, and <strong>File&#10145;Unload_Auditory_Encoder</strong> menu items.</p>
+<p>For information on how to program EPICpy encoders, see <a href="../model_programming/">Programming Overview</a> section.</p>
+<h2 id="task-rules">Task Rules</h2>
+<p>Whereas the Task Device simulates the task performance context (inputs, outputs, sequence, data collection and scoring, stopping rules, etc.) the Task Rules represent a strategy for performing the task. These rules can either represent conscious strategies one uses to follow task rules and meet task goals, or non-conscious cognitive processing that occurs during task performance.</p>
+<p>Task Rules are written generally in a format consistent with other "Production Rules" used in other simulation systems. However, the specific syntax and grammar EPIC expects is defined as part of the <strong>Parsimonious Production System</strong> (PPS) by David Kieras (2004). To learn how to read/write production rules in EPIC, one can read the <a href="../resources/articles/EPIC_Principles_of_Operation_2004.pdf">EPIC Principles of Operation (2004)</a> by David Kieras. Although unnecessary for most modelers, to dive deeper and understand how PPS works you can read <a href="../resources/articles/CovrigaruKieras1987_ONR_TR26.pdf">PPS: A Parsimonious Production System (1987)</a> by Arie Covrigaru and David Kieras.</p>
+<p>Task rules are loaded using the <strong>File&#10145;Compile_Rules</strong> menu item. Rule files are typically plain text files with a <strong>.prs</strong> file extension. Rule files may contain any number of production rules, each with a simple IF/THEN organization. The IF section contains a set of clauses. If each of these clauses is true for the contents of EPIC's WM when evaluated, the rule will "fire", that is, cary out each of the commands in the THEN section. For example:</p>
+<pre><code>(VIS_visual_Fixation_onset
+If
+(
+    (Goal Do detection_task)
+    (Step Waitfor Visual_Fixation_Onset)
+    (Visual ?a Detection Onset) 
+    (Motor Ocular Processor Free)
+)
+Then
+(
+    (Send_to_motor Ocular Perform Move ?a)
+    (Add (Tag ?a Fixation_Symbol))
+    (Delete (Step Waitfor Visual_Fixation_Onset))
+    (Add (Step Waitfor Visual_Stimulus_Onset))
+))
+</code></pre>
+<p>Rule files also contain other information that are not rules, but configuration information for EPIC. E.g.:</p>
+<h3 id="initial-wm-contents">Initial WM Contents</h3>
+<p>The modeler may optionally specify some contents to be added to WM prior to simulation start using the <code>Define Initial_memory_contents</code> command. E.g., at the top of the rule file, on might include this line:</p>
+<pre><code>(Define Initial_memory_contents (Goal Do detection_task))
+</code></pre>
+<h3 id="epic-simulation-configuration">EPIC Simulation Configuration</h3>
+<p>In order to configure various aspects of EPIC's motor, sensory, and perceptual system, directives may be included at the top of a production rule file in a <code>Define Parameters</code> clause. E.g.:</p>
+<pre><code>(Define Parameters
+    # Specify distribution governing visual perceptual recoding rate
+    (Visual_perceptual_processor Recoding_failure_rate1 Fixed 0.5)
+
+    # Specify distribution governing manual motor accuracy
+    (Manual Execution_fluctuation_factor Normal When_used 1.0 0.1)
+
+    # Specify distribution visual sensory delays
+    (Eye Property_delay_fluctuation_factor Normal When_used 1.0 0.1)
+)
+</code></pre>
+<p>Why would you want to alter the way EPIC's processors work when creating a simulation to model performance in a particular task? EPIC (the architecture) is programmed with various default parameters. E.g., perception of text by default occurs without error roughly 100 ms after sensation with very little temporal variation. Imagine this default was based on previous work using 12 point Arial font in black ink on a white display from 40 cm away. This default could be inappropriate for the task device you are using. E.g., a task using 8 point text written in medium gray ink on a light gray background, may result in slower perceptual encoding times, and greater encoding error and may require precise foveation to see. You can reflect this visual reality in the Define Parameters section. On the other extreme, imagine a task with 72 point font written in high contrast. It may be faster and less error-prone to encode such a stimulus. This section can also be used to specify the distribution parameters for availability functions. Availability functions dictate the probability that a perceptual property (e.g., color) will be represented by EPIC's ocular processor as a function of size and foveal eccentricity.</p>
+<p>For detail on EPIC parameters and availability functions, including how to specify them, see Kieras's <a href="../resources/articles/EPIC_Principles_of_Operation_2004.pdf">EPIC Principles of Operation (2004)</a>.</p>
+<h3 id="named-locations">Named Locations</h3>
+<p>A third common directive modelers place at the top of their rules file sets up Named Locations. These named locations can be referred to in rules in order to, for example, direct eye movements or mouse responses. If you give participants instructions that refer to "the center of the screen", "the menu area", etc., their strategy to perform the task may be in reference to these named locations. To specify named locations, the <code>Define Named_location</code> directive is used, e.g.:</p>
+<pre><code>(Define Named_location Center_screen 0.0 0.0)
+</code></pre>
+<h2 id="putting-it-all-together">Putting It All Together</h2>
+<p>So, an EPIC simulation involves a Task Device that represents a virtual version of a task. On each trial of the task, EPIC's behavior is dictated by the contents of the Task Rules. Operation of EPIC itself can be influenced by some combination of perceptual encoders and parameter directives. </p>
+<p>EPIC operates on 50 ms cycles; every 50 ms the contents of WM are compared to each rule in the rule file, any and all rules that match the current state of WM will fire and update WM and/or initiate some motor movement. This continues until the task is done, or nothing happens for a predetermined number of cycles (1000 by default). At the end of your simulation, the device would store any relevant data produced by EPIC (e.g., virtual response times, errors, mose movements, keyboard keys pressed, etc.). This virtual data can then be compared to the previously collected human data. If these data match closely, the strategy represented by the rule file is supported. If the data do not match, the hypothesized strategy may be incorrect or incomplete.</p>
+<p>The approach described above is a post-hoc way of using EPIC (human data first, generate hypothesized strategy after analyzing data, then verify understanding using an EPIC simulation). EPIC can also be used to do predictive modeling whereby simulated data is produced first, and then the generalizability of the corresponding production rules can be assessed by comparing data from later human participants. This might be more useful in a design context. E.g., EPIC may be used to iterate through various cockpit interface changes until a range of reasonable virtual performance is observed. Then a physical mockup of the task device can be created for testing humans and further refinement.</p>
+<p>Note that whereas task devices always specify stimuli to present to EPIC and response handlers to deal with responses EPIC makes, nothing else is guaranteed. This means that the kind of feedback, data storage, or post-task data analysis that is available is entirely up to the device programmer. Typically, devices represent a number of task trials (sometimes within a block structure), and records and stores trial-by-trial data to disk. In EPICpy, this will be stored in a file called <code>data_output.csv</code> within the same folder in which the device file is located. However, device programmers can decide whether to make use of this file, and may sometimes store other data files. Some devices present basic (often quite minimal) statistical analysis at the end of each run for quick verification of model performance. This analysis may simply indicate mean RT and number of correct responses. Sometimes more involved analyses are done using some basic facilities defined within the EPIC architecture (e.g., <a href="https://en.wikipedia.org/wiki/Root-mean-square_deviation">RMSE</a> and other simple <a href="https://en.wikipedia.org/wiki/Goodness_of_fit">goodness-of-fit</a> statistics). EPICpy has greatly expanded the type of analyses that can be done without reinventing the wheel by allowing model programmers to use a rich set of statistical and graphing packages available for statistics and graphing in Python. For more detail of the statistical facility in EPICpy, see the section on <a href="../epicpystats/">EPICpy's Stat Window</a>.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../installing/" class="btn btn-neutral float-left" title="Installing EPICpy"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../epicinterface_windows/" class="btn btn-neutral float-right" title="EPICpy GUI Windows">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../installing/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../epicinterface_windows/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

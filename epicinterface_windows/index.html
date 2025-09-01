@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://github.com/travisseymour/EPICpy/epicinterface_windows/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>EPICpy GUI Windows - EPICpy Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "EPICpy GUI Windows";
+        var mkdocs_page_input_path = "epicinterface_windows.md";
+        var mkdocs_page_url = "/travisseymour/EPICpy/epicinterface_windows/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> EPICpy Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../installing/">Installing EPICpy</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../epicpysimcomponents/">Simulation Components</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">EPICpy GUI Windows</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#model-view-windows">Model View Windows</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#normal-output-window">Normal Output Window</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#trace-output-window">Trace Output Window</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#stats-output-window">Stats Output Window</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#window-positioning">Window Positioning</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../epicinterface_options/">EPICpy GUI Options</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../example/">Example Simulation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../model_programming/">Model Programming</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../text_editor_for_epic_modeling/">Text Editors for EPCIpy</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../epicpy_development_setup/">EPICpy Development Setup</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../epicresources/">EPIC Resources</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../faq/">Frequently Asked Questions</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">EPICpy Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">EPICpy GUI Windows</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="epicpy-interface">EPICpy Interface</h1>
+<p>When you first run EPICpy, the graphical user interface (GUI) should look like this:</p>
+<p><a href="../resources/images/epicpy_gui_clean.png"><img alt="EPIC GUI Initial" src="../resources/images/epicpy_gui_clean_small.png" /></a></p>
+<h2 id="model-view-windows">Model View Windows</h2>
+<p>During simulations, EPICpy allows the modeler to monitor content being represented by 3 key processors within the EPIC architecture; The Physical View, the Sensory View, and the Perceptual View.</p>
+<p><a href="../resources/images/williams_task.png"><img alt="Williams Task Diagram" src="../resources/images/williams_task.png" /></a></p>
+<p><strong>Visual Views During the Williams Task</strong></p>
+<p>For example, the figure above depicts a snapshot from a simulation of the paradigm from <a href="../resources/articles/williams1967.pdf">Williams (1967)</a>. On each trial, a large assortment of objects with various colors, shapes, and sizes are displayed in a grid configuration. Prior to this display, participants are asked to locate a particular object (e.g., medium, plus, green) and respond with a button press a soon as they have found it.</p>
+<p><strong>The Physical View</strong>: The Physical View shows all visual information currently being represented on the display of the simulated device. The first panel of the figure above shows the <strong><em>Visual</em> Physical View</strong> of the Williams Task. Notice that the current gaze position of EPIC is represented by a set of concentric circles. The center-most point of these circles represents the location of EPIC's current gaze point. The small filled grey circle extends to 1 degree of visual angle (DVA) around this gaze-point. The larger unfilled circle extends to 7.6 DVA. Modellers can use these circles to tell where EPIC is currently "looking". Like a computer monitor, when visual information is drawn on the device's virtual monitor, it is visible immediately on the Visual Physical View. Similarly, when information is removed from the simulated monitor, it is removed immediately from the Visual Physical View. </p>
+<p><strong>The Sensory View</strong>: The second panel of the figure above shows the <em>Visual</em> Sensory View of the Williams Task. The Sensory View allows the Modeller to monitor which subset of the information displayed on the Visual Physical View is currently being represented by EPIC's ocular system. There is a delay between the time information appears on the device and when it can be represented by the eye, and so information on the Visual Sensory View will lag that on the Visual Physical View. This is also true for information removed from the device, there will be a short delay before it is no longer supported by the visual system.</p>
+<p>Note that in this snapshot of the Williams Task, EPIC only has complete information (shape, color, and text) of the shape directly in front of its fovea, partial information (e.g., shape) out to about 7 or so degrees, and beyond that it represents no information. Once the eye moves to a new location, and after appropriate psychological delays, it will only represent ocular information available at that location. Exactly what EPIC can see from a particular gaze location may be affected by the specific type and parameterization of any availability functions currently defined in the rules.</p>
+<p><strong>The Perceptual View</strong>: The third panel of the figure above shows the <em>Visual</em> Perceptual View of the Williams Task. Just as EPIC's sensory system can only represent information available on the virtual display, EPIC's perceptual system can only represent information previously represented by the sensory system. The Visual Perceptual View does not represent the entire contents of Visual Perception (for that one would have to view the Working Memory trace; see below). However, visual object properties such as location, shape, size, relative position, color, text, etc. are depicted here. Although both EPIC's sensory system and its perceptual system maintain information even after it is no longer supported on the device, perceptual information stays around for considerably longer. Because of this, the Visual Perceptual View will show information about many of the objects that have been recently foveated by EPIC's visual system.</p>
+<p><a href="../resources/video/williams67.gif"><img alt="Williams Task Video" src="../resources/video/williams67.gif" /></a></p>
+<p><strong>Williams Task In Action</strong> (Slowed Down Greatly)</p>
+<p>The video above shows a set of trials of the Williams Task. EPIC first reads each of the 3 words that indicate which shape is the current trial's target stimulus. Notice the temporal dynamics of the 3 view windows; information presented on the display shows up on the Sensory Vision window after a delay, and on the Perception Vision window after another delay. After information is removed from the virtual device, it then disappears from the Sensory Vision window, and then later from the Perceptual Vision window.</p>
+<p><strong>Auditory Views During the Choice Task</strong></p>
+<p>There are also 3 corresponding view windows for EPIC's auditory system. The Auditory Physical View depicts any audio played by the virtual device. These can be sounds from a variety of virtual sources, including speakers, headphones, human speakers, nature, etc., and are represented as either a sound or speech within EPIC. No matter the source, sounds played by the device are depicted for the modeller as text located somewhere on the 2D space of the Auditory Physical View window. This text contains the name of the sound, the timbre (sounds) or text content (speech), as well as several other pieces of information (e.g., loudness, pitch, etc.). The exact set of information displayed for auditory objects is configurable via the <strong>Settings&#10145;Sound Text Settings</strong> dialog. If all available information is enabled, the Auditory View Windows may become too congested to follow.</p>
+<p><a href="../resources/video/choice_audio_views.gif"><img alt="Choice Task Audio Views" src="../resources/video/choice_audio_views.gif" /></a></p>
+<p>In the default Choice Task device, each trial's visual fixation is accompanied by a computerized speech sound of the word "Warning". This is denoted by <code>Speaker: Computer, Content: Warning, Kind: Speech</code>. Each trial's stimulus is accompanied by a non-speech sound with a timbre dependent on the stimulus color (in this case, "Beep"). This is denoted by <code>Timbre: Beep, Stream: Signal, Kind: Sound</code>. This particular output for both speech and sound objects is a subset of what is available in the <strong>Settings&#10145;Sound Text Settings</strong> dialog. For example, this particular output is achieved with the following setting:</p>
+<p><a href="../resources/images/sound_text_settings.png"><img alt="Sound Text Settings" src="../resources/images/sound_text_settings_small.png" /></a></p>
+<p>Note that Timbre and Content are grayed out because they cannot be disabled for sounds and speech, respectively.</p>
+<h2 id="normal-output-window">Normal Output Window</h2>
+<p>Then <strong>Normal Output Window</strong> is the primary source of information when using EPICpy. Text printed to this window conveys the output of various menu operations, e.g., this is the result of loading the Choice Task device and ruleset:</p>
+<p><a href="../resources/images/normal_output_post_load.png"><img alt="Normal Output Post Load" src="../resources/images/normal_output_post_load_small.png" /></a></p>
+<p>Any EPIClib or EPICapp errors, will also be printed to the Normal Output Window. E.g., the following results from a production rule formatting error:</p>
+<p><a href="../resources/images/normal_output_rule_error.png"><img alt="Normal Output Rule Error" src="../resources/images/normal_output_rule_error_small.png" /></a></p>
+<p>While running a simulation, the Normal Output Window often displays a running trace of EPIC's Working Memories for each simulated 50ms step. E.g. (slowed down):</p>
+<p><a href="../resources/video/normal_output_wm_slowed.gif"><img alt="Normal Output WM Slowed" src="../resources/video/normal_output_wm_slowed.gif" /></a></p>
+<h2 id="trace-output-window">Trace Output Window</h2>
+<p>The <strong>Trace Output Window</strong> is used to monitor the detailed operation of various EPIC processors. By default, the Trace Output Window will be dormant, but tracing of various processors can be enabled using the <strong>Settings&#10145;Trace Settings</strong> dialog. For example, the following configuration will enable tracing of EPIC's visual and auditory processors:</p>
+<p><a href="../resources/images/trace_settings_dialog.png"><img alt="Trace Settings Dialog" src="../resources/images/trace_settings_dialog_small.png" /></a></p>
+<p>As a result, the following may be viewed during a simulation run (slowed down):</p>
+<p><a href="../resources/video/trace_output_slowed.gif"><img alt="Trace Output Slowed" src="../resources/video/trace_output_slowed.gif" /></a></p>
+<h2 id="stats-output-window">Stats Output Window</h2>
+<p>The <strong>Stats Output Window</strong> content is entirely dependent on the device. Some devices may not use this window, others may use it to show text, tables, figures, and other depictions of a model's performance. Typically, the Stats Output Window will be updated only occasionally (for example, after a simulation run). More frequent updates will significantly slow down the simulation. The following shows a possible output following several runs of the Choice Task model:</p>
+<p><a href="../resources/images/stats_output_window_choice_800_Easy.png"><img alt="Stats Output Window" src="../resources/images/stats_output_window_choice_800_Easy_small.png" /></a></p>
+<h2 id="window-positioning">Window Positioning</h2>
+<p>By default, the window layout of EPICapp is as follows and appears on the first monitor available:</p>
+<p><a href="../resources/images/epicpy_gui_clean.png"><img alt="EPIC GUI Initial" src="../resources/images/epicpy_gui_clean_small.png" /></a></p>
+<p>If this layout is altered by closing, moving, or resizing windows, <strong><em>when no device is loaded</em></strong>, the default window layout will be updated and remembered when EPICapp is next loaded. To return to the default layout, use the menu option <strong>Windows&#10145;Restore Default Layout</strong> and then close EPICpy without loading a device.</p>
+<p>If the layout is altered by closing, moving, or resizing windows <strong><em>while a device is loaded</em></strong>, then that layout will be reinstated the next time that device is loaded. Again, to restore the default layout for a particular device, just load that device, choose <strong>Windows&#10145;Restore Default Layout</strong>, then either close EPICpy or load a different device to store that device's window settings anew.</p>
+<p>E.g., the following is an example custom layout for the Choice Task device:</p>
+<p><a href="../resources/images/custom_layout_choicetask.png"><img alt="Custom ChoiceTask Layout" src="../resources/images/custom_layout_choicetask_small.png" /></a></p>
+<p>This layout ignores the auditory view windows and focuses on the Visual Physical View and Trace windows.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../epicpysimcomponents/" class="btn btn-neutral float-left" title="Simulation Components"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../epicinterface_options/" class="btn btn-neutral float-right" title="EPICpy GUI Options">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../epicpysimcomponents/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../epicinterface_options/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
