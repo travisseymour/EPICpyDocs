@@ -116,6 +116,9 @@ Python has a rich set of modules and packages for statistical analysis and graph
 * [scipy](https://www.scipy.org/)
 * [matplotlib](https://matplotlib.org/)
 * [seaborn](https://seaborn.pydata.org/)
+* [polars](https://pola.rs)
+* [pyarrow](https://arrow.apache.org/docs/python/index.html)
+* [fastparquet](https://fastparquet.readthedocs.io/en/latest/)
 
 Access to these packages in device code is enabled through standard Python import statements. Display of statistical analyses and graphs is enabled by using the `stats_write()` method which can accept text, pandas dataframes and other objects, as well as figures and other matplotlib-based objects.
 
@@ -123,7 +126,7 @@ Although we don't recommend programming full data analyses at the end of each si
 
 #### EPICpy is Cross Platform
 
-EPICpy was developed by Travis L. Seymour, PhD on the [Ubuntu](https://ubuntu.com/) Linux operating system (as well as variants such as [Linux Mint](https://linuxmint.com/) and [Pop!_OS](https://pop.system76.com/)). To facilitate the installation and use of EPICpy across platforms, we are using the PipX system for automatically running Python applications in isolated environments. After users install PipX itself, it's a single command across operating systems to install EPICpy. However, because EPICLib itself is compiled, there are some limitations: On Linux and Macos, Python 3.10.?? must be installed, and on Windows 10 and 11, Python 3.9.?? must be installed. Once PipX and the needed version of Python are installed, EPICpy should install and run on either of these three operating systems. For detailed installation instructions, please see the corresponding section on the [Installing EPICpy](installing.md) page.
+EPICpy was developed by Travis L. Seymour, PhD on the [Debian-bsed](https://ubuntu.com/) Linux operating system (as well as variants such as [Linux Mint](https://linuxmint.com/) and [Pop!_OS](https://pop.system76.com/)). To facilitate the installation and use of EPICpy across platforms, we are using the [uv](https://docs.astral.sh/uv/) system for automatically running Python applications in isolated environments. After users install [uv](https://docs.astral.sh/uv/) itself, it's a single command across operating systems to install EPICpy. However, because EPICLib itself is compiled, there are some limitations: It can only be installed and run under Python versions 3.10-3.13. Once [uv](https://docs.astral.sh/uv/) and the needed version of Python are installed, EPICpy should install and run on either of these three operating systems. For detailed installation instructions, please see the corresponding section on the [Installing EPICpy](installing.md) page.
 
 Thus, EPICpy can be used on Linux, MacOS (Intel and Apple CPUs), and Windows based computers.
 
@@ -149,4 +152,4 @@ Thus, EPICpy can be used on Linux, MacOS (Intel and Apple CPUs), and Windows bas
 
 ---
 
-Jan 25 2025 5:27pm
+Aug 31 2025 6:05pm

@@ -2,13 +2,14 @@
 
 ### <font color="blue">**Operating System Requirements**</font>
 
-Although we have not tested widely, the following setups should work:
+Although we have not tested widely, EPICpy seems to work as expected in the following contexts:
 
-- Windows 10 and Windows 11
-- MacOS Monteray and later (Intel and ARM based chips)
-- Linux with Ubuntu based distros version 20.10 and later
+- Windows 10-11
+- MacOS Monteray-Ventura (Both Intel and ARM based chips)
+- Linux: Debian/Unbuntu based distributions version 20.04 and later
+- Linux: Fedora version 42+
 
-Linux versions earlier than 20.10 _could_ work, but `ldd --version` would have to print some version >= 2.32, and you might end up having to install several other libraries.
+> Other Linux distributions will likely work properly if they are relatively recent, but only Debian/Ubuntu and Fedora is actively tested.
 
 ### <font color="blue">**Installing Prerequisites**</font>
 
@@ -17,29 +18,29 @@ Installing these applications requires the following utilities to be installed o
 - curl
 - git
 - uv
-- Python 3.10 (MacOS and Linux) or Python 3.9 (Windows)
 
-**Installing `curl`** 
+#### Installing `curl` 
 
-`curl` is installed by default on MacOS and Windows. Some Linux distributions come with `curl`, and others (especially "minimal" distributions) may not.
+`curl` is installed by default on MacOS (10.3+) and Windows (10+). Most Linux distributions come with `curl`, and some (especially "minimal" distributions) may not.
 
-If this check reports that `curl` is not installed:
+If you use **Linux** and this check reports that `curl` is _not_ installed:
 
 ```bash
 curl --version
 ```
 
-then you can install curl with your package manager, e.g.:
+then you can install curl with your Linux package manager, e.g.:
 
 ```bash
+# replace apt if your distro uses something else, e.g., dnf on Fedora
 sudo apt install curl
 ```
 
-**Installing `git`** 
+#### Installing `git` 
 
 `git` is not typically installed by default.
 
-If this check reports that `git` is not installed:
+If this check reports that `git` is _not_ installed:
 
 ```bash
 git --version
@@ -56,13 +57,15 @@ If you prefer a command-line solutions:
     1. Install [scoop](https://scoop.sh/)
     2. run `scoop install git`
 - Linux:
-    1. run `sudo apt install git`
+    1. run `sudo apt install git` on Debian/Ubuntu distributions
+    2. run `sudo dnf install git` on Fedora. 
+    3. ditto for the package manager on other Linux distributions 
 
-**Installing `uv`**
+#### Installing `uv`
 
 `uv` is not automatically installed on any operating system. 
 
-If this check reports that `uv` is not installed:
+If this check reports that `uv` is _not_ installed:
 
 ```bash
 uv --version
@@ -82,138 +85,62 @@ Windows
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 
-**Installing `python`**
+### <font color="blue">**Downloading Sample EPICpy Simulations**</font>
 
-Your operating system may already have one or more version of Python installed, or it may have none.
+To download the sample simulations (_Task Devices_, associated _rules_, etc.), you can "clone" (or download) them like this:
 
-Assuming you have `uv` installed, try this command:
+First open a terminal, and then change to the directory where you want the sample devices folders to live. E.g. `cd Desktop`.
 
+Then download the Task Device collection.
 ```bash
-uv python list --only-installed
+git clone https://www.github.com/travisseymour/EPICpyDevices
 ```
 
-Here is what I get on my Linux system:
-
-    cpython-3.12.7-linux-x86_64-gnu   /home/user/.local/share/uv/python/cpython-3.12.7-linux-x86_64-gnu/bin/python3 -> python3.12
-    cpython-3.11.10-linux-x86_64-gnu  /home/user/.local/share/uv/python/cpython-3.11.10-linux-x86_64-gnu/bin/python3 -> python3.11
-    cpython-3.10.12-linux-x86_64-gnu  /usr/bin/python3.10
-    cpython-3.10.12-linux-x86_64-gnu  /usr/bin/python3 -> python3.10
-    cpython-3.10.12-linux-x86_64-gnu  /bin/python3.10
-    cpython-3.10.12-linux-x86_64-gnu  /bin/python3 -> python3.10
-    cpython-3.9.20-linux-x86_64-gnu   /home/user/.local/share/uv/python/cpython-3.9.20-linux-x86_64-gnu/bin/python3 -> python3.9
-
-If you are running _Linux or MacOS_ and you see "3.10" anywhere in the output, then you have a version of Python (i.e., Python 3.10) that you need to install EPICpy.
-If you are running _Windows_ and you see "3.9" anywhere in the output, then you have a version of Python (i.e., Python 3.10) that you need to install EPICpy.
-
-If you don't see the version of Python you need, then it is easy to install it if you have `uv` installed:
-
-MacOS & Linux
+This will create a folder called `EPICpyDevices`. You can see what is in this folder like this:
 
 ```bash
-uv python install 3.10
-```
-
-Windows
-
-```bash
-uv python install 3.9
-```
-
-### <font color="blue">**Downloading Sample Simulations**</font>
-
-To download the sample simulation specifications (_task devices_, associated _rules_, etc.), you can "clone" (or download) them from Prof. Seymour's UCSC git repository:
-
-```bash
-git clone https://git.ucsc.edu/nogard/mhpfiles
-```
-
-This will create a folder called `mhpfiles`. You can see what is in this folder like this:
-
-```bash
-cd mhpfiles
+cd EPICpyDevices
 # Linux & MacOS
 ls
 # Windows
-dir # ls will also work if you are using powershell
+#  ls will also work if you are using powershell
+dir
 ```
 
 ### <font color="blue">Downloading EPICpy and epiccoder</font>
 
-To install `EPICpy` and `epiccoder` manually, first make sure you have successfully installed curl, git, uv, and either Python3.9 (if you run Windows), or Python3.10 (if you run Linux or MacOs).
+To install `EPICpy` and `epiccoder` manually, first make sure you have working versions of curl, git, and `uv`.
 
-Next, you need to do the following:
 
-**Obtain the path to python**
+#### Install EPICpy
 
-```bash
-uv python list --only-installed
-```
-
-Locate one of the lines containing "3.9" (Windows) or "3.10" (MacOS & Linux). 
-For example, from this:
-
-    cpython-3.12.7-linux-x86_64-gnu   /home/nogard/.local/share/uv/python/cpython-3.12.7-linux-x86_64-gnu/bin/python3 -> python3.12
-    cpython-3.11.10-linux-x86_64-gnu  /home/nogard/.local/share/uv/python/cpython-3.11.10-linux-x86_64-gnu/bin/python3 -> python3.11
-    cpython-3.10.12-linux-x86_64-gnu  /usr/bin/python3.10
-    cpython-3.10.12-linux-x86_64-gnu  /usr/bin/python3 -> python3.10
-    cpython-3.10.12-linux-x86_64-gnu  /bin/python3.10
-    cpython-3.10.12-linux-x86_64-gnu  /bin/python3 -> python3.10
-    cpython-3.9.20-linux-x86_64-gnu   /home/nogard/.local/share/uv/python/cpython-3.9.20-linux-x86_64-gnu/bin/python3 -> python3.9
-
-The structure of these entries is this:
-
-[NAME]  [PATH]
-
-or
-
-[NAME]  [PATH] -> [ALIAS]
-
-You want to copy the path. So if I choose 
-
-`cpython-3.9.20-linux-x86_64-gnu   /home/nogard/.local/share/uv/python/cpython-3.9.20-linux-x86_64-gnu/bin/python3 -> python3.9`
-
-I would copy just 
-
-`/home/nogard/.local/share/uv/python/cpython-3.9.20-linux-x86_64-gnu/bin/python3`
-
-If I choose
-
-`cpython-3.10.12-linux-x86_64-gnu  /usr/bin/python3.10`
-
-then I would copy just
-
-`/usr/bin/python3.10`
-
-**Install EPICpy**
-
-Because `EPICpy` has specific requirements for which Python version you use on each operating system, you have to include the appropriate python path in the installation command.
-
-Generically, the syntax would be like this:
+Open a terminal window and type this:
 
 ```bash
-uv tool install git+https://www.github.com/travisseymour/EPICpy.git --python [YOUR PYTHON PATH]
+uv tool install git+https://www.github.com/travisseymour/EPICpy.git --python 3.13
 ```
 
-Specifically, you might enter something like this:
+The "3.13" in the command above instructs uv to use any existing version of Python 3.13 you have installed on your system, and to otherwise download and install Python 3.13 automatically. As of the moment this document was written, EPICpy only supports Python versions **3.10-3.13**. You can specify any of these versions. We will try to release versions of EPICpy compatible with new versions of Python as they are released.
 
+> Additional Step For **Ubuntu/Debian Linux** Users:
+
+Run this command, or EPICpy will give you and error when you first try to run the application.
 ```bash
-# Linux example
-uv tool install git+https://www.github.com/travisseymour/EPICpy.git --python /usr/bin/python3.10
-# MacOS example
-uv tool install git+https://www.github.com/travisseymour/EPICpy.git --python .local/share/uv/python/cpython-3.10.14-macos-x86_64-none/bin/python3
-# Windows example
-uv tool install git+https://www.github.com/travisseymour/EPICpy.git --python AppData\Local\Programs\Python39\python.exe
+sudo apt install libxcb-cursor0
 ```
 
-Of course, **your** python path may be different than these examples. Use the path you copied above as a result of running `uv python list --only-installed`.
+#### Install EpicCoder
 
-
-**Install epiccoder**
-
-`epiccoder` is less picky about which Python version you use. To install it, just run this:
+`EpicCoder` is less picky about which Python version you use. To install it, just run this:
 
 ```bash
 uv tool install git+https://www.github.com/travisseymour/epiccoder.git
+```
+
+however, if you wish to specify a Python version, you can:
+
+```bash
+uv tool install git+https://www.github.com/travisseymour/epiccoder.git --python 3.13
 ```
 
 **Testing Your Installations**
@@ -222,12 +149,12 @@ uv tool install git+https://www.github.com/travisseymour/epiccoder.git
 To ensure that `EPICpy` correctly installed, try running it:
 
 ```bash
-EPICpy
+epicpy
 ```
 
 If you see the EPICpy graphical interface, it worked!
 
-To ensure that `epiccoder` correctly installed, try running it:
+To ensure that `epiccoder` correctly installed, try running it (you may have to open a new terminal if EPICpy is still running):
 
 ```bash
 epiccoder
@@ -245,7 +172,7 @@ uv tool upgrade EPICpy epiccoder
 
 Now, run a simulation:
 
-- To **start** EPICpy, just type `EPICpy` in a terminal.
+- To **start** EPICpy, just type `epicpy` in a terminal.
 - If this is your first time running `EPICpy` and the graphical interface seems wonky, then go to the menu and select `Windows🡆RestoreDefaultLayout`
 - To **load** a model, you'll need to do:
     - `File🡆LoadDevice` and then locate your device file. A device file is a python file like `choice_device.py`

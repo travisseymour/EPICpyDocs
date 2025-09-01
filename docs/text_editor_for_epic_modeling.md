@@ -52,7 +52,8 @@ Now open Pulsar and load a .prs rule file. You should see pretty colors.
 
 <hr/>
 
-## Sublime Text Editor [<font color="orange">PAID, but continuous free trial</font>]
+## Sublime Text Editor 
+[<font color="orange">PAID, but offers free trial</font>]
 
 ### Download Sublime Text
 
@@ -117,3 +118,12 @@ You _may_ need to start and then close BBEdit for the following instructions to 
 ## Try it
 
 Open up any .prs file, it should automatically be detected as a production-rule file, and you should see colorful syntax highlighting!
+
+## PyCharm IDE
+
+<mark>working on it...</mark>
+
+## VSCode and VSCodium IDE
+
+<mark>working on it...</mark>
+
