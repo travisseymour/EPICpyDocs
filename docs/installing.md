@@ -1,4 +1,4 @@
-# Installing EPICpy (and epiccoder rule editor)
+# Installing EPICpy (and EpicCoder rule editor)
 
 ### <font color="blue">**Operating System Requirements**</font>
 
@@ -107,9 +107,9 @@ ls
 dir
 ```
 
-### <font color="blue">Downloading EPICpy and epiccoder</font>
+### <font color="blue">Downloading EPICpy and EpicCoder</font>
 
-To install `EPICpy` and `epiccoder` manually, first make sure you have working versions of curl, git, and `uv`.
+To install `EPICpy` and `EpicCoder` manually, first make sure you have working versions of curl, git, and `uv`.
 
 
 #### Install EPICpy
@@ -154,17 +154,17 @@ epicpy
 
 If you see the EPICpy graphical interface, it worked!
 
-To ensure that `epiccoder` correctly installed, try running it (you may have to open a new terminal if EPICpy is still running):
+To ensure that `EpicCoder` correctly installed, try running it (you may have to open a new terminal if EPICpy is still running):
 
 ```bash
 epiccoder
 ```
 
-If you see the epiccoder graphical interface, it worked!
+If you see the EpicCoder graphical interface, it worked!
 
 ### <font color="blue">**Running EPIC Simulations**</font>
 
-**IMPORTANT**: If you just installed `EPICpy` and `epiccoder`, then you have the latest version. However, if you installed EPICpy or epiccoder on your own machine during a previous session, you want to make sure you check for updates before running these tools.
+**IMPORTANT**: If you just installed `EPICpy` and `EpicCoder`, then you have the latest version. However, if you installed EPICpy or EpicCoder on your own machine during a previous session, you want to make sure you check for updates before running these tools.
 
 ```bash
 uv tool upgrade EPICpy epiccoder
